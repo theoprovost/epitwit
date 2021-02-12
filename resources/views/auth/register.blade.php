@@ -98,12 +98,7 @@
                         </div>
                     </form>
                 </div>
-
-                <div class="card-body">
-                    <p>Or sign-in with <a href="/sign-in/github">GitHub</a></p>
-                </div>
             </div>
-        </div>
     </div>
 </div>
 @endsection

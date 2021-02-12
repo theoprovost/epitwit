@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import AppTweet from "../tweets/AppTweet.vue";
 
 export default {
@@ -43,6 +43,10 @@ export default {
       getTweets: "timeline/getTweets",
     }),
 
+    ...mapMutations({
+      PUSH_TWEETS: "timeline/PUSH_TWEETS",
+    }),
+
     loadTweets() {
       this.getTweets(this.urlWithPage).then((res) => {
         this.lastPage = res.data.meta.last_page; // coming from laravel pagination
@@ -65,6 +69,13 @@ export default {
 
   mounted() {
     this.loadTweets();
+
+    Echo.private(`timeline.${this.$user.id}`).listen(
+      ".TweetWasCreated",
+      (e) => {
+        this.PUSH_TWEETS([e]);
+      }
+    );
   },
 };
 </script>

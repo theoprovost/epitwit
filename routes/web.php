@@ -19,9 +19,4 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Github oAuth
-Route::get('/sign-in/github', 'App\Http\Controllers\HomeController@github');
-Route::get('/sign-in/github/redirect', 'App\Http\Controllers\HomeController@githubRedirect');
