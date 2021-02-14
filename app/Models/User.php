@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Like;
+use App\Models\Tweet;
+use App\Tweets\TweetType;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -73,6 +76,16 @@ class User extends Authenticatable
         );
     }
 
+    public function hasRetweet(Tweet $tweet)
+    {
+        return $this->retweets->contains('id', $tweet->id);
+    }
+
+    public function hasLiked(Tweet $tweet)
+    {
+        return $this->likes->contains('tweet_id', $tweet->id);
+    }
+
     /** TO COMMENT
      *
      */
@@ -95,5 +108,17 @@ class User extends Authenticatable
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+     public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function retweets()
+    {
+        return $this->hasMany(Tweet::class)
+            ->where('type', TweetType::RETWEET)
+            ->orWhere('type', TweetType::QUOTE);
     }
 }

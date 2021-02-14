@@ -14,7 +14,7 @@ Vue.use(Vuex);
 import viewObserveVisibility from 'vue-observe-visibility';
 Vue.use(viewObserveVisibility);
 
-Vue.prototype.$user = User;
+Vue.prototype.$user = window.User;
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,10 +29,16 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 import timeline from './store/timeline';
+import likes from './store/likes';
+import Echo from 'laravel-echo';
+import retweets from './store/retweets';
+
 
 const store = new Vuex.Store({
     modules: {
-        timeline
+        timeline,
+        likes,
+        retweets
     }
 });
 
@@ -42,7 +48,28 @@ const store = new Vuex.Store({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
     store
 });
+
+window.Echo.channel('tweets') // Makes it global listening to events in channel 'tweets'
+    .listen('.TweetLikesWereUpdated', (e) => {
+        if (e.user_id === window.User.id) {
+            store.dispatch('likes/syncLike', e.id);
+        }
+
+        store.commit('timeline/SET_LIKES', e);
+    })
+    .listen('.TweetRetweetsWereUpdated', (e) => {
+        if (e.user_id === window.User.id) {
+            store.dispatch('retweets/syncRetweet', e.id);
+        }
+
+        store.commit('timeline/SET_RETWEETS', e);
+    })
+    .listen('.TweetWasDeleted', (e) => {
+        store.commit('timeline/POP_TWEET', e.id);
+        store.dispatch('retweets/syncRetweet', e.id);
+    })

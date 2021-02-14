@@ -19,10 +19,12 @@
 
     <!-- User data -->
     <script class="hidden">
+    @if(auth()->user())
         window.User = {
             id: {{ auth()->user()->id ?? '' }},
             avatar: "{{ optional(auth()->user())->avatar() ?? '' }}"
         };
+    @endif
     </script>
 
 </head>

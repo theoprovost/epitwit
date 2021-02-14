@@ -14,7 +14,7 @@
         class="border border-gray-700 rounded-lg mt-4 p-4"
       />
 
-      <app-tweet-action-group />
+      <app-tweet-action-group :tweet="tweet" />
     </div>
   </div>
 </template>
