@@ -8,6 +8,7 @@
     ></video>
     <a
       href="#"
+      @click.prevent="$emit('removed', video)"
       class="bg-gray-900 w-8 h-8 rounded-full absolute top-0 right-0 mt-3 mr-3 z-40 flex justify-center items-center"
     >
       <svg

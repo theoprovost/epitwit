@@ -70,6 +70,10 @@ export default {
             commit('retweets/PUSH_RETWEETS', res.data.meta.retweets, { root: true });
 
             return res;
+        },
+
+        async quoteTweet(_, { tweet, data }) {
+            await axios.post(`api/tweets/${tweet.id}/quotes`, data);
         }
     }
 }

@@ -32,6 +32,8 @@
     <div id="app">
         <main class="container mx-auto">
             @yield('content')
+
+            <modals-container />
         </main>
     </div>
 </body>

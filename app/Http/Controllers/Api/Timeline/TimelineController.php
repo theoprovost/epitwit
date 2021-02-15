@@ -19,7 +19,13 @@ class TimelineController extends Controller
                         ->tweetsFromFollowing()
                         ->with([
                             'user',
-                            'likes'
+                            'likes',
+                            'retweets',
+                            'media.baseMedia', // both media and baseMedia
+                            'originalTweet.user',
+                            'originalTweet.likes',
+                            'originalTweet.retweets',
+                            'originalTweet.media.baseMedia'
                         ])
                         ->latest()
                         ->paginate(8);

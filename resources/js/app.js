@@ -14,6 +14,17 @@ Vue.use(Vuex);
 import viewObserveVisibility from 'vue-observe-visibility';
 Vue.use(viewObserveVisibility);
 
+import vueModal from 'vue-js-modal';
+Vue.use(vueModal, {
+    dynamic: true, // generated on the fly
+    injectModalsContainer: true,
+    dynamicDefaults: {
+        pivotY: 0.1,
+        height: 'auto',
+        classes: '!bg-gray-900 rounded-lg p-4'
+    }
+});
+
 Vue.prototype.$user = window.User;
 
 /**
