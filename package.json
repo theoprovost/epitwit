@@ -21,15 +21,15 @@
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "size-plugin": "^3.0.0",
-        "vue": "^2.5.17",
         "vue-loader": "^15.9.6",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
         "autoprefixer": "^10.2.4",
         "laravel-echo": "^1.10.0",
         "pusher-js": "^7.0.3",
         "tailwindcss": "^2.0.3",
+        "vue": "^2.6.11",
         "vue-click-outside": "^1.1.0",
         "vue-js-modal": "^2.0.0-rc.6",
         "vue-observe-visibility": "^1.0.0",
