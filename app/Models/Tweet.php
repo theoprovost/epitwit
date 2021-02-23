@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use App\Models\Like;
+use App\Models\Entity;
 use App\Tweets\TweetType;
 use App\Models\TweetMedia;
+use App\Tweets\Entities\EntityExtractor;
+use App\Tweets\Entities\EntityType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -15,6 +19,22 @@ class Tweet extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function(Tweet $tweet) {
+            $tweet->entities()->createMany(
+                (new EntityExtractor($tweet->body))->getAllEntities()
+            );
+        });
+    }
+
+    public function scopeParent(Builder $builder) // Laravel scope : always prefixed with scope[Thenthenameofthescope]
+    {
+        return $builder->whereNull('parent_id'); // in db, parents doesn't have parents
+    }
 
     public function user()
     {
@@ -44,5 +64,21 @@ class Tweet extends Model
     public function media()
     {
         return $this->hasMany(TweetMedia::class);
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Tweet::class, 'parent_id');
+    }
+
+    public function entities()
+    {
+        return $this->hasMany(Entity::class);
+    }
+
+    public function mentions()
+    {
+        return $this->hasMany(Entity::class)
+                    ->whereType(EntityType::MENTION);
     }
 }

@@ -33,7 +33,7 @@
         <main class="container mx-auto">
             @yield('content')
 
-            <modals-container />
+            <modals-container/>
         </main>
     </div>
 </body>
