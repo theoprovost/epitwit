@@ -17,7 +17,7 @@ class TimelineController extends Controller
     {
         $tweets = $request->user()
                         ->tweetsFromFollowing()
-                        //->parent() // Scope : display only 'parent type' tweets
+                        ->parent() // Scope : display only 'parent type' tweets
                         ->with([
                             'user',
                             'likes',

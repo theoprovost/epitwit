@@ -40,7 +40,7 @@ class TweetController extends Controller
 
     public function show(Tweet $tweet)
     {
-        return new TweetResource($tweet);
+        return new TweetCollection(collect([$tweet])->merge($tweet->parents()));
     }
 
     public function store(TweetStoreRequest $request)

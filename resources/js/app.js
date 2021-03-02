@@ -44,13 +44,15 @@ import likes from './store/likes';
 import Echo from 'laravel-echo';
 import retweets from './store/retweets';
 import notifications from './store/notifications';
+import conversation from './store/conversation';
 
 const store = new Vuex.Store({
     modules: {
         timeline,
         likes,
         retweets,
-        notifications
+        notifications,
+        conversation
     }
 });
 
@@ -73,7 +75,8 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
         }
 
         store.commit('timeline/SET_LIKES', e);
-        store.commit('notifications/SET_LIKES', e)
+        store.commit('notifications/SET_LIKES', e);
+        store.commit('conversation/SET_LIKES', e)
     })
     .listen('.TweetRetweetsWereUpdated', (e) => {
         if (e.user_id === window.User.id) {
@@ -81,11 +84,13 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
         }
 
         store.commit('timeline/SET_RETWEETS', e);
+        store.commit('conversation/SET_RETWEETS', e);
         store.commit('notifications/SET_RETWEETS', e)
     })
     .listen('.TweetRepliesWereUpdated', (e) => {
         store.commit('timeline/SET_REPLIES', e);
         store.commit('notifications/SET_REPLIES', e)
+        store.commit('conversation/SET_REPLIES', e)
     })
     .listen('.TweetWasDeleted', (e) => {
         store.commit('timeline/POP_TWEET', e.id);

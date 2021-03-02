@@ -9,12 +9,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Notifications\Tweets\TweetRepliedTo;
 use App\Events\Tweets\TweetRepliesWereUpdated;
+use App\Http\Resources\TweetCollection;
 
 class TweetReplyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth:sanctum']);
+        $this->middleware(['auth:sanctum'])->only('store');
+    }
+
+    public function show(Tweet $tweet)
+    {
+        return new TweetCollection($tweet->replies);
     }
 
     public function store(Tweet $tweet, Request $request)

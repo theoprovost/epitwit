@@ -39,7 +39,7 @@ export default {
             let res = await axios.get(url);
 
             commit('PUSH_NOTIFICATIONS', res.data.data);
-            dispatch('getTweets', `api/tweets?ids=${getters.tweetIdsFromNotifications.join(',')}`);
+            dispatch('getTweets', `/api/tweets?ids=${getters.tweetIdsFromNotifications.join(',')}`);
 
             return res;
         }
