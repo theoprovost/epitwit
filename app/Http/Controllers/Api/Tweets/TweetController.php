@@ -5,13 +5,14 @@ namespace App\Http\Controllers\API\Tweets;
 use App\Models\Tweet;
 use App\Tweets\TweetType;
 use App\Models\TweetMedia;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TweetResource;
 use App\Events\Tweets\TweetWasCreated;
 use App\Http\Resources\TweetCollection;
 use App\Http\Resources\TweetMediaResource;
 use App\Http\Requests\Tweets\TweetStoreRequest;
-use App\Http\Resources\TweetResource;
 use App\Notifications\Tweets\TweetMentionnedIn;
 
 class TweetController extends Controller

@@ -53,7 +53,7 @@ export default {
     },
 
     percentage() {
-      return Math.round((this.body.length * 100) / 280); // tweet limit = 280 charcaters
+      return Math.round((this.body.length * 100) / 279); // tweet limit = 280 charcaters
     },
 
     displayParcentage() {

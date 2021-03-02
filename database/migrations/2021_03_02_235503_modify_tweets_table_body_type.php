@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyBodyTweets extends Migration
+class ModifyTweetsTableBodyType extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ModifyBodyTweets extends Migration
     public function up()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->string('body')->nullable()->change(); // Should have been TEXT : see next migrations for changes
+            $table->text('body')->nullable()->change();
         });
     }
 

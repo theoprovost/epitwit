@@ -21,8 +21,9 @@
     <script class="hidden">
     @if(auth()->user())
         window.User = {
-            id: {{ auth()->user()->id ?? '' }},
-            avatar: "{{ optional(auth()->user())->avatar() ?? '' }}"
+            id: "{{ auth()->user()->id ?? '' }}",
+            avatar: "{{ optional(auth()->user())->avatar() ?? '' }}",
+            username: "{{auth()->user()->username ?? ''}}"
         };
     @endif
     </script>
