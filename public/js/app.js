@@ -2861,6 +2861,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     username: function username() {
@@ -3472,7 +3496,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     likeTweet: "likes/likeTweet",
     unlikeTweet: "likes/unlikeTweet"
   })), {}, {
-    LikeOrUnlike: function LikeOrUnlike() {
+    likeOrUnlike: function likeOrUnlike() {
       if (this.liked) {
         this.unlikeTweet(this.tweet);
         return;
@@ -50713,6 +50737,47 @@ var render = function() {
           )
         ]
       )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "w-full inline-block h-12 rounded-full mb-2" }, [
+      _c(
+        "a",
+        {
+          staticClass: "w-full h-full flex align-center group",
+          attrs: { href: "/search" }
+        },
+        [
+          _c("div", { staticClass: "self-center" }, [
+            _c(
+              "svg",
+              {
+                staticClass:
+                  "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
+              },
+              [
+                _c("g", [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
+                    }
+                  })
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "p",
+            {
+              staticClass:
+                "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+            },
+            [_vm._v("\n        Search\n      ")]
+          )
+        ]
+      )
     ])
   ])
 }
@@ -51220,7 +51285,7 @@ var render = function() {
       on: {
         click: function($event) {
           $event.preventDefault()
-          return _vm.LikeOrUnlike($event)
+          return _vm.likeOrUnlike($event)
         }
       }
     },
@@ -51257,7 +51322,7 @@ var render = function() {
             "text-red-600": _vm.liked
           }
         },
-        [_vm._v("\n    " + _vm._s(_vm.tweet.likes_count))]
+        [_vm._v("\n    " + _vm._s(_vm.tweet.likes_count) + "\n  ")]
       )
     ]
   )
@@ -51640,7 +51705,9 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("app-tweet-body", { attrs: { tweet: _vm.tweet } }),
+        _vm.tweet.body
+          ? _c("app-tweet-body", { attrs: { tweet: _vm.tweet } })
+          : _vm._e(),
         _vm._v(" "),
         _vm.images.length
           ? _c(

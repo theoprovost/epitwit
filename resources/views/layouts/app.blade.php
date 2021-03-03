@@ -18,15 +18,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- User data -->
-    <script class="hidden">
+
     @if(auth()->user())
+    <script class="hidden">
+    // if you want to put data under "" don't forget to cast to int id otherwise there'll be bugs for real-time rendering
         window.User = {
-            id: "{{ auth()->user()->id ?? '' }}",
+            id: {{ auth()->user()->id ?? '' }},
             avatar: "{{ optional(auth()->user())->avatar() ?? '' }}",
             username: "{{auth()->user()->username ?? ''}}"
         };
-    @endif
+
     </script>
+    @endif
 
 </head>
 <body>

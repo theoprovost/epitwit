@@ -8,7 +8,7 @@
         Replying to <a href="">@{{ tweet.replying_to }}</a>
       </div>
 
-      <app-tweet-body :tweet="tweet" />
+      <app-tweet-body v-if="tweet.body" :tweet="tweet" />
 
       <div class="flex flex-wrap mb-4 mt-4" v-if="images.length">
         <div

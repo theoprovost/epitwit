@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="flex items-center text-base" @click.prevent="LikeOrUnlike">
+  <a href="#" class="flex items-center text-base" @click.prevent="likeOrUnlike">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -20,13 +20,13 @@
         'text-red-600': liked,
       }"
     >
-      {{ tweet.likes_count }}</span
-    >
+      {{ tweet.likes_count }}
+    </span>
   </a>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   props: {
@@ -52,7 +52,7 @@ export default {
       unlikeTweet: "likes/unlikeTweet",
     }),
 
-    LikeOrUnlike() {
+    likeOrUnlike() {
       if (this.liked) {
         this.unlikeTweet(this.tweet);
         return;

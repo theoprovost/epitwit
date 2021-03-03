@@ -20,6 +20,9 @@ class UserController extends Controller
                 ])->where('username', '=', $username)
                 ->get();
 
+        $user = $user[0];
         return $user;
+
+        return view('profile', compact('user'));
     }
 }
