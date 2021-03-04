@@ -101,7 +101,6 @@ class User extends Authenticatable
             'following_id' // local key of the intermediate model
         );
     }
-
     /**
     *
     */

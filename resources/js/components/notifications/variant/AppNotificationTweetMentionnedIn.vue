@@ -1,6 +1,7 @@
 <template>
   <div class="p-4 flex-grow">
     <div class="text-gray-300 mb-4">
+        *****
       <app-tweet-username :user="notification.data.user" /> mentionned you in a
       tweet
     </div>

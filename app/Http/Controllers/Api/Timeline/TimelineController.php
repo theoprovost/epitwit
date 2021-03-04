@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API\Timeline;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TweetCollection;
-use Illuminate\Http\Request;
 
 class TimelineController extends Controller
 {
@@ -32,7 +33,20 @@ class TimelineController extends Controller
                         ])
                         ->latest()
                         ->paginate(8);
-
         return new TweetCollection($tweets);
+    }
+
+    public function user_index(Request $request, $user)
+    {
+        $user = User::with([
+            'following',
+            'followers',
+            'tweets',
+            'retweets',
+            'likes'
+            ])->where('username', '=', $user)
+            ->get();
+            $user = $user[0];
+            return new TweetCollection($user['tweets']);
     }
 }

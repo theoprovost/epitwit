@@ -21,8 +21,6 @@ class UserController extends Controller
                 ->get();
 
         $user = $user[0];
-        return $user;
-
         return view('profile', compact('user'));
     }
 }

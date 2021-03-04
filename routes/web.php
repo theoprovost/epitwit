@@ -19,13 +19,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('timeline','App\Http\Controllers\Api\Timeline\TimelineController@index');
-Route::get('api/notifications','App\Http\Controllers\Api\Notifications\NotificationController@index');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/timeline', [App\Http\Controllers\Api\Timeline\TimelineController::class, 'index']);
+Route::get('api/notifications', [App\Http\Controllers\Api\Notifications\NotificationController::class , 'index']);
+Route::get('/notifications', [App\Http\Controllers\Notifications\NotificationController::class, 'index']);
 
-Route::get('/notifications', 'App\Http\Controllers\Notifications\NotificationController@index');
+Route::get('/tweets/{tweet}', [App\Http\Controllers\Tweets\TweetController::class, 'show']);
 
-Route::get('/tweets/{tweet}', 'App\Http\Controllers\Tweets\TweetController@show');
-
-Route::get('/{username}', 'App\Http\Controllers\Users\UserController@index');
+Route::get('/{username}', [App\Http\Controllers\Users\UserController::class, 'index']);

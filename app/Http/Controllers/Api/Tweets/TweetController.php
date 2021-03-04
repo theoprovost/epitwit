@@ -47,7 +47,7 @@ class TweetController extends Controller
     public function store(TweetStoreRequest $request)
     {
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
-            'type' => TweetType::class::TWEET,
+            'type' => TweetType::TWEET,
         ]));
 
         foreach ($request->media as $id) {

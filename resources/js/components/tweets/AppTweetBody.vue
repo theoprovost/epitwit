@@ -1,5 +1,5 @@
 <template>
-  <p class="text-gray-300 whitespace-pre-wrap">
+  <p class="text-gray-300 whitespace-pre-wrap c-break">
     <component :is="body" />
   </p>
 </template>

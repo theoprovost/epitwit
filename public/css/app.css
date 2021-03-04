@@ -31291,6 +31291,10 @@ a {
   color: rgba(59, 130, 246, var(--tw-text-opacity));
 }
 
+.c-break {
+  word-break: break-word;
+}
+
 @media (min-width: 640px) {
   .md\:container {
     width: 100%;
