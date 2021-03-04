@@ -3150,6 +3150,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -3180,6 +3182,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -3192,6 +3196,42 @@ __webpack_require__.r(__webpack_exports__);
     },
     avatar: {
       required: true
+    },
+    auth: {
+      required: true
+    }
+  },
+  computed: {
+    followed: function followed() {
+      var _this = this;
+
+      if (this.user.followers.filter(function (x) {
+        return x.id === _this.auth;
+      }).length > 0) return true;
+      return false;
+    },
+    followOrNot: function followOrNot() {
+      if (this.followed) return 'Unfollow';
+      return 'Follow';
+    }
+  },
+
+  /*actions: {
+       async follow(_, user) {
+           await axios.post(`/tweets/${user.username}/follow`);
+       },
+        async unfollow(_, user) {
+           await axios.delete(`/tweets/${user}/follow'`);
+       },
+  },*/
+  methods: {
+    followOrUnfollow: function followOrUnfollow() {
+      if (this.followed) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.user.id, "/follow"));
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.user.id, "/follow"));
     }
   }
 });
@@ -51351,29 +51391,28 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(0)
+        _c("div", [
+          _c(
+            "a",
+            {
+              staticClass:
+                "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+              attrs: { href: "#" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.followOrUnfollow($event)
+                }
+              }
+            },
+            [_vm._v(_vm._s(_vm.followOrNot))]
+          )
+        ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "a",
-        {
-          staticClass:
-            "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
-          attrs: { href: "#" }
-        },
-        [_vm._v("#Follow")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

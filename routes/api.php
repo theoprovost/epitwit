@@ -26,3 +26,6 @@ Route::get('/notifications', [App\Http\Controllers\Api\Notifications\Notificatio
 
 Route::get('/tweets/{tweet}/replies',[App\Http\Controllers\Api\Tweets\TweetReplyController::class, 'show']);
 Route::post('/tweets/{tweet}/replies',[App\Http\Controllers\Api\Tweets\TweetReplyController::class, 'store']);
+
+Route::post('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFollowController::class, 'store']);
+Route::delete('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFollowController::class, 'destroy']);

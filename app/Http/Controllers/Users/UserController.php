@@ -19,8 +19,8 @@ class UserController extends Controller
                     'likes'
                 ])->where('username', '=', $username)
                 ->get();
-
         $user = $user[0];
-        return view('profile', compact('user'));
+        $authId = $request->user()->id;
+        return view('profile', compact('user', 'authId'));
     }
 }
