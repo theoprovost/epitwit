@@ -2537,7 +2537,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3182,7 +3181,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3201,7 +3220,28 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     }
   },
-  computed: {
+  data: function data() {
+    return {
+      button: null,
+      follow: false,
+      followers: 6
+    };
+  },
+  methods: {
+    followOrUnfollow: function followOrUnfollow() {
+      if (this.follow) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.user.id, "/follow"));
+        this.button = this.button == "Follow" ? "Unfollow" : "Follow";
+        this.follow = this.follow ? false : true;
+        this.followers--;
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.user.id, "/follow"));
+      this.button = this.button == "Follow" ? "Unfollow" : "Follow";
+      this.follow = this.follow ? false : true;
+      this.followers++;
+    },
     followed: function followed() {
       var _this = this;
 
@@ -3211,28 +3251,17 @@ __webpack_require__.r(__webpack_exports__);
       return false;
     },
     followOrNot: function followOrNot() {
-      if (this.followed) return 'Unfollow';
-      return 'Follow';
+      if (this.followed) return "Unfollow";
+      return "Follow";
+    },
+    followersCount: function followersCount() {
+      return this.user.followers.length;
     }
   },
-
-  /*actions: {
-       async follow(_, user) {
-           await axios.post(`/tweets/${user.username}/follow`);
-       },
-        async unfollow(_, user) {
-           await axios.delete(`/tweets/${user}/follow'`);
-       },
-  },*/
-  methods: {
-    followOrUnfollow: function followOrUnfollow() {
-      if (this.followed) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.user.id, "/follow"));
-        return;
-      }
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.user.id, "/follow"));
-    }
+  mounted: function mounted() {
+    this.button = this.followOrNot();
+    this.follow = this.followed();
+    this.followers = this.followersCount();
   }
 });
 
@@ -4428,8 +4457,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _tweet_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tweet/actions */ "./resources/js/store/tweet/actions.js");
-/* harmony import */ var _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tweet/mutations */ "./resources/js/store/tweet/mutations.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _tweet_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tweet/actions */ "./resources/js/store/tweet/actions.js");
+/* harmony import */ var _tweet_mutations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tweet/mutations */ "./resources/js/store/tweet/mutations.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -4439,6 +4471,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   getters: {
     tweet: function tweet(state) {
+      console.log(state);
       return function (id) {
         return state.tweets.find(function (t) {
           return t.id == id;
@@ -4464,8 +4497,8 @@ __webpack_require__.r(__webpack_exports__);
       };
     }
   },
-  mutations: _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__.default,
-  actions: _tweet_actions__WEBPACK_IMPORTED_MODULE_0__.default
+  mutations: _tweet_mutations__WEBPACK_IMPORTED_MODULE_2__.default,
+  actions: _tweet_actions__WEBPACK_IMPORTED_MODULE_1__.default
 });
 
 /***/ }),
@@ -50611,13 +50644,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      _vm._l(_vm.parents(_vm.id), function(t) {
-        return _c("app-tweet", { key: _vm.id, attrs: { tweet: t } })
-      }),
-      1
-    ),
+    _c("div"),
     _vm._v(" "),
     _c(
       "div",
@@ -51356,63 +51383,122 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex w-full p-4" }, [
-    _c("div", [
+    _c("div", { staticClass: "p-4" }, [
       _c("img", {
         staticClass: "mr-3 rounded-full",
         attrs: { src: _vm.avatar, alt: " " }
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "flex-grow" }, [
-      _c("div", [
-        _vm._v(
-          "\n            Bouton modifier profil si user = moi || bouton de follow + boutton envoyer un message\n    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("p", [_vm._v(_vm._s(_vm.user.name))]),
-        _vm._v(" "),
-        _c("p", [_vm._v("@"), _c("span", [_vm._v(_vm._s(_vm.user.username))])])
-      ]),
-      _vm._v(" "),
-      _c("div", [_vm._v("\n        Joined " + _vm._s(_vm.date) + "\n    ")]),
-      _vm._v(" "),
+    _c("div", { staticClass: "flex-grow pl-2" }, [
       _c("div", { staticClass: "flex justify-between" }, [
         _c("div", [
-          _c("a", [
-            _c("span", [_vm._v(_vm._s(_vm.user.following.length))]),
-            _vm._v(" Following")
+          _c("p", { staticClass: "text-gray-100 text-xl" }, [
+            _c("b", [_vm._v(_vm._s(_vm.user.name))])
           ]),
           _vm._v(" "),
-          _c("a", [
-            _c("span", [_vm._v(_vm._s(_vm.user.followers.length))]),
-            _vm._v(" Follower")
+          _c("p", [
+            _vm._v("@"),
+            _c("span", [_vm._v(_vm._s(_vm.user.username))])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-gray-400" }, [
+          _vm._v(
+            "\n                Joined " + _vm._s(_vm.date) + "\n            "
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-between mt-1" }, [
+        _c("div", { staticClass: "flex" }, [
+          _c("div", { staticClass: "pr-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "hover:underline",
+                attrs: { href: _vm.user.username + "/following" }
+              },
+              [
+                _c("span", [_vm._v(_vm._s(_vm.user.following.length))]),
+                _vm._v(" Following")
+              ]
+            )
+          ]),
+          _c("div", { staticClass: "pl-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "hover:underline",
+                attrs: { href: _vm.user.username + "/followers" }
+              },
+              [_c("span", [_vm._v(_vm._s(_vm.followers))]), _vm._v(" Follower")]
+            )
           ])
         ]),
         _vm._v(" "),
         _c("div", [
-          _c(
-            "a",
-            {
-              staticClass:
-                "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.followOrUnfollow($event)
-                }
-              }
-            },
-            [_vm._v(_vm._s(_vm.followOrNot))]
-          )
+          _vm.user.id != _vm.auth
+            ? _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+                  class: {
+                    "hover:bg-red-700": _vm.follow
+                  },
+                  attrs: { type: "buton" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.followOrUnfollow($event)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.button) +
+                      "\n                "
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.user.id == _vm.auth
+            ? _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+                  attrs: { type: "buton" }
+                },
+                [_vm._v("\n                Edit profile\n                ")]
+              )
+            : _vm._e()
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-2" }, [
+      _vm._v(
+        "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim leo finibus eros condimentum vehicula."
+      ),
+      _c("br"),
+      _vm._v(
+        "\n            Duis consectetur nisi dapibus, hendrerit dui nec, dapibus arcu. Maecenas in sodales lacus, ut maximus.\n        "
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

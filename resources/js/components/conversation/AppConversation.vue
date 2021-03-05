@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>
-      <app-tweet v-for="t in parents(id)" :tweet="t" :key="id" />
     </div>
 
     <div class="text-lg border-b-8 border-t-8 border-gray-800">

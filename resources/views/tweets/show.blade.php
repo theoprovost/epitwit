@@ -7,7 +7,7 @@
             <app-nav />
         </div>
         <div class="w-9/12 border-2 border-gray-800 border-t-0 border-b-0">
-             <app-conversation id="{{ $tweet->id }}" />
+             <app-conversation id="{{ $tweet->id }}" :original="{{ $tweet }}"/>
         </div>
     </div>
 

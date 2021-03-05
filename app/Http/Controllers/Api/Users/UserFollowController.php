@@ -24,6 +24,6 @@ class UserFollowController extends Controller
 
     public function destroy(Request $request, $user_id)
     {
-        $request->user()->follow()->where('following_id', $user_id)->first()->delete();
+        $request->user()->follow()->where('following_id', $user_id)->first()->forceDelete();
     }
 }

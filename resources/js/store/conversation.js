@@ -1,3 +1,4 @@
+import { defaultsDeep } from 'lodash';
 import actions from './tweet/actions';
 import mutations from './tweet/mutations';
 
@@ -10,6 +11,7 @@ export default {
 
     getters: {
         tweet(state) {
+            console.log(state);
             return id => state.tweets.find(t => t.id == id);
         },
 

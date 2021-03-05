@@ -29,7 +29,6 @@ class TweetReplyController extends Controller
             'type' => TweetType::TWEET,
             'parent_id' => $tweet->id
         ]));
-
         foreach ($request->media as $id) {
             $reply->media()->save(TweetMedia::find($id));
         };
