@@ -51383,9 +51383,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex w-full p-4" }, [
-    _c("div", { staticClass: "p-4" }, [
+    _c("div", { staticClass: "p-4 pt-8" }, [
       _c("img", {
-        staticClass: "mr-3 rounded-full",
+        staticClass: "mr-3 rounded-full w-32",
         attrs: { src: _vm.avatar, alt: " " }
       })
     ]),
@@ -51412,8 +51412,8 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "flex justify-between mt-1" }, [
-        _c("div", { staticClass: "flex" }, [
+      _c("div", { staticClass: "flex justify-between" }, [
+        _c("div", { staticClass: "flex mt-3" }, [
           _c("div", { staticClass: "pr-2" }, [
             _c(
               "a",
@@ -51439,7 +51439,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "m-2" }, [
           _vm.user.id != _vm.auth
             ? _c(
                 "button",

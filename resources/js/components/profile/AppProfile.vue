@@ -1,7 +1,7 @@
 <template>
      <div class="flex w-full p-4">
-        <div class="p-4">
-           <img :src="avatar" alt=" " class="mr-3 rounded-full" />
+        <div class="p-4 pt-8">
+           <img :src="avatar" alt=" " class="mr-3 rounded-full w-32" />
         </div>
         <div class="flex-grow pl-2">
             <div class="flex justify-between">
@@ -17,15 +17,15 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim leo finibus eros condimentum vehicula.<br>
                 Duis consectetur nisi dapibus, hendrerit dui nec, dapibus arcu. Maecenas in sodales lacus, ut maximus.
             </div>
-            <div class="flex justify-between mt-1">
-                <div class="flex">
+            <div class="flex justify-between">
+                <div class="flex mt-3">
                     <div class="pr-2">
                         <a :href="user.username + '/following'" class="hover:underline"><span>{{ user.following.length }}</span> Following</a>
                     </div><div class="pl-2">
                         <a :href="user.username + '/followers'" class="hover:underline"><span>{{ followers }}</span> Follower</a>
                     </div>
                 </div>
-                <div>
+                <div class="m-2">
                     <button type="buton"
                     v-if="user.id != auth"
                     @click.prevent="followOrUnfollow"
