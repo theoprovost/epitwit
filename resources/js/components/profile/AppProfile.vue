@@ -13,16 +13,15 @@
                     Joined {{ date }}
                 </div>
             </div>
-            <div class="mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim leo finibus eros condimentum vehicula.<br>
-                Duis consectetur nisi dapibus, hendrerit dui nec, dapibus arcu. Maecenas in sodales lacus, ut maximus.
+            <div class="mt-2 h-20">
+                {{ user.biography }}
             </div>
             <div class="flex justify-between">
-                <div class="flex mt-3">
+                <div class="flex pt-4">
                     <div class="pr-2">
-                        <a :href="user.username + '/following'" class="hover:underline"><span>{{ user.following.length }}</span> Following</a>
+                        <a :href="user.username + '/following'" class="hover:underline"><span>{{ user.following.length - 1}}</span> Following</a>
                     </div><div class="pl-2">
-                        <a :href="user.username + '/followers'" class="hover:underline"><span>{{ followers }}</span> Follower</a>
+                        <a :href="user.username + '/followers'" class="hover:underline"><span>{{ followers - 1}}</span> Follower</a>
                     </div>
                 </div>
                 <div class="m-2">
@@ -36,12 +35,10 @@
                     >
                         {{ button }}
                     </button>
-                     <button type="buton"
-                    v-if="user.id == auth"
-                    class="bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none"
-                    >
-                    Edit profile
-                    </button>
+                     <app-profile-action
+                        :user = user
+                       v-if="user.id == auth"
+                     />
                 </div>
             </div>
         </div>

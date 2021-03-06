@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Users;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\Environment\Console;
 
 class UserFollowController extends Controller
@@ -16,6 +17,8 @@ class UserFollowController extends Controller
 
     public function store(Request $request, $user_id)
     {
+        $user= User::get(Auth::user());
+        dd($user);
         $follow = $request->user()->follow()->create([
             'following_id' => $user_id
         ]);

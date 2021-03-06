@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="flex">
+    <div class="flex w-full">
         <div class="w-3/12">
             <app-nav />
         </div>

@@ -31,3 +31,4 @@ Route::post('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFoll
 Route::delete('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFollowController::class, 'destroy']);
 
 Route::get('/tweets/{tweet}', [App\Http\Controllers\API\Tweets\TweetController::class, 'index']);
+Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, 'submit']);

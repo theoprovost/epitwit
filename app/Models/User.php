@@ -27,6 +27,10 @@ class User extends Authenticatable
         'dob',
         'email',
         'password',
+        'country',
+        'city',
+        'website',
+        'biography',
     ];
 
     /**

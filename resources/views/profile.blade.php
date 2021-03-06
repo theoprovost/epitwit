@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="flex text-gray-600">
         <div class="w-3/12">
             <app-nav />
@@ -15,5 +14,4 @@
             </div>
         </div>
     </div>
-
 @endsection
