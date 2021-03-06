@@ -1,6 +1,6 @@
 <template>
   <div v-click-outside="close" class="relative">
-    <div @click.prevent="open = !open">
+    <div @click.stop.prevent="open = !open">
       <slot name="trigger" />
     </div>
     <div

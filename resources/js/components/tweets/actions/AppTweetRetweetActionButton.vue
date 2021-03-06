@@ -2,7 +2,7 @@
   <a
     href="#"
     class="flex items-center text-base text-gray-600 hover:text-green-600"
-    @click="$emit('click', $event)"
+    @click.prevent="$emit('click', $event)"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

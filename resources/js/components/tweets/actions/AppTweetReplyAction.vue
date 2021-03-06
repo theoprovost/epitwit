@@ -2,7 +2,7 @@
   <a
     href="#"
     class="flex items-center text-base text-gray-600 hover:text-blue-600"
-    @click.prevent="$modal.show(AppTweetReplyModal, { tweet })"
+    @click.stop.prevent="$modal.show(AppTweetReplyModal, { tweet })"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

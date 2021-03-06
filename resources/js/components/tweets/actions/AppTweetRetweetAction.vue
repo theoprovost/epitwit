@@ -5,11 +5,11 @@
         <app-tweet-retweet-action-button :tweet="tweet" />
       </template>
 
-      <app-dropdown-item @click.prevent="retweetOrUnretweet">
+      <app-dropdown-item @click.stop.prevent="retweetOrUnretweet">
         Retweet
       </app-dropdown-item>
       <app-dropdown-item
-        @click.prevent="
+        @click.stop.prevent="
           $modal.show(AppTweetRetweetModal, {
             tweet,
           })
@@ -22,7 +22,7 @@
     <app-tweet-retweet-action-button
       :tweet="tweet"
       v-else
-      @click.prevent="retweetOrUnretweet"
+      @click.stop="retweetOrUnretweet"
     />
   </div>
 </template>

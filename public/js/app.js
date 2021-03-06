@@ -4210,6 +4210,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     trigger: function trigger() {
       console.log('a');
+      window.location.href = "tweets/" + this.tweet.id;
     }
   }
 });
@@ -50981,6 +50982,7 @@ var render = function() {
         {
           on: {
             click: function($event) {
+              $event.stopPropagation()
               $event.preventDefault()
               _vm.open = !_vm.open
             }
@@ -52410,6 +52412,7 @@ var render = function() {
       attrs: { href: "#" },
       on: {
         click: function($event) {
+          $event.stopPropagation()
           $event.preventDefault()
           return _vm.likeOrUnlike($event)
         }
@@ -52483,6 +52486,7 @@ var render = function() {
       attrs: { href: "#" },
       on: {
         click: function($event) {
+          $event.stopPropagation()
           $event.preventDefault()
           return _vm.$modal.show(_vm.AppTweetReplyModal, { tweet: _vm.tweet })
         }
@@ -52560,6 +52564,7 @@ var render = function() {
                 {
                   on: {
                     click: function($event) {
+                      $event.stopPropagation()
                       $event.preventDefault()
                       return _vm.retweetOrUnretweet($event)
                     }
@@ -52573,6 +52578,7 @@ var render = function() {
                 {
                   on: {
                     click: function($event) {
+                      $event.stopPropagation()
                       $event.preventDefault()
                       return _vm.$modal.show(_vm.AppTweetRetweetModal, {
                         tweet: _vm.tweet
@@ -52589,7 +52595,7 @@ var render = function() {
             attrs: { tweet: _vm.tweet },
             on: {
               click: function($event) {
-                $event.preventDefault()
+                $event.stopPropagation()
                 return _vm.retweetOrUnretweet($event)
               }
             }
@@ -52629,6 +52635,7 @@ var render = function() {
       attrs: { href: "#" },
       on: {
         click: function($event) {
+          $event.preventDefault()
           return _vm.$emit("click", $event)
         }
       }
@@ -52810,7 +52817,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex w-full cursor-pointer", on: { click: _vm.trigger } },
+    {
+      staticClass: "flex w-full cursor-pointer",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.trigger($event)
+        }
+      }
+    },
     [
       _c("img", {
         staticClass: "w-12 h-12 mr-3 rounded-full",
