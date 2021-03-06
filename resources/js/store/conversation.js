@@ -10,8 +10,7 @@ export default {
     },
 
     getters: {
-        tweet(state) {
-            console.log(state);
+        tweets(state) {
             return id => state.tweets.find(t => t.id == id);
         },
 

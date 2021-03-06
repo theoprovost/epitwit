@@ -30,5 +30,5 @@ Route::post('/tweets/{tweet}/replies',[App\Http\Controllers\Api\Tweets\TweetRepl
 Route::post('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFollowController::class, 'store']);
 Route::delete('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFollowController::class, 'destroy']);
 
-Route::get('/tweets/{tweet}', [App\Http\Controllers\API\Tweets\TweetController::class, 'index']);
+Route::get('/tweets/{tweet}', [App\Http\Controllers\Api\Tweets\TweetController::class, 'show']);
 Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, 'submit']);

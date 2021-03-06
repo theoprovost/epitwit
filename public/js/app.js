@@ -2546,7 +2546,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
-    tweet: "conversation/tweet",
+    tweets: "conversation/tweets",
     parents: "conversation/parents",
     replies: "conversation/replies"
   })),
@@ -3828,6 +3828,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       type: Object
     }
   },
+  data: function data() {
+    return {
+      color: 'red'
+    };
+  },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     likes: "likes/likes"
   })), {}, {
@@ -4209,8 +4214,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     trigger: function trigger() {
-      console.log('a');
-      window.location.href = "tweets/" + this.tweet.id;
+      console.log(window.location.pathname);
+      window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
 });
@@ -4600,8 +4605,7 @@ __webpack_require__.r(__webpack_exports__);
     tweets: []
   },
   getters: {
-    tweet: function tweet(state) {
-      console.log(state);
+    tweets: function tweets(state) {
       return function (id) {
         return state.tweets.find(function (t) {
           return t.id == id;
@@ -50924,8 +50928,8 @@ var render = function() {
       "div",
       { staticClass: "text-lg border-b-8 border-t-8 border-gray-800" },
       [
-        _vm.tweet(_vm.id)
-          ? _c("app-tweet", { attrs: { tweet: _vm.tweet(_vm.id) } })
+        _vm.tweets(_vm.id)
+          ? _c("app-tweet", { attrs: { tweet: _vm.tweets(_vm.id) } })
           : _vm._e()
       ],
       1
@@ -52422,7 +52426,7 @@ var render = function() {
       _c(
         "svg",
         {
-          staticClass: "fill-current w-5 mr-2 rounded-full",
+          staticClass: "fill-current w-5 mr-2",
           class: {
             "text-red-600": _vm.liked
           },

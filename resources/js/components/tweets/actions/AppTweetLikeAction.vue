@@ -5,7 +5,7 @@
       viewBox="0 0 24 24"
       width="24"
       height="24"
-      class="fill-current w-5 mr-2 rounded-full"
+      class="fill-current w-5 mr-2"
       :class="{
         'text-red-600': liked,
       }"
@@ -33,6 +33,11 @@ export default {
       required: true,
       type: Object,
     },
+  },
+  data() {
+      return {
+          color: 'red'
+      };
   },
 
   computed: {

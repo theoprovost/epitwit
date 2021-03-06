@@ -4,7 +4,7 @@
     </div>
 
     <div class="text-lg border-b-8 border-t-8 border-gray-800">
-      <app-tweet v-if="tweet(id)" :tweet="tweet(id)" />
+      <app-tweet v-if="tweets(id)" :tweet="tweets(id)" />
     </div>
 
     <div>
@@ -26,7 +26,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      tweet: "conversation/tweet",
+      tweets: "conversation/tweets",
       parents: "conversation/parents",
       replies: "conversation/replies",
     }),

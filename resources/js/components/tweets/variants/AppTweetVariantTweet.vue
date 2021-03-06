@@ -44,8 +44,8 @@ export default {
 
    methods: {
   	trigger () {
-    	console.log('a');
-        window.location.href = "tweets/" + this.tweet.id;
+    	console.log(window.location.pathname);
+        window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
 };
