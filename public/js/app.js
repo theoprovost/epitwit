@@ -3677,8 +3677,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -3796,7 +3794,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -4038,7 +4035,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -4209,6 +4205,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.tweet.media.data.filter(function (m) {
         return m.type === "image";
       });
+    }
+  },
+  methods: {
+    trigger: function trigger() {
+      console.log('a');
     }
   }
 });
@@ -52264,8 +52265,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", { staticClass: "text-gray-300 font-bold" }, [
-    _vm._v(_vm._s(_vm.user.name)),
+  return _c("div", [
+    _c(
+      "span",
+      { staticClass: "text-gray-300 font-bold hover:underline cursor-pointer" },
+      [_vm._v(_vm._s(_vm.user.name))]
+    ),
+    _vm._v(" "),
     _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
       _vm._v("@" + _vm._s(_vm.user.username))
     ])
@@ -52399,7 +52405,8 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "flex items-center text-base",
+      staticClass:
+        "flex items-center text-base text-gray-600 hover:text-red-600",
       attrs: { href: "#" },
       on: {
         click: function($event) {
@@ -52412,7 +52419,7 @@ var render = function() {
       _c(
         "svg",
         {
-          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          staticClass: "fill-current w-5 mr-2 rounded-full",
           class: {
             "text-red-600": _vm.liked
           },
@@ -52436,7 +52443,6 @@ var render = function() {
       _c(
         "span",
         {
-          staticClass: "text-gray-600",
           class: {
             "text-red-600": _vm.liked
           }
@@ -52472,7 +52478,8 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "flex items-center text-base",
+      staticClass:
+        "flex items-center text-base text-gray-600 hover:text-blue-600",
       attrs: { href: "#" },
       on: {
         click: function($event) {
@@ -52485,7 +52492,7 @@ var render = function() {
       _c(
         "svg",
         {
-          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          staticClass: "fill-current w-5 mr-2",
           attrs: {
             xmlns: "http://www.w3.org/2000/svg",
             viewBox: "0 0 24 24",
@@ -52503,9 +52510,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("span", { staticClass: "text-gray-600" }, [
-        _vm._v(_vm._s(_vm.tweet.replies_count))
-      ])
+      _c("span", [_vm._v(_vm._s(_vm.tweet.replies_count))])
     ]
   )
 }
@@ -52619,7 +52624,8 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "flex items-center text-base",
+      staticClass:
+        "flex items-center text-base text-gray-600 hover:text-green-600",
       attrs: { href: "#" },
       on: {
         click: function($event) {
@@ -52631,7 +52637,7 @@ var render = function() {
       _c(
         "svg",
         {
-          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          staticClass: "fill-current w-5 mr-2",
           class: {
             "text-green-600": _vm.retweeted
           },
@@ -52655,7 +52661,6 @@ var render = function() {
       _c(
         "span",
         {
-          staticClass: "text-gray-600",
           class: {
             "text-green-600": _vm.retweeted
           }
@@ -52803,56 +52808,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex w-full" }, [
-    _c("img", {
-      staticClass: "w-12 h-12 mr-3 rounded-full",
-      attrs: { src: _vm.tweet.user.avatar, alt: " " }
-    }),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex-grow" },
-      [
-        _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
-        _vm._v(" "),
-        _vm.tweet.replying_to
-          ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
-              _vm._v("\n      Replying to "),
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("@" + _vm._s(_vm.tweet.replying_to))
+  return _c(
+    "div",
+    { staticClass: "flex w-full cursor-pointer", on: { click: _vm.trigger } },
+    [
+      _c("img", {
+        staticClass: "w-12 h-12 mr-3 rounded-full",
+        attrs: { src: _vm.tweet.user.avatar, alt: " " }
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex-grow" },
+        [
+          _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
+          _vm._v(" "),
+          _vm.tweet.replying_to
+            ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
+                _vm._v("\n      Replying to "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("@" + _vm._s(_vm.tweet.replying_to))
+                ])
               ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.tweet.body
-          ? _c("app-tweet-body", { attrs: { tweet: _vm.tweet } })
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.images.length
-          ? _c(
-              "div",
-              { staticClass: "flex flex-wrap mb-4 mt-4" },
-              _vm._l(_vm.images, function(image, index) {
-                return _c(
-                  "div",
-                  { key: index, staticClass: "w-6/12 flex-grow" },
-                  [
-                    _c("img", {
-                      staticClass: "rounded-lg bg-gray-600",
-                      attrs: { src: image.url, alt: " " }
-                    })
-                  ]
-                )
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
-      ],
-      1
-    )
-  ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tweet.body
+            ? _c("app-tweet-body", { attrs: { tweet: _vm.tweet } })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.images.length
+            ? _c(
+                "div",
+                { staticClass: "flex flex-wrap mb-4 mt-4" },
+                _vm._l(_vm.images, function(image, index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "w-6/12 flex-grow" },
+                    [
+                      _c("img", {
+                        staticClass: "rounded-lg bg-gray-600",
+                        attrs: { src: image.url, alt: " " }
+                      })
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

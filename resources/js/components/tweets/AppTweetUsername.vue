@@ -1,10 +1,8 @@
 <template>
-  <span class="text-gray-300 font-bold"
-    >{{ user.name
-    }}<span class="text-gray-600 font-normal ml-2"
-      >@{{ user.username }}</span
-    ></span
-  >
+<div>
+    <span class="text-gray-300 font-bold hover:underline cursor-pointer">{{ user.name }}</span>
+    <span class="text-gray-600 font-normal ml-2">@{{ user.username }}</span>
+</div>
 </template>
 
 <script>

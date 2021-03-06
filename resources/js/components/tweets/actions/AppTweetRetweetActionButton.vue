@@ -1,7 +1,7 @@
 <template>
   <a
     href="#"
-    class="flex items-center text-base"
+    class="flex items-center text-base text-gray-600 hover:text-green-600"
     @click="$emit('click', $event)"
   >
     <svg
@@ -9,7 +9,7 @@
       viewBox="0 0 24 24"
       width="24"
       height="24"
-      class="fill-current text-gray-600 w-5 mr-2"
+      class="fill-current w-5 mr-2"
       :class="{
         'text-green-600': retweeted,
       }"
@@ -19,7 +19,6 @@
       />
     </svg>
     <span
-      class="text-gray-600"
       :class="{
         'text-green-600': retweeted,
       }"

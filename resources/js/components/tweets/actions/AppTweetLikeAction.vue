@@ -1,11 +1,11 @@
 <template>
-  <a href="#" class="flex items-center text-base" @click.prevent="likeOrUnlike">
+  <a href="#" class="flex items-center text-base text-gray-600 hover:text-red-600" @click.prevent="likeOrUnlike">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="24"
       height="24"
-      class="fill-current text-gray-600 w-5 mr-2"
+      class="fill-current w-5 mr-2 rounded-full"
       :class="{
         'text-red-600': liked,
       }"
@@ -15,7 +15,6 @@
       />
     </svg>
     <span
-      class="text-gray-600"
       :class="{
         'text-red-600': liked,
       }"

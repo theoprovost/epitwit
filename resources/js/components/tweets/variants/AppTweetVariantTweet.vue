@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full">
+  <div class="flex w-full cursor-pointer" @click="trigger">
     <img :src="tweet.user.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
     <div class="flex-grow">
       <app-tweet-username :user="tweet.user" />
@@ -41,5 +41,11 @@ export default {
       return this.tweet.media.data.filter((m) => m.type === "image");
     },
   },
+
+   methods: {
+  	trigger () {
+    	console.log('a');
+    }
+  }
 };
 </script>
