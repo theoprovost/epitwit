@@ -41,14 +41,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      fields: {
-          name: '',
-          dob: '',
-          bio: '',
-          city: '',
-          country: '',
-          website: ''
-      },
+      fields: {},
       errors: {},
     }
   },

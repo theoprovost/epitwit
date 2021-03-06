@@ -28,4 +28,3 @@ Route::get('/tweets/{tweet}', [App\Http\Controllers\Tweets\TweetController::clas
 
 Route::get('/{username}', [App\Http\Controllers\Users\UserController::class, 'index']);
 
-Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, 'submit']);

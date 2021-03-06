@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UserResource;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,9 +19,10 @@ class UserController extends Controller
                     'retweets',
                     'likes'
                 ])->where('username', '=', $username)
-                ->get();
-        $user = $user[0];
-        $authId = $request->user()->id;
+                ->get()->first();
+        $auth = Auth::user();
+        $authUser = User::where('id', '=', $auth->id)->first();
+        $authId = $authUser->id;
         return view('profile', compact('user', 'authId'));
     }
 }

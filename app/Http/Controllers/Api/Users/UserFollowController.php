@@ -17,8 +17,6 @@ class UserFollowController extends Controller
 
     public function store(Request $request, $user_id)
     {
-        $user= User::get(Auth::user());
-        dd($user);
         $follow = $request->user()->follow()->create([
             'following_id' => $user_id
         ]);

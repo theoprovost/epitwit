@@ -2694,14 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      fields: {
-        name: '',
-        dob: '',
-        bio: '',
-        city: '',
-        country: '',
-        website: ''
-      },
+      fields: {},
       errors: {}
     };
   },
@@ -3344,7 +3337,11 @@ __webpack_require__.r(__webpack_exports__);
       return false;
     },
     followOrNot: function followOrNot() {
-      if (this.followed) return "Unfollow";
+      var _this2 = this;
+
+      if (this.user.followers.filter(function (x) {
+        return x.id === _this2.auth;
+      }).length > 0) return "Unfollow";
       return "Follow";
     },
     followersCount: function followersCount() {
@@ -3352,9 +3349,9 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.button = this.followOrNot();
-    this.follow = this.followed();
-    this.followers = this.followersCount();
+    Vue.set(this, 'button', this.followOrNot());
+    Vue.set(this, 'follow', this.followed());
+    Vue.set(this, 'followers', this.followersCount());
   }
 });
 

@@ -96,7 +96,7 @@ export default {
         },
 
         followOrNot() {
-            if (this.followed)
+            if (this.user.followers.filter(x => x.id === this.auth).length > 0)
                return "Unfollow";
             return "Follow";
         },
@@ -108,9 +108,9 @@ export default {
   },
 
   mounted() {
-      this.button = this.followOrNot();
-      this.follow = this.followed();
-      this.followers = this.followersCount();
+      Vue.set(this, 'button', this.followOrNot());
+      Vue.set(this, 'follow', this.followed());
+      Vue.set(this, 'followers', this.followersCount())
   }
 }
 </script>
