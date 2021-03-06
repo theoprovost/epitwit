@@ -2978,6 +2978,14 @@ __webpack_require__.r(__webpack_exports__);
     username: function username() {
       return this.$user.username;
     }
+  },
+  methods: {
+    triggerProfile: function triggerProfile() {
+      window.location.pathname = this.$user.username;
+    },
+    triggerNotifications: function triggerNotifications() {
+      window.location.pathname = 'notifications';
+    }
   }
 });
 
@@ -4214,7 +4222,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     trigger: function trigger() {
-      console.log(window.location.pathname);
       window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
@@ -51532,7 +51539,13 @@ var render = function() {
         "a",
         {
           staticClass: "w-full h-full flex align-center group",
-          attrs: { href: "/notifications" }
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.triggerNotifications($event)
+            }
+          }
         },
         [
           _c("div", { staticClass: "self-center" }, [
@@ -51614,7 +51627,13 @@ var render = function() {
         "a",
         {
           staticClass: "w-full h-full flex align-center group",
-          attrs: { href: _vm.username }
+          attrs: { href: "" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              return _vm.triggerProfile($event)
+            }
+          }
         },
         [
           _c("div", { staticClass: "self-center" }, [

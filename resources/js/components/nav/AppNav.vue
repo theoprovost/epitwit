@@ -51,7 +51,7 @@
     </div>
 
     <div class="w-full inline-block h-12 rounded-full mb-2">
-      <a href="/notifications" class="w-full h-full flex align-center group">
+      <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerNotifications">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
@@ -99,7 +99,7 @@
     </div>
 
     <div class="w-full inline-block h-12 rounded-full mb-2">
-      <a :href="username" class="w-full h-full flex align-center group">
+      <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerProfile">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
@@ -155,5 +155,13 @@ export default {
       return this.$user.username;
     },
   },
+  methods: {
+      triggerProfile() {
+        window.location.pathname = this.$user.username;
+      },
+      triggerNotifications() {
+        window.location.pathname = 'notifications';
+      }
+  }
 };
 </script>

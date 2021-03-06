@@ -44,7 +44,6 @@ export default {
 
    methods: {
   	trigger () {
-    	console.log(window.location.pathname);
         window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
