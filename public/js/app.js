@@ -2700,6 +2700,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2718,6 +2722,13 @@ __webpack_require__.r(__webpack_exports__);
           _this.errors = error.response.data.errors || {};
         }
       });
+    },
+    click: function click() {
+      var imgBtn = document.querySelector('img');
+      var fileInp = document.querySelector('[type="file"]');
+      imgBtn.addEventListener('click', function () {
+        fileInp.click();
+      });
     }
   },
   props: {
@@ -2732,7 +2743,6 @@ __webpack_require__.r(__webpack_exports__);
     Vue.set(this.fields, 'website', this.user.website);
     Vue.set(this.fields, 'country', this.user.country);
     Vue.set(this.fields, 'city', this.user.city);
-    Vue.set(this.fields, 'biography', this.user.biography);
   }
 });
 
@@ -3402,6 +3412,7 @@ __webpack_require__.r(__webpack_exports__);
     Vue.set(this, 'button', this.followOrNot());
     Vue.set(this, 'follow', this.followed());
     Vue.set(this, 'followers', this.followersCount());
+    Vue.set(this.user, 'avatar', this.avatar);
   }
 });
 
@@ -51188,6 +51199,24 @@ var render = function() {
         }
       },
       [
+        _c("div", { staticClass: "p-8 " }, [
+          _c("input", {
+            ref: "file",
+            staticClass: "hidden",
+            attrs: { type: "file" }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "mr-3 rounded-full w-28 cursor-pointer",
+            attrs: { src: _vm.user.avatar, alt: " " },
+            on: {
+              click: function($event) {
+                return _vm.$refs.file.click()
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           {

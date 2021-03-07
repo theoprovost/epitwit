@@ -1,6 +1,10 @@
 <template>
     <div>
         <form @submit.prevent="submit">
+           <div class="p-8 ">
+           <input type="file" ref="file" class="hidden"/>
+           <img :src="user.avatar" alt=" " class="mr-3 rounded-full w-28 cursor-pointer" @click="$refs.file.click()"/>
+        </div>
             <div class="flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" v-model="fields.name" class="rounded-md text-gray-800">
@@ -55,6 +59,13 @@ export default {
         }
       });
     },
+    click() {
+    var imgBtn = document.querySelector('img');
+    var fileInp = document.querySelector('[type="file"]');
+    imgBtn.addEventListener('click', function() {
+            fileInp.click();
+        })
+    }
   },
   props: {
         user: {
@@ -68,7 +79,6 @@ export default {
         Vue.set(this.fields, 'website', this.user.website);
         Vue.set(this.fields, 'country', this.user.country);
         Vue.set(this.fields, 'city', this.user.city);
-        Vue.set(this.fields, 'biography', this.user.biography);
     }
 }
 </script>

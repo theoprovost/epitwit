@@ -135,7 +135,8 @@ export default {
   mounted() {
       Vue.set(this, 'button', this.followOrNot());
       Vue.set(this, 'follow', this.followed());
-      Vue.set(this, 'followers', this.followersCount())
+      Vue.set(this, 'followers', this.followersCount());
+      Vue.set(this.user, 'avatar', this.avatar);
   }
 }
 </script>
