@@ -1919,6 +1919,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2012,7 +2016,7 @@ __webpack_require__.r(__webpack_exports__);
       return Math.round(this.body.length * 100 / 279); // tweet limit = 280 charcaters
     },
     displayParcentage: function displayParcentage() {
-      return this.percentage <= 100 ? this.percentage : 100;
+      return this.percentage + 5 <= 100 ? this.percentage + 5 : 100;
     },
     offset: function offset() {
       var circ = this.dash;
@@ -50390,15 +50394,21 @@ var render = function() {
                 "div",
                 { staticClass: "flex items-center justify-end" },
                 [
-                  _c("app-tweet-compose-limit", {
-                    attrs: { body: _vm.form.body }
-                  }),
+                  _vm.form.body
+                    ? _c("app-tweet-compose-limit", {
+                        attrs: { body: _vm.form.body }
+                      })
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "button",
                     {
                       staticClass:
-                        "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+                        "bg-blue-400 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none focus:outline-none",
+                      class: {
+                        "bg-blue-500": _vm.form.body,
+                        "cursor-default": !_vm.form.body
+                      },
                       attrs: { type: "submit" }
                     },
                     [_vm._v("\n          Tweet\n        ")]

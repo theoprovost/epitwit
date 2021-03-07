@@ -57,7 +57,7 @@ export default {
     },
 
     displayParcentage() {
-      return this.percentage <= 100 ? this.percentage : 100;
+      return this.percentage + 5 <= 100 ? this.percentage + 5 : 100;
     },
 
     offset() {

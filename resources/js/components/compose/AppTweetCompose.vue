@@ -36,11 +36,15 @@
         />
 
         <div class="flex items-center justify-end">
-          <app-tweet-compose-limit :body="form.body" />
+          <app-tweet-compose-limit :body="form.body" v-if="form.body"/>
 
           <button
             type="submit"
-            class="bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none"
+            class="bg-blue-400 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none focus:outline-none"
+            :class="{
+                'bg-blue-500': form.body,
+                'cursor-default': !form.body
+            }"
           >
             Tweet
           </button>
