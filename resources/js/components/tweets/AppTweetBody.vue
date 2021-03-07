@@ -29,7 +29,7 @@ export default {
     replaceEntities(body) {
       this.entities.forEach((entity) => {
         body =
-          body.substring(0, entity.start) +
+          body.substring(0, entity.start - 1) +
           this.entityComponent(entity) +
           body.substring(entity.end); // <=> body.substring(e.end, body.lenght)
       });

@@ -3696,7 +3696,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.entities.forEach(function (entity) {
-        body = body.substring(0, entity.start) + _this.entityComponent(entity) + body.substring(entity.end); // <=> body.substring(e.end, body.lenght)
+        body = body.substring(0, entity.start - 1) + _this.entityComponent(entity) + body.substring(entity.end); // <=> body.substring(e.end, body.lenght)
       });
       return body;
     },
