@@ -52100,11 +52100,13 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "hover:underline",
+                staticClass: "hover:underline text-gray-400",
                 attrs: { href: _vm.user.username + "/following" }
               },
               [
-                _c("span", [_vm._v(_vm._s(_vm.user.following.length - 1))]),
+                _c("span", { staticClass: "text-gray-200 font-bold" }, [
+                  _vm._v(_vm._s(_vm.user.following.length - 1))
+                ]),
                 _vm._v(" Following")
               ]
             )
@@ -52113,11 +52115,13 @@ var render = function() {
             _c(
               "a",
               {
-                staticClass: "hover:underline",
+                staticClass: "hover:underline text-gray-400",
                 attrs: { href: _vm.user.username + "/followers" }
               },
               [
-                _c("span", [_vm._v(_vm._s(_vm.followers - 1))]),
+                _c("span", { staticClass: "text-gray-200 font-bold" }, [
+                  _vm._v(_vm._s(_vm.followers - 1))
+                ]),
                 _vm._v(" Follower")
               ]
             )
