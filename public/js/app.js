@@ -53066,7 +53066,10 @@ var render = function() {
         { staticClass: "flex-grow" },
         [
           _c("app-tweet-username", {
-            attrs: { user: _vm.tweet.user, created_at: this.tweet.created_at }
+            attrs: {
+              user: _vm.tweet.user,
+              created_at: this.tweet.creation_date
+            }
           }),
           _vm._v(" "),
           _vm.tweet.replying_to

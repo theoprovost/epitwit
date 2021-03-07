@@ -29,7 +29,8 @@ class TweetResource extends JsonResource
             'replying_to' => optional(optional($this->parentTweet)->user)->username,
             'media' => new MediaCollection($this->media),
             'entities' => new EntityCollection($this->entities),
-            'created_at' => date_format($this->created_at, "g:i a . M j, Y"),
+            'created_at' => $this->created_at->timestamp,
+            'creation_date' => date_format($this->created_at, "g:i a . M j, Y"),
         ];
     }
 }
