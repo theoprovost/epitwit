@@ -51946,7 +51946,10 @@ var render = function() {
         { staticClass: "text-gray-300 mb-4" },
         [
           _c("app-tweet-username", {
-            attrs: { user: _vm.notification.data.user }
+            attrs: {
+              user: _vm.notification.data.user,
+              created_at: _vm.notification.creation_date
+            }
           }),
           _vm._v(" liked your tweet.\n  ")
         ],
