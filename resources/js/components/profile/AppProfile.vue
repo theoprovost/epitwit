@@ -16,11 +16,19 @@
                 </div>
             </div>
             <div class="flex justify-between pt-1">
-                <div>
-                    <p class="text-gray-300"><span>Born <span class="text-sm">{{ bdate }}</span></span></p>
+                <div class="flex items-center text-gray-300">
+                   <p class="pr-2">Born</p>
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-5">>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    <span class="text-sm">{{ bdate }}</span>
                 </div>
-                <div>
-                    <a href="" class="text-gray-300 hover:underline" @click.prevent="trigger">{{user.website}}</a>
+                <div class="hover:underline">
+                    <a href="" class="flex text-gray-300 items-center" @click.prevent="trigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 pt-1">
+                            <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd" />
+                        </svg>
+                        {{user.website}}</a>
                 </div>
             </div>
             <div class="mt-2 h-16 text-gray-400">

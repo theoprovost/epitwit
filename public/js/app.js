@@ -3322,6 +3322,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -52061,22 +52069,42 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-between pt-1" }, [
-        _c("div", [
-          _c("p", { staticClass: "text-gray-300" }, [
-            _c("span", [
-              _vm._v("Born "),
-              _c("span", { staticClass: "text-sm" }, [
-                _vm._v(_vm._s(_vm.bdate))
-              ])
-            ])
-          ])
+        _c("div", { staticClass: "flex items-center text-gray-300" }, [
+          _c("p", { staticClass: "pr-2" }, [_vm._v("Born")]),
+          _vm._v(" "),
+          _c(
+            "svg",
+            {
+              staticClass: "h-5",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                fill: "none",
+                viewBox: "0 0 24 24",
+                stroke: "currentColor"
+              }
+            },
+            [
+              _vm._v(">\n                        "),
+              _c("path", {
+                attrs: {
+                  "stroke-linecap": "round",
+                  "stroke-linejoin": "round",
+                  "stroke-width": "2",
+                  d:
+                    "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-sm" }, [_vm._v(_vm._s(_vm.bdate))])
         ]),
         _vm._v(" "),
-        _c("div", [
+        _c("div", { staticClass: "hover:underline" }, [
           _c(
             "a",
             {
-              staticClass: "text-gray-300 hover:underline",
+              staticClass: "flex text-gray-300 items-center",
               attrs: { href: "" },
               on: {
                 click: function($event) {
@@ -52085,7 +52113,30 @@ var render = function() {
                 }
               }
             },
-            [_vm._v(_vm._s(_vm.user.website))]
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 pt-1",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20",
+                    fill: "currentColor"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "fill-rule": "evenodd",
+                      d:
+                        "M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z",
+                      "clip-rule": "evenodd"
+                    }
+                  })
+                ]
+              ),
+              _vm._v("\n                    " + _vm._s(_vm.user.website))
+            ]
           )
         ])
       ]),
