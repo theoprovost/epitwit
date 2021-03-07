@@ -5,7 +5,7 @@
       :is="`app-tweet-variant-${tweet.type}`"
       :tweet="tweet"
       :inReply= "true"
-      class="mb-4"
+      class="mb-4 hover:bg-gray-800 p-4 border border-gray-700 rounded-lg"
     />
 
     <app-tweet-reply-compose

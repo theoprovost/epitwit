@@ -4,7 +4,7 @@
 
     <component
       v-if="tweet"
-      class="border border-gray-700 rounded-lg mt-4 p-4"
+      class="border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-800"
       :is="`app-tweet-variant-${tweet.type}`"
       :tweet="tweet"
       :inReply="true"

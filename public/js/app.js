@@ -51457,7 +51457,8 @@ var render = function() {
       _vm.tweet
         ? _c("app-tweet-variant-" + _vm.tweet.type, {
             tag: "component",
-            staticClass: "mb-4",
+            staticClass:
+              "mb-4 hover:bg-gray-800 p-4 border border-gray-700 rounded-lg",
             attrs: { tweet: _vm.tweet, inReply: true }
           })
         : _vm._e(),
@@ -51514,7 +51515,8 @@ var render = function() {
       _vm.tweet
         ? _c("app-tweet-variant-" + _vm.tweet.type, {
             tag: "component",
-            staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
+            staticClass:
+              "border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-800",
             attrs: { tweet: _vm.tweet, inReply: true }
           })
         : _vm._e()
