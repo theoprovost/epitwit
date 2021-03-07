@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cursor-pointer" @click.stop.prevent="triggerTweet">
     <div class="text-gray-600 font-medium text-sm flex items-center mb-2">
       <svg
         viewBox="0 0 24 24"
@@ -12,7 +12,7 @@
           d="M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
         />
       </svg>
-      <span @click.stop.prevent="trigger" class="hover:underline cursor-pointer">{{ tweet.user.name }} retweeted</span>
+      <span @click.stop.prevent="triggerUser" class="hover:underline cursor-pointer">{{ tweet.user.name }} retweeted</span>
       <span class="text-gray-600 font-normal ml-2">{{ this.tweet.creation_date }}</span>
     </div>
 
@@ -36,9 +36,12 @@ export default {
   },
 
   methods: {
-      trigger () {
-          window.location.pathname = this.tweet.user.username;
-      }
+      triggerTweet () {
+        window.location.pathname = "./tweets/" + this.tweet.original_tweet.id;
+    },
+    triggerUser () {
+        window.location.pathname = "./" + this.tweet.replying_to;
+    },
   }
 };
 </script>
