@@ -2540,7 +2540,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -51005,7 +51004,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div"),
-    _vm._v("\n      " + _vm._s(_vm.tweets) + "\n  "),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "text-lg border-b-8 border-t-8 border-gray-800" },

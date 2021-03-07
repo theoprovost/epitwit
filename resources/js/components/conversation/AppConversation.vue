@@ -2,7 +2,6 @@
   <div>
     <div>
     </div>
-        {{tweets}}
     <div class="text-lg border-b-8 border-t-8 border-gray-800">
       <app-tweet v-if="tweets(id)" :tweet="tweets(id)" />
     </div>
