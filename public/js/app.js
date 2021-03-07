@@ -3772,6 +3772,11 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: String
     }
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = this.body.replace('@', '');
+    }
   }
 });
 
@@ -52425,9 +52430,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("a", { attrs: { href: "/users/" + _vm.body.replace("@", "") } }, [
-    _vm._v(_vm._s(_vm.body))
-  ])
+  return _c(
+    "a",
+    {
+      staticClass: "hover:underline",
+      attrs: { href: "" },
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.trigger($event)
+        }
+      }
+    },
+    [_vm._v(_vm._s(_vm.body))]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

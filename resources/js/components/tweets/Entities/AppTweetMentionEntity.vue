@@ -1,5 +1,5 @@
 <template>
-  <a :href="`/users/${body.replace('@', '')}`">{{ body }}</a>
+  <a href="" class="hover:underline" @click.stop.prevent="trigger">{{ body }}</a>
 </template>
 
 <script>
@@ -10,5 +10,10 @@ export default {
       type: String,
     },
   },
+  methods: {
+      trigger () {
+          window.location.pathname = this.body.replace('@', '');
+      }
+  }
 };
 </script>
