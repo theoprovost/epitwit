@@ -23,7 +23,7 @@
                     <a href="" class="text-gray-300 hover:underline" @click.prevent="trigger">{{user.website}}</a>
                 </div>
             </div>
-            <div class="mt-2 h-16 text-gray-300">
+            <div class="mt-2 h-16 text-gray-400">
                 {{ user.biography }}
             </div>
             <div class="flex justify-between">
