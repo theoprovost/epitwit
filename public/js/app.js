@@ -4211,6 +4211,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -53004,7 +53005,11 @@ var render = function() {
             }
           },
           [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")]
-        )
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+          _vm._v(_vm._s(this.tweet.creation_date))
+        ])
       ]
     ),
     _vm._v(" "),

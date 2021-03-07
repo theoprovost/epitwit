@@ -13,6 +13,7 @@
         />
       </svg>
       <span @click.stop.prevent="trigger" class="hover:underline cursor-pointer">{{ tweet.user.name }} retweeted</span>
+      <span class="text-gray-600 font-normal ml-2">{{ this.tweet.creation_date }}</span>
     </div>
 
     <div>
