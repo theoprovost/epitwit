@@ -4167,6 +4167,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -4193,11 +4195,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     tweet: {
       required: true,
       type: Object
+    }
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = this.tweet.user.username;
     }
   }
 });
@@ -52901,7 +52909,20 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")])
+        _c(
+          "span",
+          {
+            staticClass: "hover:underline cursor-pointer",
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                $event.preventDefault()
+                return _vm.trigger($event)
+              }
+            }
+          },
+          [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")]
+        )
       ]
     ),
     _vm._v(" "),
