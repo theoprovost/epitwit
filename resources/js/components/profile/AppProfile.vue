@@ -5,15 +5,25 @@
         </div>
         <div class="flex-grow pl-2">
             <div class="flex justify-between">
-                <div>
-                    <p class="text-gray-100 text-xl"><b>{{user.name}}</b></p>
+                <div class="flex items-center">
+                    <div class="pr-2">
+                    <p class="text-gray-100 text-xl"><b>{{ user.name }}</b></p>
+                    </div>
                     <p>@<span>{{ user.username }}</span></p>
                 </div>
-                <div class="text-gray-400">
-                    Joined {{ date }}
+                <div class="text-gray-300">
+                    <p>Joined {{ date }}</p>
                 </div>
             </div>
-            <div class="mt-2 h-20">
+            <div class="flex justify-between pt-1">
+                <div>
+                    <p class="text-gray-300"><span>Born <span class="text-sm">{{ bdate }}</span></span></p>
+                </div>
+                <div>
+                    <a href="" class="text-gray-300 hover:underline" @click.prevent="trigger">{{user.website}}</a>
+                </div>
+            </div>
+            <div class="mt-2 h-20 text-gray-300">
                 {{ user.biography }}
             </div>
             <div class="flex justify-between">
@@ -55,6 +65,10 @@ export default {
       type: Object,
     },
     date: {
+      required: true,
+      type: String,
+    },
+    bdate: {
       required: true,
       type: String,
     },
@@ -103,8 +117,11 @@ export default {
 
         followersCount() {
             return this.user.followers.length;
-        }
+        },
 
+        trigger() {
+            window.location = "http://" + this.user.website;
+        }
   },
 
   mounted() {

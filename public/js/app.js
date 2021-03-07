@@ -3303,6 +3303,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3311,6 +3321,10 @@ __webpack_require__.r(__webpack_exports__);
       type: Object
     },
     date: {
+      required: true,
+      type: String
+    },
+    bdate: {
       required: true,
       type: String
     },
@@ -3361,6 +3375,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     followersCount: function followersCount() {
       return this.user.followers.length;
+    },
+    trigger: function trigger() {
+      window.location = "http://" + this.user.website;
     }
   },
   mounted: function mounted() {
@@ -51977,9 +51994,11 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "flex-grow pl-2" }, [
       _c("div", { staticClass: "flex justify-between" }, [
-        _c("div", [
-          _c("p", { staticClass: "text-gray-100 text-xl" }, [
-            _c("b", [_vm._v(_vm._s(_vm.user.name))])
+        _c("div", { staticClass: "flex items-center" }, [
+          _c("div", { staticClass: "pr-2" }, [
+            _c("p", { staticClass: "text-gray-100 text-xl" }, [
+              _c("b", [_vm._v(_vm._s(_vm.user.name))])
+            ])
           ]),
           _vm._v(" "),
           _c("p", [
@@ -51988,14 +52007,42 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "text-gray-400" }, [
-          _vm._v(
-            "\n                Joined " + _vm._s(_vm.date) + "\n            "
+        _c("div", { staticClass: "text-gray-300" }, [
+          _c("p", [_vm._v("Joined " + _vm._s(_vm.date))])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex justify-between pt-1" }, [
+        _c("div", [
+          _c("p", { staticClass: "text-gray-300" }, [
+            _c("span", [
+              _vm._v("Born "),
+              _c("span", { staticClass: "text-sm" }, [
+                _vm._v(_vm._s(_vm.bdate))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "a",
+            {
+              staticClass: "text-gray-300 hover:underline",
+              attrs: { href: "" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.trigger($event)
+                }
+              }
+            },
+            [_vm._v(_vm._s(_vm.user.website))]
           )
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-2 h-20" }, [
+      _c("div", { staticClass: "mt-2 h-20 text-gray-300" }, [
         _vm._v("\n            " + _vm._s(_vm.user.biography) + "\n        ")
       ]),
       _vm._v(" "),

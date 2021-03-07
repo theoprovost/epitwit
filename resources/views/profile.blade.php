@@ -7,7 +7,12 @@
         </div>
         <div class="w-9/12 border-2 border-gray-800 border-t-0 border-b-0">
             <div>
-               <app-profile :auth="{{$authId}}"  :user="{{$user}}" :date="'{{ date_format($user->created_at,"F Y") }}'" :avatar="'{{$user->avatar()}}'" />
+               <app-profile
+                    :auth="{{$authId}}"
+                    :user="{{$user}}"
+                    :bdate="'{{ date("F j Y", strtotime($user->dob)) }}'"
+                    :date="'{{ date_format($user->created_at,"F Y") }}'"
+                    :avatar="'{{$user->avatar()}}'" />
             </div>
             <div>
                 <app-user-timeline/>
