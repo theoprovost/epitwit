@@ -71,12 +71,12 @@ class Tweet extends Model
 
     public function retweets()
     {
-        return $this->hasMany(Tweet::class, 'original_tweet_id');
+        return $this->hasMany(Tweet::class, 'original_tweet_id')->where('type', TweetType::RETWEET);
     }
 
     public function retweetedTweet()
     {
-        return $this->hasOne(Tweet::class, 'original_tweet_id', 'id');
+        return $this->hasOne(Tweet::class, 'original_tweet_id', 'id')->where('type', TweetType::RETWEET);;
     }
 
     public function media()

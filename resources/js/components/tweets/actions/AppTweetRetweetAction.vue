@@ -1,12 +1,15 @@
 <template>
   <div>
-    <app-dropdown v-if="!retweeted">
+    <app-dropdown>
       <template slot="trigger">
         <app-tweet-retweet-action-button :tweet="tweet" />
       </template>
 
-      <app-dropdown-item @click.stop.prevent="retweetOrUnretweet">
+      <app-dropdown-item v-if="!retweeted" @click.stop.prevent="retweetOrUnretweet">
         Retweet
+      </app-dropdown-item>
+      <app-dropdown-item v-else @click.stop.prevent="retweetOrUnretweet">
+        Undo retweet
       </app-dropdown-item>
       <app-dropdown-item
         @click.stop.prevent="
@@ -18,12 +21,6 @@
         Retweet with comment
       </app-dropdown-item>
     </app-dropdown>
-
-    <app-tweet-retweet-action-button
-      :tweet="tweet"
-      v-else
-      @click.stop="retweetOrUnretweet"
-    />
   </div>
 </template>
 

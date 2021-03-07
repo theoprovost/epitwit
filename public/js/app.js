@@ -4019,9 +4019,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -52786,22 +52783,22 @@ var render = function() {
   return _c(
     "div",
     [
-      !_vm.retweeted
-        ? _c(
-            "app-dropdown",
+      _c(
+        "app-dropdown",
+        [
+          _c(
+            "template",
+            { slot: "trigger" },
             [
-              _c(
-                "template",
-                { slot: "trigger" },
-                [
-                  _c("app-tweet-retweet-action-button", {
-                    attrs: { tweet: _vm.tweet }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
+              _c("app-tweet-retweet-action-button", {
+                attrs: { tweet: _vm.tweet }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          !_vm.retweeted
+            ? _c(
                 "app-dropdown-item",
                 {
                   on: {
@@ -52813,35 +52810,39 @@ var render = function() {
                   }
                 },
                 [_vm._v("\n      Retweet\n    ")]
-              ),
-              _vm._v(" "),
-              _c(
+              )
+            : _c(
                 "app-dropdown-item",
                 {
                   on: {
                     click: function($event) {
                       $event.stopPropagation()
                       $event.preventDefault()
-                      return _vm.$modal.show(_vm.AppTweetRetweetModal, {
-                        tweet: _vm.tweet
-                      })
+                      return _vm.retweetOrUnretweet($event)
                     }
                   }
                 },
-                [_vm._v("\n      Retweet with comment\n    ")]
-              )
-            ],
-            2
-          )
-        : _c("app-tweet-retweet-action-button", {
-            attrs: { tweet: _vm.tweet },
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-                return _vm.retweetOrUnretweet($event)
+                [_vm._v("\n      Undo retweet\n    ")]
+              ),
+          _vm._v(" "),
+          _c(
+            "app-dropdown-item",
+            {
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.$modal.show(_vm.AppTweetRetweetModal, {
+                    tweet: _vm.tweet
+                  })
+                }
               }
-            }
-          })
+            },
+            [_vm._v("\n      Retweet with comment\n    ")]
+          )
+        ],
+        2
+      )
     ],
     1
   )
@@ -53128,10 +53129,7 @@ var render = function() {
         { staticClass: "flex-grow" },
         [
           _c("app-tweet-username", {
-            attrs: {
-              user: _vm.tweet.user,
-              created_at: this.tweet.creation_date
-            }
+            attrs: { user: _vm.tweet.user, created_at: _vm.tweet.creation_date }
           }),
           _vm._v(" "),
           _vm.tweet.replying_to

@@ -25,6 +25,6 @@ class TweetQuoteController extends Controller
         ]);
 
         broadcast(new TweetWasCreated($retweet));
-        broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
+        //broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
     }
 }
