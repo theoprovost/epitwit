@@ -52100,45 +52100,47 @@ var render = function() {
           _c("span", { staticClass: "text-sm" }, [_vm._v(_vm._s(_vm.bdate))])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "hover:underline" }, [
-          _c(
-            "a",
-            {
-              staticClass: "flex text-gray-300 items-center",
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.trigger($event)
-                }
-              }
-            },
-            [
+        _vm.user.website
+          ? _c("div", { staticClass: "hover:underline" }, [
               _c(
-                "svg",
+                "a",
                 {
-                  staticClass: "h-6 pt-1",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    viewBox: "0 0 20 20",
-                    fill: "currentColor"
+                  staticClass: "flex text-gray-300 items-center",
+                  attrs: { href: "" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.trigger($event)
+                    }
                   }
                 },
                 [
-                  _c("path", {
-                    attrs: {
-                      "fill-rule": "evenodd",
-                      d:
-                        "M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z",
-                      "clip-rule": "evenodd"
-                    }
-                  })
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-6 pt-1",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20",
+                        fill: "currentColor"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d:
+                            "M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z",
+                          "clip-rule": "evenodd"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v("\n                    " + _vm._s(_vm.user.website))
                 ]
-              ),
-              _vm._v("\n                    " + _vm._s(_vm.user.website))
-            ]
-          )
-        ])
+              )
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-2 h-16 text-gray-400" }, [
