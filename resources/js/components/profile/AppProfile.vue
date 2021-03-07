@@ -9,7 +9,7 @@
                     <div class="pr-2">
                     <p class="text-gray-100 text-xl"><b>{{ user.name }}</b></p>
                     </div>
-                    <p>@<span>{{ user.username }}</span></p>
+                    <p class="text-gray-400">@<span>{{ user.username }}</span></p>
                 </div>
                 <div class="text-gray-300">
                     <p>Joined {{ date }}</p>

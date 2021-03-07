@@ -52049,7 +52049,7 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("p", [
+          _c("p", { staticClass: "text-gray-400" }, [
             _vm._v("@"),
             _c("span", [_vm._v(_vm._s(_vm.user.username))])
           ])
