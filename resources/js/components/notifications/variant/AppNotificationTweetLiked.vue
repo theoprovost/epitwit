@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex-grow">
+  <div class="p-4 flex-grow hover:bg-gray-800 cursor-pointer" @click.stop.prevent="trigger">
     <div class="text-gray-300 mb-4">
       <app-tweet-username :user="notification.data.user" /> liked your tweet.
     </div>
@@ -20,5 +20,10 @@ export default {
       type: Object,
     },
   },
+  methods: {
+      trigger () {
+          window.location.pathname = "tweets/" + this.notification.data.tweet.id;
+      }
+  }
 };
 </script>

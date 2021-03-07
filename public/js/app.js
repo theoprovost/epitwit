@@ -3148,6 +3148,11 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: Object
     }
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = "tweets/" + this.notification.data.tweet.id;
+    }
   }
 });
 
@@ -51884,23 +51889,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-4 flex-grow" }, [
-    _c(
-      "div",
-      { staticClass: "text-gray-300 mb-4" },
-      [
-        _c("app-tweet-username", {
-          attrs: { user: _vm.notification.data.user }
-        }),
-        _vm._v(" liked your tweet.\n  ")
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("p", { staticClass: "text-gray-600" }, [
-      _vm._v("\n    " + _vm._s(_vm.notification.data.tweet.body) + "\n  ")
-    ])
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "p-4 flex-grow hover:bg-gray-800 cursor-pointer",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.trigger($event)
+        }
+      }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "text-gray-300 mb-4" },
+        [
+          _c("app-tweet-username", {
+            attrs: { user: _vm.notification.data.user }
+          }),
+          _vm._v(" liked your tweet.\n  ")
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-gray-600" }, [
+        _vm._v("\n    " + _vm._s(_vm.notification.data.tweet.body) + "\n  ")
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
