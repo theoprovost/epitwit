@@ -20,8 +20,7 @@ class UserController extends Controller
                     'likes'
                 ])->where('username', '=', $username)
                 ->get()->first();
-        $auth = Auth::user();
-        $authUser = User::where('id', '=', $auth->id)->first();
+        $authUser = $request->user();
         $authId = $authUser->id;
         return view('profile', compact('user', 'authId'));
     }

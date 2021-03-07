@@ -29,11 +29,13 @@ class TweetController extends Controller
                             'likes',
                             'retweets',
                             'replies',
+                            'entities',
                             'media.baseMedia', // both media and baseMedia
                             'originalTweet.user',
                             'originalTweet.likes',
                             'originalTweet.retweets',
-                            'originalTweet.media.baseMedia'
+                            'originalTweet.replies',
+                            'originalTweet.media.baseMedia',
                         ])->find(explode(',', $request->ids));
 
         return new TweetCollection($tweets);
