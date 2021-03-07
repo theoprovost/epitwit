@@ -1,11 +1,11 @@
 <template>
-  <div class="flex w-full cursor-pointer" @click.prevent="trigger">
+  <div class="flex w-full cursor-pointer" @click.prevent="triggerTweet">
     <img :src="tweet.user.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
     <div class="flex-grow">
       <app-tweet-username :user="tweet.user" />
 
       <div v-if="tweet.replying_to" class="text-gray-600 mb-2">
-        Replying to <a href="">@{{ tweet.replying_to }}</a>
+        Replying to <a href="" class="hover:underline cursor-pointer" @click.stop.prevent="triggerUser">@{{ tweet.replying_to }}</a>
       </div>
 
       <app-tweet-body v-if="tweet.body" :tweet="tweet" />
@@ -43,8 +43,11 @@ export default {
   },
 
    methods: {
-  	trigger () {
+  	triggerTweet () {
         window.location.pathname = "./tweets/" + this.tweet.id;
+    },
+    triggerUser () {
+        window.location.pathname = "./" + this.tweet.replying_to;
     }
   }
 };

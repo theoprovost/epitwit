@@ -4233,8 +4233,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    trigger: function trigger() {
+    triggerTweet: function triggerTweet() {
       window.location.pathname = "./tweets/" + this.tweet.id;
+    },
+    triggerUser: function triggerUser() {
+      window.location.pathname = "./" + this.tweet.replying_to;
     }
   }
 });
@@ -52866,7 +52869,7 @@ var render = function() {
       on: {
         click: function($event) {
           $event.preventDefault()
-          return _vm.trigger($event)
+          return _vm.triggerTweet($event)
         }
       }
     },
@@ -52885,9 +52888,21 @@ var render = function() {
           _vm.tweet.replying_to
             ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
                 _vm._v("\n      Replying to "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("@" + _vm._s(_vm.tweet.replying_to))
-                ])
+                _c(
+                  "a",
+                  {
+                    staticClass: "hover:underline cursor-pointer",
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        $event.preventDefault()
+                        return _vm.triggerUser($event)
+                      }
+                    }
+                  },
+                  [_vm._v("@" + _vm._s(_vm.tweet.replying_to))]
+                )
               ])
             : _vm._e(),
           _vm._v(" "),
