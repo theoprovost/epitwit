@@ -2550,12 +2550,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     parents: "conversation/parents",
     replies: "conversation/replies"
   })),
-  methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
     getTweets: "conversation/getTweets"
+  })), (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)({
+    PUSH_TWEETS: "timeline/PUSH_TWEETS"
   })),
   mounted: function mounted() {
+    var _this = this;
+
     this.getTweets("/api/tweets/".concat(this.id));
     this.getTweets("/api/tweets/".concat(this.id, "/replies"));
+    Echo.channel("tweets.".concat(this.id)).listen('.ReplyWasCreated', function (e) {
+      _this.getTweets("/api/tweets/".concat(_this.id, "/replies"));
+    });
   }
 });
 
@@ -50930,7 +50937,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div"),
-    _vm._v(" "),
+    _vm._v("\n      " + _vm._s(_vm.tweets) + "\n  "),
     _c(
       "div",
       { staticClass: "text-lg border-b-8 border-t-8 border-gray-800" },

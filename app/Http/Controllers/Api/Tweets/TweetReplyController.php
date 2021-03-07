@@ -7,9 +7,11 @@ use App\Tweets\TweetType;
 use App\Models\TweetMedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\Tweets\TweetWasCreated;
+use App\Events\Replies\ReplyWasCreated;
+use App\Http\Resources\TweetCollection;
 use App\Notifications\Tweets\TweetRepliedTo;
 use App\Events\Tweets\TweetRepliesWereUpdated;
-use App\Http\Resources\TweetCollection;
 
 class TweetReplyController extends Controller
 {
@@ -37,6 +39,7 @@ class TweetReplyController extends Controller
             $tweet->user->notify(new TweetRepliedTo($request->user(), $reply));
         }
 
+        broadcast(new ReplyWasCreated($tweet));
         broadcast(new TweetRepliesWereUpdated($tweet));
     }
 }

@@ -2,7 +2,7 @@
   <div>
     <div>
     </div>
-
+        {{tweets}}
     <div class="text-lg border-b-8 border-t-8 border-gray-800">
       <app-tweet v-if="tweets(id)" :tweet="tweets(id)" />
     </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 export default {
   props: {
@@ -32,15 +32,24 @@ export default {
     }),
   },
 
+
   methods: {
     ...mapActions({
       getTweets: "conversation/getTweets",
+    }),
+    ...mapMutations({
+      PUSH_TWEETS: "timeline/PUSH_TWEETS",
     }),
   },
 
   mounted() {
     this.getTweets(`/api/tweets/${this.id}`);
     this.getTweets(`/api/tweets/${this.id}/replies`);
+
+    Echo.channel(`tweets.${this.id}`)
+        .listen('.ReplyWasCreated', (e) => {
+            this.getTweets(`/api/tweets/${this.id}/replies`);
+        })
   },
 };
 </script>

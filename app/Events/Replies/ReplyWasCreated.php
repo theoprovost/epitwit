@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Events\Tweets;
+namespace App\Events\Replies;
 
-use App\Http\Resources\TweetResource;
 use App\Models\Tweet;
 use Illuminate\Broadcasting\Channel;
-use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Foundation\Events\Dispatchable;
+use App\Http\Resources\TweetResource;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TweetWasCreated implements ShouldBroadcast
+class ReplyWasCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -30,14 +30,13 @@ class TweetWasCreated implements ShouldBroadcast
 
     public function broadcastAs()
     {
-        return 'TweetWasCreated'; // override class name so the frond-end doesn't see the structure
+        return 'ReplyWasCreated'; // override class name so the frond-end doesn't see the structure
     }
 
     public function broadcastWith()
     {
         return (new TweetResource($this->tweet))->jsonSerialize();
     }
-
     /**
      * Get the channels the event should broadcast on.
      *
@@ -45,9 +44,6 @@ class TweetWasCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return $this->tweet->user->followers->map(function ($user) {
-            return new PrivateChannel('timeline.' . $user->id);
-        })
-            ->toArray();
+        return new Channel('tweets.'. $this->tweet->id);
     }
 }
