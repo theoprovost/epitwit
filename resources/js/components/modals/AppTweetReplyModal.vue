@@ -4,6 +4,7 @@
       v-if="tweet"
       :is="`app-tweet-variant-${tweet.type}`"
       :tweet="tweet"
+      :inReply= "true"
       class="mb-4"
     />
 

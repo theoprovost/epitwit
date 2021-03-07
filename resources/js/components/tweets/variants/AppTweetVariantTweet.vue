@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <app-tweet-action-group :tweet="tweet" />
+      <app-tweet-action-group :tweet="tweet" v-if="!inReply"/>
     </div>
   </div>
 </template>
@@ -33,6 +33,10 @@ export default {
     tweet: {
       required: true,
       type: Object,
+    },
+    inReply: {
+      required: false,
+      type: Boolean,
     },
   },
 

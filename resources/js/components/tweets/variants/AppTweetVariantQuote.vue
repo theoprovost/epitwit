@@ -11,10 +11,11 @@
 
       <app-tweet-variant-tweet
         :tweet="tweet.original_tweet"
+        :inReply="inReply"
         class="border border-gray-700 rounded-lg mt-4 p-4"
       />
 
-      <app-tweet-action-group :tweet="tweet" />
+      <app-tweet-action-group :tweet="tweet" v-if="!inReply"/>
     </div>
   </div>
 </template>
@@ -27,6 +28,10 @@ export default {
     tweet: {
       required: true,
       type: Object,
+    },
+    inReply: {
+      required: false,
+      type: Boolean,
     },
   },
 

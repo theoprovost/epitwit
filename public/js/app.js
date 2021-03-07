@@ -2767,6 +2767,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2794,6 +2795,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _tweets_AppTweet_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../tweets/AppTweet.vue */ "./resources/js/components/tweets/AppTweet.vue");
+//
 //
 //
 //
@@ -4157,6 +4159,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4166,6 +4169,10 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
+    },
+    inReply: {
+      required: false,
+      type: Boolean
     }
   },
   methods: {
@@ -4285,6 +4292,10 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
+    },
+    inReply: {
+      required: false,
+      type: Boolean
     }
   },
   computed: {
@@ -51447,7 +51458,7 @@ var render = function() {
         ? _c("app-tweet-variant-" + _vm.tweet.type, {
             tag: "component",
             staticClass: "mb-4",
-            attrs: { tweet: _vm.tweet }
+            attrs: { tweet: _vm.tweet, inReply: true }
           })
         : _vm._e(),
       _vm._v(" "),
@@ -51504,7 +51515,7 @@ var render = function() {
         ? _c("app-tweet-variant-" + _vm.tweet.type, {
             tag: "component",
             staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
-            attrs: { tweet: _vm.tweet }
+            attrs: { tweet: _vm.tweet, inReply: true }
           })
         : _vm._e()
     ],
@@ -52960,10 +52971,12 @@ var render = function() {
           _vm._v(" "),
           _c("app-tweet-variant-tweet", {
             staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
-            attrs: { tweet: _vm.tweet.original_tweet }
+            attrs: { tweet: _vm.tweet.original_tweet, inReply: _vm.inReply }
           }),
           _vm._v(" "),
-          _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+          !_vm.inReply
+            ? _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+            : _vm._e()
         ],
         1
       )
@@ -53161,7 +53174,9 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+          !_vm.inReply
+            ? _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+            : _vm._e()
         ],
         1
       )
