@@ -2743,6 +2743,7 @@ __webpack_require__.r(__webpack_exports__);
     Vue.set(this.fields, 'website', this.user.website);
     Vue.set(this.fields, 'country', this.user.country);
     Vue.set(this.fields, 'city', this.user.city);
+    Vue.set(this.fields, 'biography', this.user.biography);
   }
 });
 
@@ -52975,7 +52976,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex w-full",
+      staticClass: "flex w-full cursor-pointer",
       on: {
         click: function($event) {
           $event.stopPropagation()
@@ -53138,7 +53139,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex w-full",
+      staticClass: "flex w-full cursor-pointer",
       on: {
         click: function($event) {
           $event.stopPropagation()

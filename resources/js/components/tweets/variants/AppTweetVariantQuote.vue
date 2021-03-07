@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full" @click.stop.prevent="trigger">
+  <div class="flex w-full cursor-pointer" @click.stop.prevent="trigger">
     <div class="mr-3">
       <img :src="tweet.user.avatar" alt=" " class="w-12 rounded-full" />
     </div>

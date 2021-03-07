@@ -79,6 +79,7 @@ export default {
         Vue.set(this.fields, 'website', this.user.website);
         Vue.set(this.fields, 'country', this.user.country);
         Vue.set(this.fields, 'city', this.user.city);
+        Vue.set(this.fields, 'biography', this.user.biography);
     }
 }
 </script>

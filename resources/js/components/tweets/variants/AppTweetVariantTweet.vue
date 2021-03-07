@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-full" @click.stop.prevent="triggerTweet">
+  <div class="flex w-full cursor-pointer" @click.stop.prevent="triggerTweet">
     <img :src="tweet.user.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
     <div class="flex-grow">
       <app-tweet-username :user="tweet.user" :created_at="tweet.creation_date" />
