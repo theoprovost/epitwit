@@ -3698,6 +3698,11 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: Object
     }
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = "./" + this.user.username;
+    }
   }
 });
 
@@ -52300,7 +52305,16 @@ var render = function() {
   return _c("div", [
     _c(
       "span",
-      { staticClass: "text-gray-300 font-bold hover:underline cursor-pointer" },
+      {
+        staticClass: "text-gray-300 font-bold hover:underline cursor-pointer",
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            $event.preventDefault()
+            return _vm.trigger($event)
+          }
+        }
+      },
       [_vm._v(_vm._s(_vm.user.name))]
     ),
     _vm._v(" "),
