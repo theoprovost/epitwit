@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 flex-grow">
+  <div class="flex-grow">
     <app-tweet v-if="resolvedTweet" :tweet="resolvedTweet" class="!border-0" />
   </div>
 </template>

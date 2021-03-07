@@ -51987,7 +51987,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "p-4 flex-grow" },
+    { staticClass: "flex-grow" },
     [
       _vm.resolvedTweet
         ? _c("app-tweet", {
