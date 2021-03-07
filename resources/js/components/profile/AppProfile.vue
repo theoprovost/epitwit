@@ -1,7 +1,7 @@
 <template>
      <div class="flex w-full p-4">
         <div class="p-4 pt-8">
-           <img :src="avatar" alt=" " class="mr-3 rounded-full w-32" />
+           <img :src="avatar" alt=" " class="mr-3 rounded-full w-28" />
         </div>
         <div class="flex-grow pl-2">
             <div class="flex justify-between">
@@ -23,7 +23,7 @@
                     <a href="" class="text-gray-300 hover:underline" @click.prevent="trigger">{{user.website}}</a>
                 </div>
             </div>
-            <div class="mt-2 h-20 text-gray-300">
+            <div class="mt-2 h-16 text-gray-300">
                 {{ user.biography }}
             </div>
             <div class="flex justify-between">

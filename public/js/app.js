@@ -51987,7 +51987,7 @@ var render = function() {
   return _c("div", { staticClass: "flex w-full p-4" }, [
     _c("div", { staticClass: "p-4 pt-8" }, [
       _c("img", {
-        staticClass: "mr-3 rounded-full w-32",
+        staticClass: "mr-3 rounded-full w-28",
         attrs: { src: _vm.avatar, alt: " " }
       })
     ]),
@@ -52042,7 +52042,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-2 h-20 text-gray-300" }, [
+      _c("div", { staticClass: "mt-2 h-16 text-gray-300" }, [
         _vm._v("\n            " + _vm._s(_vm.user.biography) + "\n        ")
       ]),
       _vm._v(" "),
