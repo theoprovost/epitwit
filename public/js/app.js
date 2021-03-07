@@ -51804,7 +51804,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex w-full border-b border-gray-800" },
+    { staticClass: "flex w-full border-b-4 border-gray-800" },
     [
       _c("AppNotification" + _vm.notification.type, {
         tag: "component",
