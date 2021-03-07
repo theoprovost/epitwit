@@ -3709,11 +3709,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
       required: true,
       type: Object
+    },
+    created_at: {
+      required: false
     }
   },
   methods: {
@@ -52357,24 +52364,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "span",
-      {
-        staticClass: "text-gray-300 font-bold hover:underline cursor-pointer",
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            $event.preventDefault()
-            return _vm.trigger($event)
+  return _c("div", { staticClass: "flex justify-between" }, [
+    _c("div", [
+      _c(
+        "span",
+        {
+          staticClass: "text-gray-300 font-bold hover:underline cursor-pointer",
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              $event.preventDefault()
+              return _vm.trigger($event)
+            }
           }
-        }
-      },
-      [_vm._v(_vm._s(_vm.user.name))]
-    ),
-    _vm._v(" "),
-    _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
-      _vm._v("@" + _vm._s(_vm.user.username))
+        },
+        [_vm._v(_vm._s(_vm.user.name))]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+        _vm._v("@" + _vm._s(_vm.user.username))
+      ])
+    ]),
+    _c("div", [
+      _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+        _vm._v(_vm._s(_vm.created_at))
+      ])
     ])
   ])
 }
@@ -52947,7 +52961,9 @@ var render = function() {
         "div",
         { staticClass: "flex-grow" },
         [
-          _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
+          _c("app-tweet-username", {
+            attrs: { user: _vm.tweet.user, created_at: this.tweet.created_at }
+          }),
           _vm._v(" "),
           _vm.tweet.replying_to
             ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
