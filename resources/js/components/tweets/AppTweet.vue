@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800"
+    class="w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
   >
     <component :is="`app-tweet-variant-${tweet.type}`" :tweet="tweet" />
   </div>

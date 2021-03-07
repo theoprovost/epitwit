@@ -52414,7 +52414,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800"
+        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
     },
     [
       _c("app-tweet-variant-" + _vm.tweet.type, {
@@ -52946,7 +52946,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex w-full cursor-pointer",
+      staticClass: "flex w-full",
       on: {
         click: function($event) {
           $event.stopPropagation()
@@ -53109,7 +53109,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "flex w-full cursor-pointer",
+      staticClass: "flex w-full",
       on: {
         click: function($event) {
           $event.stopPropagation()
