@@ -52409,7 +52409,7 @@ var render = function() {
       _c(
         "span",
         {
-          staticClass: "text-gray-300 font-bold hover:underline cursor-pointer",
+          staticClass: "text-gray-200 font-bold hover:underline cursor-pointer",
           on: {
             click: function($event) {
               $event.stopPropagation()
@@ -52421,12 +52421,12 @@ var render = function() {
         [_vm._v(_vm._s(_vm.user.name))]
       ),
       _vm._v(" "),
-      _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+      _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
         _vm._v("@" + _vm._s(_vm.user.username))
       ])
     ]),
     _c("div", [
-      _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+      _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
         _vm._v(_vm._s(_vm.created_at))
       ])
     ])
