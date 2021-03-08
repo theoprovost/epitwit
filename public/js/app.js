@@ -2691,10 +2691,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_props$methods$data$m = {
   props: {
-    user: {
+    follower: {
       required: true,
       type: Object
     },
@@ -2704,7 +2711,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     trigger: function trigger() {
-      window.location.pathname = "./" + this.user.username;
+      window.location.pathname = "/" + this.follower.username;
     }
   },
   data: function data() {
@@ -2716,20 +2723,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }, _defineProperty(_props$methods$data$m, "methods", {
   followOrUnfollow: function followOrUnfollow() {
     if (this.follow) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.user.id, "/follow"));
+      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.follower.id, "/follow"));
       this.button = this.button == "Follow" ? "Unfollow" : "Follow";
       this.follow = this.follow ? false : true;
       return;
     }
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.user.id, "/follow"));
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.follower.id, "/follow"));
     this.button = this.button == "Follow" ? "Unfollow" : "Follow";
     this.follow = this.follow ? false : true;
   },
   followed: function followed() {
     var _this = this;
 
-    if (this.user.followers.filter(function (x) {
+    if (this.follower.followers.filter(function (x) {
       return x.id === _this.auth;
     }).length > 0) return true;
     return false;
@@ -2737,13 +2744,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   followOrNot: function followOrNot() {
     var _this2 = this;
 
-    if (this.user.followers.filter(function (x) {
+    if (this.follower.followers.filter(function (x) {
       return x.id === _this2.auth;
     }).length > 0) return "Unfollow";
     return "Follow";
   },
   trigger: function trigger() {
-    window.location = "http://" + this.user.website;
+    window.location = "http://" + this.follower.website;
   }
 }), _defineProperty(_props$methods$data$m, "mounted", function mounted() {
   Vue.set(this, 'button', this.followOrNot());
@@ -2769,9 +2776,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    users: {
+    user: {
+      required: true,
+      type: Object
+    },
+    followers: {
       required: true,
       type: Object
     },
@@ -51469,12 +51497,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex w-full cursor-pointer justify-between" },
+    {
+      staticClass: "flex w-full cursor-pointer justify-between",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.trigger($event)
+        }
+      }
+    },
     [
       _c("div", { staticClass: "flex" }, [
         _c("img", {
           staticClass: "w-12 h-12 mr-3 rounded-full",
-          attrs: { src: _vm.user.avatar, alt: " " }
+          attrs: { src: _vm.follower.avatar, alt: " " }
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex-grow" }, [
@@ -51491,15 +51528,15 @@ var render = function() {
                 }
               }
             },
-            [_vm._v(_vm._s(_vm.user.name))]
+            [_vm._v(_vm._s(_vm.follower.name))]
           ),
           _vm._v(" "),
           _c("span", { staticClass: "text-gray-500 font-normal ml-2 block" }, [
-            _vm._v("@" + _vm._s(_vm.user.username))
+            _vm._v("@" + _vm._s(_vm.follower.username))
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "text-gray-500 font-normal ml-2 block" }, [
-            _vm._v(_vm._s(_vm.user.biography))
+            _vm._v(_vm._s(_vm.follower.biography))
           ])
         ])
       ]),
@@ -51509,13 +51546,21 @@ var render = function() {
           "button",
           {
             staticClass:
-              "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+              "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none",
             class: {
-              "hover:bg-red-700": _vm.follow
+              "hover:bg-red-700": _vm.follow,
+              "bg-blue-500": _vm.follow,
+              "text-gray-300": _vm.follow,
+              "border-0": _vm.follow,
+              border: !_vm.follow,
+              "text-blue-500": !_vm.follow,
+              "hover:bg-blue-500": !_vm.follow,
+              "hover:text-gray-300": !_vm.follow
             },
             attrs: { type: "buton" },
             on: {
               click: function($event) {
+                $event.stopPropagation()
                 $event.preventDefault()
                 return _vm.followOrUnfollow($event)
               }
@@ -51550,20 +51595,63 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
-    },
-    _vm._l(_vm.users, function(user) {
-      return _c("app-follower", {
-        key: user.id,
-        attrs: { user: user, auth: _vm.auth }
-      })
-    }),
-    1
-  )
+  return _c("div", [
+    _c("div", { staticClass: "flex items-center cursor-pointer" }, [
+      _c("div", { staticClass: "p-2" }, [
+        _c("div", { staticClass: "p-2 hover:bg-gray-800 rounded-full" }, [
+          _c("a", { attrs: { href: "" } }, [
+            _c(
+              "svg",
+              {
+                staticClass: "text-blue-500 h-12",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  stroke: "currentColor"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    "stroke-width": "2",
+                    d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+                  }
+                })
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("p", { staticClass: "text-gray-200 text-xl font-bold block" }, [
+          _vm._v(_vm._s(_vm.user.name))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-gray-600 font-bold block" }, [
+          _vm._v("@" + _vm._s(_vm.user.username))
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
+      },
+      _vm._l(_vm.followers, function(follower) {
+        return _c("app-follower", {
+          key: follower.id,
+          attrs: { follower: follower, auth: _vm.auth }
+        })
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
