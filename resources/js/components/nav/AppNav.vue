@@ -1,9 +1,10 @@
 <template>
-  <div class="w-full h-screen flex flex-col">
+  <div class="w-full h-screen flex flex-col flex-end">
     <div class="w-full inline-block h-12 rounded-full mb-2">
       <img src="" alt="" />
     </div>
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="/home" class="w-full h-full flex align-center group">
         <svg
           viewBox="0 0 24 24"
@@ -24,9 +25,11 @@
           Home
         </p>
       </a>
+      </div>
     </div>
 
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="" class="w-full h-full flex align-center group">
         <div class="self-center">
           <svg
@@ -48,9 +51,11 @@
           Explore
         </p>
       </a>
+      </div>
     </div>
 
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerNotifications">
         <div class="self-center">
           <svg
@@ -73,8 +78,10 @@
         </p>
       </a>
     </div>
+    </div>
 
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="" class="w-full h-full flex align-center group">
         <div class="self-center">
           <svg
@@ -97,8 +104,10 @@
         </p>
       </a>
     </div>
+    </div>
 
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerProfile">
         <div class="self-center">
           <svg
@@ -121,8 +130,10 @@
         </p>
       </a>
     </div>
+    </div>
 
-    <div class="w-full inline-block h-12 rounded-full mb-2">
+    <div class="w-full flex h-12 rounded-full mb-2">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
       <a href="/search" class="w-full h-full flex align-center group">
         <div class="self-center">
           <svg
@@ -144,6 +155,7 @@
           Search
         </p>
       </a>
+    </div>
     </div>
   </div>
 </template>
