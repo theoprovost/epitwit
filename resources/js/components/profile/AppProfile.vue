@@ -39,7 +39,7 @@
                     <div class="pr-2">
                         <a :href="user.username + '/following'" class="hover:underline text-gray-400"><span class="text-gray-200 font-bold">{{ user.following.length - 1}}</span> Following</a>
                     </div><div class="pl-2">
-                        <a :href="user.username + '/followers'" class="hover:underline text-gray-400"><span class="text-gray-200 font-bold">{{ followers - 1}}</span> Follower</a>
+                        <a :href="user.username + '/followers'" class="hover:underline text-gray-400"><span class="text-gray-200 font-bold">{{ followers - 1}}</span> Followers</a>
                     </div>
                 </div>
                 <div class="m-2">

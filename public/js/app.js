@@ -52808,7 +52808,7 @@ var render = function() {
                 _c("span", { staticClass: "text-gray-200 font-bold" }, [
                   _vm._v(_vm._s(_vm.followers - 1))
                 ]),
-                _vm._v(" Follower")
+                _vm._v(" Followers")
               ]
             )
           ])
