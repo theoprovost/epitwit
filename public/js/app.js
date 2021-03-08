@@ -3218,6 +3218,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     triggerNotifications: function triggerNotifications() {
       window.location.pathname = 'notifications';
+    },
+    triggerHome: function triggerHome() {
+      window.location.pathname = 'home';
     }
   }
 });
@@ -52399,26 +52402,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full h-screen flex flex-col flex-end" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "/home" }
-            },
-            [
+  return _c(
+    "div",
+    { staticClass: "w-full h-screen flex flex-col flex-end text-gray-300" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
+                $event.preventDefault()
+                return _vm.triggerHome($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c(
                 "svg",
                 {
-                  staticClass:
-                    "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                  staticClass: "fill-current self-center",
                   attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                 },
                 [
@@ -52433,38 +52442,28 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Home\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "" }
-            },
-            [
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("\n        Home\n      ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c("div", { staticClass: "self-center" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                    staticClass: "fill-current self-center",
                     attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                   },
                   [
@@ -52480,44 +52479,34 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Explore\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.triggerNotifications($event)
-                }
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("\n        Explore\n      ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.triggerNotifications($event)
               }
-            },
-            [
+            }
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c("div", { staticClass: "self-center" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                    staticClass: "fill-current self-center",
                     attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                   },
                   [
@@ -52533,38 +52522,28 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Notifications\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "" }
-            },
-            [
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold " }, [
+                _vm._v("\n        Notifications\n      ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c("div", { staticClass: "self-center" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                    staticClass: "fill-current self-center",
                     attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                   },
                   [
@@ -52580,44 +52559,34 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Messages\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.triggerProfile($event)
-                }
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("\n        Messages\n      ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.triggerProfile($event)
               }
-            },
-            [
+            }
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c("div", { staticClass: "self-center" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                    staticClass: "fill-current self-center",
                     attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                   },
                   [
@@ -52633,38 +52602,28 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Profile\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
-      _c(
-        "div",
-        { staticClass: "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4" },
-        [
-          _c(
-            "a",
-            {
-              staticClass: "w-full h-full flex align-center group",
-              attrs: { href: "/search" }
-            },
-            [
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("\n        Profile\n      ")
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-full flex h-12 rounded-full mb-2" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
+          },
+          [
+            _c("div", { staticClass: "w-full h-full flex align-center" }, [
               _c("div", { staticClass: "self-center" }, [
                 _c(
                   "svg",
                   {
-                    staticClass:
-                      "fill-current text-gray-300 group-hover:text-blue-500 self-center",
+                    staticClass: "fill-current self-center",
                     attrs: { viewBox: "0 0 24 24", width: "35", height: "35" }
                   },
                   [
@@ -52680,20 +52639,15 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass:
-                    "self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
-                },
-                [_vm._v("\n        Search\n      ")]
-              )
-            ]
-          )
-        ]
-      )
-    ])
-  ])
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold " }, [
+                _vm._v("\n        Search\n      ")
+              ])
+            ])
+          ]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {

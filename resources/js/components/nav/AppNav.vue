@@ -1,16 +1,16 @@
 <template>
-  <div class="w-full h-screen flex flex-col flex-end">
+  <div class="w-full h-screen flex flex-col flex-end text-gray-300">
     <div class="w-full inline-block h-12 rounded-full mb-2">
       <img src="" alt="" />
     </div>
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="/home" class="w-full h-full flex align-center group">
+       <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.stop.prevent="triggerHome">
+      <div class="w-full h-full flex align-center">
         <svg
           viewBox="0 0 24 24"
           width="35"
           height="35"
-          class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+          class="fill-current self-center"
         >
           <g>
             <path
@@ -20,23 +20,23 @@
         </svg>
 
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold"
         >
           Home
         </p>
-      </a>
+      </div>
       </div>
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="" class="w-full h-full flex align-center group">
+        <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer">
+      <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
             width="35"
             height="35"
-            class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+            class="fill-current self-center"
           >
             <g>
               <path
@@ -46,23 +46,23 @@
           </svg>
         </div>
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold"
         >
           Explore
         </p>
-      </a>
+      </div>
       </div>
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerNotifications">
+         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.prevent="triggerNotifications">
+      <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
             width="35"
             height="35"
-            class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+            class="fill-current self-center"
           >
             <g>
               <path
@@ -72,23 +72,23 @@
           </svg>
         </div>
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold "
         >
           Notifications
         </p>
-      </a>
+      </div>
     </div>
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="" class="w-full h-full flex align-center group">
+         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer">
+      <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
             width="35"
             height="35"
-            class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+            class="fill-current self-center"
           >
             <g>
               <path
@@ -98,23 +98,23 @@
           </svg>
         </div>
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold"
         >
           Messages
         </p>
-      </a>
+      </div>
     </div>
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="" class="w-full h-full flex align-center group" @click.prevent="triggerProfile">
-        <div class="self-center">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.prevent="triggerProfile">
+            <div class="w-full h-full flex align-center">
+                <div class="self-center">
           <svg
             viewBox="0 0 24 24"
             width="35"
             height="35"
-            class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+            class="fill-current self-center"
           >
             <g>
               <path
@@ -124,23 +124,23 @@
           </svg>
         </div>
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold"
         >
           Profile
         </p>
-      </a>
+      </div>
     </div>
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4">
-      <a href="/search" class="w-full h-full flex align-center group">
+        <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer">
+      <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
             viewBox="0 0 24 24"
             width="35"
             height="35"
-            class="fill-current text-gray-300 group-hover:text-blue-500 self-center"
+            class="fill-current self-center"
           >
             <g>
               <path
@@ -150,11 +150,11 @@
           </svg>
         </div>
         <p
-          class="self-center ml-4 text-lg font-bold text-gray-300 group-hover:text-blue-500"
+          class="self-center ml-4 text-lg font-bold "
         >
           Search
         </p>
-      </a>
+      </div>
     </div>
     </div>
   </div>
@@ -173,6 +173,9 @@ export default {
       },
       triggerNotifications() {
         window.location.pathname = 'notifications';
+      },
+      triggerHome() {
+        window.location.pathname = 'home';
       }
   }
 };
