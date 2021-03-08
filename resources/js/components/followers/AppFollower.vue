@@ -1,9 +1,9 @@
 <template>
-    <div class="flex w-full cursor-pointer justify-between" @click.stop.prevent="trigger">
+    <div class="flex w-full cursor-pointer justify-between">
         <div class="flex">
             <img :src="follower.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
             <div class="flex-grow">
-                <span class="text-gray-200 font-bold hover:underline cursor-pointer block" @click.stop.prevent="trigger">{{ follower.name }}</span>
+                <span class="text-gray-200 font-bold hover:underline cursor-pointer block">{{ follower.name }}</span>
                 <span class="text-gray-500 font-normal ml-2 block">@{{ follower.username }}</span>
                 <span class="text-gray-500 font-normal ml-2 block">{{ follower.biography }}</span>
 
@@ -12,7 +12,7 @@
         <div>
             <button type="buton"
                     @click.stop.prevent="followOrUnfollow"
-                    class="border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none"
+                    class="border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none"
                     v-bind:class="{
                         'hover:bg-red-700': follow,
                         'bg-blue-500': follow,
@@ -22,6 +22,7 @@
                         'text-blue-500': !follow,
                         'hover:bg-blue-500': !follow,
                         'hover:text-gray-300': !follow,
+                        'outline-none': 1,
                     }"
                     >
                         {{ button }}
@@ -42,11 +43,6 @@ export default {
             required: true,
         }
     },
-    methods: {
-    trigger () {
-        window.location.pathname = "/" + this.follower.username;
-    },
-  },
       data() {
         return {
            button: null,

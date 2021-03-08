@@ -2662,10 +2662,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-var _props$methods$data$m;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
 //
 //
 //
@@ -2699,7 +2696,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_props$methods$data$m = {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     follower: {
       required: true,
@@ -2709,53 +2706,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     }
   },
-  methods: {
-    trigger: function trigger() {
-      window.location.pathname = "/" + this.follower.username;
-    }
-  },
   data: function data() {
     return {
       button: null,
       follow: false
     };
-  }
-}, _defineProperty(_props$methods$data$m, "methods", {
-  followOrUnfollow: function followOrUnfollow() {
-    if (this.follow) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.follower.id, "/follow"));
+  },
+  methods: {
+    followOrUnfollow: function followOrUnfollow() {
+      if (this.follow) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/tweets/".concat(this.follower.id, "/follow"));
+        this.button = this.button == "Follow" ? "Unfollow" : "Follow";
+        this.follow = this.follow ? false : true;
+        return;
+      }
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.follower.id, "/follow"));
       this.button = this.button == "Follow" ? "Unfollow" : "Follow";
       this.follow = this.follow ? false : true;
-      return;
+    },
+    followed: function followed() {
+      var _this = this;
+
+      if (this.follower.followers.filter(function (x) {
+        return x.id === _this.auth;
+      }).length > 0) return true;
+      return false;
+    },
+    followOrNot: function followOrNot() {
+      var _this2 = this;
+
+      if (this.follower.followers.filter(function (x) {
+        return x.id === _this2.auth;
+      }).length > 0) return "Unfollow";
+      return "Follow";
+    },
+    trigger: function trigger() {
+      window.location = "http://" + this.follower.website;
     }
-
-    axios__WEBPACK_IMPORTED_MODULE_0___default().post("/api/tweets/".concat(this.follower.id, "/follow"));
-    this.button = this.button == "Follow" ? "Unfollow" : "Follow";
-    this.follow = this.follow ? false : true;
   },
-  followed: function followed() {
-    var _this = this;
-
-    if (this.follower.followers.filter(function (x) {
-      return x.id === _this.auth;
-    }).length > 0) return true;
-    return false;
-  },
-  followOrNot: function followOrNot() {
-    var _this2 = this;
-
-    if (this.follower.followers.filter(function (x) {
-      return x.id === _this2.auth;
-    }).length > 0) return "Unfollow";
-    return "Follow";
-  },
-  trigger: function trigger() {
-    window.location = "http://" + this.follower.website;
+  mounted: function mounted() {
+    Vue.set(this, 'button', this.followOrNot());
+    Vue.set(this, 'follow', this.followed());
   }
-}), _defineProperty(_props$methods$data$m, "mounted", function mounted() {
-  Vue.set(this, 'button', this.followOrNot());
-  Vue.set(this, 'follow', this.followed());
-}), _props$methods$data$m);
+});
 
 /***/ }),
 
@@ -51497,16 +51491,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "flex w-full cursor-pointer justify-between",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          $event.preventDefault()
-          return _vm.trigger($event)
-        }
-      }
-    },
+    { staticClass: "flex w-full cursor-pointer justify-between" },
     [
       _c("div", { staticClass: "flex" }, [
         _c("img", {
@@ -51519,14 +51504,7 @@ var render = function() {
             "span",
             {
               staticClass:
-                "text-gray-200 font-bold hover:underline cursor-pointer block",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                  return _vm.trigger($event)
-                }
-              }
+                "text-gray-200 font-bold hover:underline cursor-pointer block"
             },
             [_vm._v(_vm._s(_vm.follower.name))]
           ),
@@ -51546,7 +51524,7 @@ var render = function() {
           "button",
           {
             staticClass:
-              "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none",
+              "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none",
             class: {
               "hover:bg-red-700": _vm.follow,
               "bg-blue-500": _vm.follow,
@@ -51555,7 +51533,8 @@ var render = function() {
               border: !_vm.follow,
               "text-blue-500": !_vm.follow,
               "hover:bg-blue-500": !_vm.follow,
-              "hover:text-gray-300": !_vm.follow
+              "hover:text-gray-300": !_vm.follow,
+              "outline-none": 1
             },
             attrs: { type: "buton" },
             on: {
