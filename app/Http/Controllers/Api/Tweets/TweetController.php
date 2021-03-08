@@ -78,7 +78,9 @@ class TweetController extends Controller
             broadcast(new TweetWasDeleted($retweet)); //Important : needs to be fired before actually being deleted in DB, otherwise, the resource won't be accessible.
         }
         $tweet->retweets()->delete();
+        $tweet->replies()->delete();
         $tweet->delete();
+        if ($tweet->parentTweet)
         broadcast(new TweetRepliesWereUpdated($tweet->parentTweet));
     }
 }
