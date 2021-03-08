@@ -11,8 +11,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TweetResource;
 use App\Events\Tweets\TweetWasCreated;
 use App\Events\Tweets\TweetWasDeleted;
+use App\Events\Replies\ReplyWasCreated;
 use App\Http\Resources\TweetCollection;
 use App\Http\Resources\TweetMediaResource;
+use App\Events\Tweets\TweetRepliesWereUpdated;
 use App\Events\Tweets\TweetRetweetsWereUpdated;
 use App\Http\Requests\Tweets\TweetStoreRequest;
 use App\Notifications\Tweets\TweetMentionnedIn;
@@ -77,6 +79,6 @@ class TweetController extends Controller
         }
         $tweet->retweets()->delete();
         $tweet->delete();
-
+        broadcast(new TweetRepliesWereUpdated($tweet->parentTweet));
     }
 }

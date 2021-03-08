@@ -94,5 +94,6 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
     })
     .listen('.TweetWasDeleted', (e) => {
         store.commit('timeline/POP_TWEET', e.id);
+        store.commit('conversation/POP_TWEET', e.id);
         store.dispatch('retweets/syncRetweet', e.id);
     })

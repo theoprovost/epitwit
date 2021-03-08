@@ -7,7 +7,7 @@
     </div>
 
     <div>
-      <app-tweet v-for="t in replies(id)" :tweet="t" :key="id" />
+      <app-tweet v-for="t in replies(id)" :tweet="t" :key="t.id" />
     </div>
   </div>
 </template>

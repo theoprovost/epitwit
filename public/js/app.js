@@ -4739,6 +4739,7 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
   store.commit('conversation/SET_REPLIES', e);
 }).listen('.TweetWasDeleted', function (e) {
   store.commit('timeline/POP_TWEET', e.id);
+  store.commit('conversation/POP_TWEET', e.id);
   store.dispatch('retweets/syncRetweet', e.id);
 });
 
@@ -51627,7 +51628,7 @@ var render = function() {
     _c(
       "div",
       _vm._l(_vm.replies(_vm.id), function(t) {
-        return _c("app-tweet", { key: _vm.id, attrs: { tweet: t } })
+        return _c("app-tweet", { key: t.id, attrs: { tweet: t } })
       }),
       1
     )
