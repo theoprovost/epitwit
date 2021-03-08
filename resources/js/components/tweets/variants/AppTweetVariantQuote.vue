@@ -5,13 +5,13 @@
     </div>
 
     <div class="flex-grow">
-      <app-tweet-username :user="tweet.user" :created_at="tweet.creation_date"/>
+      <app-tweet-username :user="tweet.user" :created_at="tweet.creation_date" :tweet="tweet" :inReply="inReply"/>
 
       <p class="text-gray-300 whitespace-pre-wrap">{{ tweet.body }}</p>
 
       <app-tweet-variant-tweet
         :tweet="tweet.original_tweet"
-        :inReply="inReply"
+        :inReply="true"
         class="border border-gray-700 rounded-lg mt-4 p-4"
       />
 

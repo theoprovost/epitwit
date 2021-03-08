@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TweetResource;
 use App\Events\Tweets\TweetWasCreated;
+use App\Events\Tweets\TweetWasDeleted;
 use App\Http\Resources\TweetCollection;
 use App\Http\Resources\TweetMediaResource;
+use App\Events\Tweets\TweetRetweetsWereUpdated;
 use App\Http\Requests\Tweets\TweetStoreRequest;
 use App\Notifications\Tweets\TweetMentionnedIn;
 
@@ -63,5 +65,18 @@ class TweetController extends Controller
         };
 
         broadcast(new TweetWasCreated($tweet));
+    }
+
+    public function destroy(Tweet $tweet, Request $request)
+    {
+        broadcast(new TweetWasDeleted($tweet)); //Important : needs to be fired before actually being deleted in DB, otherwise, the resource won't be accessible.
+        $retweets = $tweet->retweets()->get();
+        foreach($retweets as $retweet)
+        {
+            broadcast(new TweetWasDeleted($retweet)); //Important : needs to be fired before actually being deleted in DB, otherwise, the resource won't be accessible.
+        }
+        $tweet->retweets()->delete();
+        $tweet->delete();
+
     }
 }

@@ -1,8 +1,8 @@
 <template>
-  <div class="flex w-full cursor-pointer" @click.stop.prevent="triggerTweet">
+  <div class="flex w-full cursor-pointer" @click.prevent="triggerTweet">
     <img :src="tweet.user.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
     <div class="flex-grow">
-      <app-tweet-username :user="tweet.user" :created_at="tweet.creation_date" />
+      <app-tweet-username :user="tweet.user" :tweet="tweet" :created_at="tweet.creation_date" :inReply="inReply"/>
 
       <div v-if="tweet.replying_to" class="text-gray-600 mb-2">
         Replying to <a href="" class="hover:underline cursor-pointer" @click.stop.prevent="triggerUser">@{{ tweet.replying_to }}</a>
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <app-tweet-action-group :tweet="tweet" v-if="!inReply"/>
+      <app-tweet-action-group :tweet="tweet" :inReply="inReply" v-if="!inReply"/>
     </div>
   </div>
 </template>
