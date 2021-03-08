@@ -11,9 +11,13 @@
 
       <app-tweet-variant-tweet
         :tweet="tweet.original_tweet"
+        v-if="tweet.original_tweet"
         :inReply="true"
         class="border border-gray-700 rounded-lg mt-4 p-4"
       />
+      <div v-else class="border border-gray-700 rounded-lg mt-4 p-4 text-gray-500">
+          This tweet was deleted.
+      </div>
 
       <app-tweet-action-group :tweet="tweet" v-if="!inReply"/>
     </div>

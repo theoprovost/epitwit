@@ -4474,6 +4474,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -53953,10 +53957,19 @@ var render = function() {
             _vm._v(_vm._s(_vm.tweet.body))
           ]),
           _vm._v(" "),
-          _c("app-tweet-variant-tweet", {
-            staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
-            attrs: { tweet: _vm.tweet.original_tweet, inReply: true }
-          }),
+          _vm.tweet.original_tweet
+            ? _c("app-tweet-variant-tweet", {
+                staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
+                attrs: { tweet: _vm.tweet.original_tweet, inReply: true }
+              })
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "border border-gray-700 rounded-lg mt-4 p-4 text-gray-500"
+                },
+                [_vm._v("\n        This tweet was deleted.\n    ")]
+              ),
           _vm._v(" "),
           !_vm.inReply
             ? _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })

@@ -73,6 +73,10 @@ class Tweet extends Model
     {
         return $this->hasMany(Tweet::class, 'original_tweet_id')->where('type', TweetType::RETWEET);
     }
+    public function quoted()
+    {
+        return $this->hasMany(Tweet::class, 'original_tweet_id')->where('type', TweetType::QUOTE);
+    }
 
     public function retweetedTweet()
     {
