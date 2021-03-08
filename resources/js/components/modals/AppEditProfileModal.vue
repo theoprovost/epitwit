@@ -1,10 +1,11 @@
 <template>
     <div>
         <form @submit.prevent="submit">
-           <div class="p-8 ">
-           <input type="file" ref="file" class="hidden"/>
-           <img :src="user.avatar" alt=" " class="mr-3 rounded-full w-28 cursor-pointer" @click="$refs.file.click()"/>
-        </div>
+            <div class="p-8 ">
+                <input type="file" ref="file" class="hidden"/>
+                <img :src="user.avatar" alt=" " class="mr-3 rounded-full w-28 cursor-pointer" @click="$refs.file.click()"/>
+            </div>
+            <div>
             <div class="flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" v-model="fields.name" class="rounded-md text-gray-800">
@@ -30,12 +31,13 @@
                 <label for="dob">Birth date</label>
                 <input type="date" name="dob" v-model="fields.dob" class="rounded-md text-gray-800">
             </div>
-            <div class="flex flex-wrap-reverse justify-end">
+            </div>
+            <div class="flex flex-wrap-reverse justify-end pt-12">
                 <input type="submit" value="Submit" class="text-gray-300 bg-blue-500 rounded-lg p-2 text-center cursor-pointer" @click="$emit('close')">
             </div>
         </form>
         <div class="flex flex-wrap-reverse -mt-10">
-                <button class="text-red-500 border-red-500 border rounded-lg p-2 hover:bg-red-500 hover:text-gray-300 text-center" @click="$emit('close')">X Close</button>
+            <button class="text-red-500 border-red-500 border rounded-lg p-2 hover:bg-red-500 hover:text-gray-300 text-center" @click="$emit('close')">X Close</button>
         </div>
     </div>
 </template>

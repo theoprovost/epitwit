@@ -2900,6 +2900,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -51796,212 +51798,214 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.name,
-                  expression: "fields.name"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              attrs: { type: "text", id: "name", name: "name" },
-              domProps: { value: _vm.fields.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+        _c("div", [
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.name,
+                    expression: "fields.name"
                   }
-                  _vm.$set(_vm.fields, "name", $event.target.value)
-                }
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _vm.errors && _vm.errors.name
-          ? _c("div", { staticClass: "text-red-300 text-sm text-center" }, [
-              _vm._v(_vm._s(_vm.errors.name[0]))
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "biography" } }, [_vm._v("Bio")]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.biography,
-                  expression: "fields.biography"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              staticStyle: { width: "209px" },
-              attrs: { name: "biography" },
-              domProps: { value: _vm.fields.biography },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                staticClass: "rounded-md text-gray-800",
+                attrs: { type: "text", id: "name", name: "name" },
+                domProps: { value: _vm.fields.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "name", $event.target.value)
                   }
-                  _vm.$set(_vm.fields, "biography", $event.target.value)
                 }
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.country,
-                  expression: "fields.country"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              attrs: { type: "text", name: "country" },
-              domProps: { value: _vm.fields.country },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.name
+            ? _c("div", { staticClass: "text-red-300 text-sm text-center" }, [
+                _vm._v(_vm._s(_vm.errors.name[0]))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "biography" } }, [_vm._v("Bio")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.biography,
+                    expression: "fields.biography"
                   }
-                  _vm.$set(_vm.fields, "country", $event.target.value)
-                }
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.city,
-                  expression: "fields.city"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              attrs: { type: "text", name: "city" },
-              domProps: { value: _vm.fields.city },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                staticClass: "rounded-md text-gray-800",
+                staticStyle: { width: "209px" },
+                attrs: { name: "biography" },
+                domProps: { value: _vm.fields.biography },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "biography", $event.target.value)
                   }
-                  _vm.$set(_vm.fields, "city", $event.target.value)
                 }
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 pb-6 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.website,
-                  expression: "fields.website"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              attrs: { type: "text", name: "website" },
-              domProps: { value: _vm.fields.website },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "country" } }, [_vm._v("Country")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.country,
+                    expression: "fields.country"
                   }
-                  _vm.$set(_vm.fields, "website", $event.target.value)
-                }
-              }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "flex justify-between p-2 pb-6 text-gray-300 text-xl mr-12 ml-12"
-          },
-          [
-            _c("label", { attrs: { for: "dob" } }, [_vm._v("Birth date")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.fields.dob,
-                  expression: "fields.dob"
-                }
-              ],
-              staticClass: "rounded-md text-gray-800",
-              attrs: { type: "date", name: "dob" },
-              domProps: { value: _vm.fields.dob },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                ],
+                staticClass: "rounded-md text-gray-800",
+                attrs: { type: "text", name: "country" },
+                domProps: { value: _vm.fields.country },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "country", $event.target.value)
                   }
-                  _vm.$set(_vm.fields, "dob", $event.target.value)
                 }
-              }
-            })
-          ]
-        ),
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "city" } }, [_vm._v("City")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.city,
+                    expression: "fields.city"
+                  }
+                ],
+                staticClass: "rounded-md text-gray-800",
+                attrs: { type: "text", name: "city" },
+                domProps: { value: _vm.fields.city },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "city", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 pb-6 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "website" } }, [_vm._v("Website")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.website,
+                    expression: "fields.website"
+                  }
+                ],
+                staticClass: "rounded-md text-gray-800",
+                attrs: { type: "text", name: "website" },
+                domProps: { value: _vm.fields.website },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "website", $event.target.value)
+                  }
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-between p-2 pb-6 text-gray-300 text-xl mr-12 ml-12"
+            },
+            [
+              _c("label", { attrs: { for: "dob" } }, [_vm._v("Birth date")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.dob,
+                    expression: "fields.dob"
+                  }
+                ],
+                staticClass: "rounded-md text-gray-800",
+                attrs: { type: "date", name: "dob" },
+                domProps: { value: _vm.fields.dob },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.fields, "dob", $event.target.value)
+                  }
+                }
+              })
+            ]
+          )
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex flex-wrap-reverse justify-end" }, [
+        _c("div", { staticClass: "flex flex-wrap-reverse justify-end pt-12" }, [
           _c("input", {
             staticClass:
               "text-gray-300 bg-blue-500 rounded-lg p-2 text-center cursor-pointer",
