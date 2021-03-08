@@ -11,6 +11,7 @@
         </div>
         <div>
             <button type="buton"
+                    v-if="follower.id != auth"
                     @click.stop.prevent="followOrUnfollow"
                     class="border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none"
                     v-bind:class="{

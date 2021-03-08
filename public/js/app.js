@@ -2694,6 +2694,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2784,6 +2785,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -2798,6 +2816,30 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: Number
     }
+  },
+  methods: {
+    isInFollowers: function isInFollowers() {
+      return this.route == "followers" ? true : false;
+    },
+    triggerFollowing: function triggerFollowing() {
+      window.location.pathname = this.user.username + "/following";
+    },
+    triggerFollowers: function triggerFollowers() {
+      window.location.pathname = this.user.username + "/followers";
+    },
+    triggerUser: function triggerUser() {
+      window.location.pathname = this.user.username;
+    }
+  },
+  data: function data() {
+    return {
+      route: '',
+      inFollowers: false
+    };
+  },
+  mounted: function mounted() {
+    Vue.set(this, 'route', window.location.pathname.split("/").pop());
+    Vue.set(this, 'inFollowers', this.isInFollowers());
   }
 });
 
@@ -51523,32 +51565,38 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", [
-        _c(
-          "button",
-          {
-            staticClass:
-              "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none",
-            class: {
-              "hover:bg-red-700": _vm.follow,
-              "bg-blue-500": _vm.follow,
-              "text-gray-300": _vm.follow,
-              "border-0": _vm.follow,
-              border: !_vm.follow,
-              "text-blue-500": !_vm.follow,
-              "hover:bg-blue-500": !_vm.follow,
-              "hover:text-gray-300": !_vm.follow
-            },
-            attrs: { type: "buton" },
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-                $event.preventDefault()
-                return _vm.followOrUnfollow($event)
-              }
-            }
-          },
-          [_vm._v("\n                    " + _vm._s(_vm.button) + "\n        ")]
-        )
+        _vm.follower.id != _vm.auth
+          ? _c(
+              "button",
+              {
+                staticClass:
+                  "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none",
+                class: {
+                  "hover:bg-red-700": _vm.follow,
+                  "bg-blue-500": _vm.follow,
+                  "text-gray-300": _vm.follow,
+                  "border-0": _vm.follow,
+                  border: !_vm.follow,
+                  "text-blue-500": !_vm.follow,
+                  "hover:bg-blue-500": !_vm.follow,
+                  "hover:text-gray-300": !_vm.follow
+                },
+                attrs: { type: "buton" },
+                on: {
+                  click: function($event) {
+                    $event.stopPropagation()
+                    $event.preventDefault()
+                    return _vm.followOrUnfollow($event)
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n                    " + _vm._s(_vm.button) + "\n        "
+                )
+              ]
+            )
+          : _vm._e()
       ])
     ]
   )
@@ -51582,47 +51630,103 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass:
-            "flex items-center cursor-pointer border-b-2 border-gray-800"
+          staticClass: "items-center cursor-pointer border-b-2 border-gray-800"
         },
         [
-          _c("div", { staticClass: "p-2" }, [
-            _c("div", { staticClass: "p-2 hover:bg-gray-800 rounded-full" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "text-blue-500 h-12",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor"
+          _c("div", { staticClass: "flex items-center" }, [
+            _c("div", { staticClass: "p-2" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "p-2 hover:bg-gray-800 rounded-full cursor-pointer",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.triggerUser($event)
                     }
-                  },
-                  [
-                    _c("path", {
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "text-blue-500 h-8",
                       attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-width": "2",
-                        d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+                        xmlns: "http://www.w3.org/2000/svg",
+                        fill: "none",
+                        viewBox: "0 0 24 24",
+                        stroke: "currentColor"
                       }
-                    })
-                  ]
-                )
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          "stroke-width": "2",
+                          d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c(
+                "p",
+                { staticClass: "text-gray-200 text-xl font-bold block" },
+                [_vm._v(_vm._s(_vm.user.name))]
+              ),
+              _vm._v(" "),
+              _c("p", { staticClass: "text-gray-600 block" }, [
+                _vm._v("@" + _vm._s(_vm.user.username))
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("div", [
-            _c("p", { staticClass: "text-gray-200 text-xl font-bold block" }, [
-              _vm._v(_vm._s(_vm.user.name))
-            ]),
+          _c("div", { staticClass: "flex justify-around text-center" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-b-4 border-gray-900 box-border hover:bg-gray-800 cursor-pointer text-xl w-6/12 h-full p-4 hover:text-blue-500",
+                class: {
+                  "text-blue-500": _vm.inFollowers,
+                  "text-gray-400 hover:border-gray-800": !_vm.inFollowers,
+                  "border-b-4 border-blue-500": _vm.inFollowers
+                },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.triggerFollowers($event)
+                  }
+                }
+              },
+              [_vm._v(" followers ")]
+            ),
             _vm._v(" "),
-            _c("p", { staticClass: "text-gray-600 block" }, [
-              _vm._v("@" + _vm._s(_vm.user.username))
-            ])
+            _c(
+              "div",
+              {
+                staticClass:
+                  "border-b-4 border-gray-900 hover:bg-gray-800 cursor-pointer text-xl w-6/12 h-full p-4 hover:text-blue-500",
+                class: {
+                  "text-blue-500": !_vm.inFollowers,
+                  "text-gray-400 hover:border-gray-800": _vm.inFollowers,
+                  "border-b-4 border-blue-500": !_vm.inFollowers
+                },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.triggerFollowing($event)
+                  }
+                }
+              },
+              [_vm._v(" following ")]
+            )
           ])
         ]
       ),
