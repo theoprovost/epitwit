@@ -51705,7 +51705,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(" followers ")]
+              [_vm._v(" Followers ")]
             ),
             _vm._v(" "),
             _c(
@@ -51725,7 +51725,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v(" following ")]
+              [_vm._v(" Following ")]
             )
           ])
         ]

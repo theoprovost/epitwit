@@ -23,13 +23,13 @@
                         'border-b-4 border-blue-500' : inFollowers,
                     }"
 
-                > followers </div>
+                > Followers </div>
                 <div class="border-b-4 border-gray-900 hover:bg-gray-800 cursor-pointer text-xl w-6/12 h-full p-4 hover:text-blue-500" @click.prevent="triggerFollowing"
                     :class="{
                         'text-blue-500' : !inFollowers,
                         'text-gray-400 hover:border-gray-800' : inFollowers,
                         'border-b-4 border-blue-500' : !inFollowers,
-                    }"> following </div>
+                    }"> Following </div>
             </div>
         </div>
         <app-follower v-for="follower in followers" :key="follower.id" :follower="follower" :auth="auth" class="w-full inline-block p-4 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"/>
