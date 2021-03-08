@@ -46,11 +46,17 @@
                     <button type="buton"
                     v-if="user.id != auth"
                     @click.prevent="followOrUnfollow"
-                    class="bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none"
+                    class="border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none"
                     v-bind:class="{
-                        'hover:bg-red-700': follow
-                    }"
-                    >
+                        'hover:bg-red-700': follow,
+                        'bg-blue-500': follow,
+                        'text-gray-300': follow,
+                        'border-0' : follow,
+                        'border' : !follow,
+                        'text-blue-500': !follow,
+                        'hover:bg-blue-500': !follow,
+                        'hover:text-gray-300': !follow
+                    }">
                         {{ button }}
                     </button>
                      <app-profile-action

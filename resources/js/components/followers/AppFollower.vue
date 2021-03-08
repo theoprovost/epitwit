@@ -21,8 +21,7 @@
                         'border' : !follow,
                         'text-blue-500': !follow,
                         'hover:bg-blue-500': !follow,
-                        'hover:text-gray-300': !follow,
-                        'outline-none': 1,
+                        'hover:text-gray-300': !follow
                     }"
                     >
                         {{ button }}

@@ -2694,7 +2694,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3433,6 +3432,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -51533,8 +51538,7 @@ var render = function() {
               border: !_vm.follow,
               "text-blue-500": !_vm.follow,
               "hover:bg-blue-500": !_vm.follow,
-              "hover:text-gray-300": !_vm.follow,
-              "outline-none": 1
+              "hover:text-gray-300": !_vm.follow
             },
             attrs: { type: "buton" },
             on: {
@@ -52708,9 +52712,16 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+                      "border-blue-500 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none",
                     class: {
-                      "hover:bg-red-700": _vm.follow
+                      "hover:bg-red-700": _vm.follow,
+                      "bg-blue-500": _vm.follow,
+                      "text-gray-300": _vm.follow,
+                      "border-0": _vm.follow,
+                      border: !_vm.follow,
+                      "text-blue-500": !_vm.follow,
+                      "hover:bg-blue-500": !_vm.follow,
+                      "hover:text-gray-300": !_vm.follow
                     },
                     attrs: { type: "buton" },
                     on: {
@@ -52767,7 +52778,7 @@ var render = function() {
     "button",
     {
       staticClass:
-        "bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none",
+        "border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-gray-300 rounded-full text-center px-4 py-3 font-bold leading-none focus:outline-none",
       attrs: { type: "buton" },
       on: {
         click: function($event) {
