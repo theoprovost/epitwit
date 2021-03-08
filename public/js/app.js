@@ -4555,7 +4555,7 @@ __webpack_require__.r(__webpack_exports__);
       window.location.pathname = "./tweets/" + this.tweet.original_tweet.id;
     },
     triggerUser: function triggerUser() {
-      window.location.pathname = "./" + this.tweet.replying_to;
+      window.location.pathname = "./" + this.tweet.original_tweet.user.username;
     }
   }
 });
