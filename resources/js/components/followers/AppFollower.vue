@@ -4,8 +4,8 @@
             <img :src="follower.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
             <div class="flex-grow">
                 <span class="text-gray-200 font-bold hover:underline cursor-pointer block">{{ follower.name }}</span>
-                <span class="text-gray-500 font-normal ml-2 block">@{{ follower.username }}</span>
-                <span class="text-gray-500 font-normal ml-2 block">{{ follower.biography }}</span>
+                <span class="text-gray-500 font-normal block">@{{ follower.username }}</span>
+                <span class="text-gray-500 font-normal block">{{ follower.biography }}</span>
 
             </div>
         </div>

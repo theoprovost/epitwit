@@ -2784,8 +2784,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
@@ -51514,11 +51512,11 @@ var render = function() {
             [_vm._v(_vm._s(_vm.follower.name))]
           ),
           _vm._v(" "),
-          _c("span", { staticClass: "text-gray-500 font-normal ml-2 block" }, [
+          _c("span", { staticClass: "text-gray-500 font-normal block" }, [
             _vm._v("@" + _vm._s(_vm.follower.username))
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "text-gray-500 font-normal ml-2 block" }, [
+          _c("span", { staticClass: "text-gray-500 font-normal block" }, [
             _vm._v(_vm._s(_vm.follower.biography))
           ])
         ])
@@ -51578,63 +51576,68 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "flex items-center cursor-pointer" }, [
-      _c("div", { staticClass: "p-2" }, [
-        _c("div", { staticClass: "p-2 hover:bg-gray-800 rounded-full" }, [
-          _c("a", { attrs: { href: "" } }, [
-            _c(
-              "svg",
-              {
-                staticClass: "text-blue-500 h-12",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  fill: "none",
-                  viewBox: "0 0 24 24",
-                  stroke: "currentColor"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    "stroke-width": "2",
-                    d: "M10 19l-7-7m0 0l7-7m-7 7h18"
-                  }
-                })
-              ]
-            )
+  return _c(
+    "div",
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex items-center cursor-pointer border-b-2 border-gray-800"
+        },
+        [
+          _c("div", { staticClass: "p-2" }, [
+            _c("div", { staticClass: "p-2 hover:bg-gray-800 rounded-full" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "text-blue-500 h-12",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        d: "M10 19l-7-7m0 0l7-7m-7 7h18"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("p", { staticClass: "text-gray-200 text-xl font-bold block" }, [
+              _vm._v(_vm._s(_vm.user.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-600 block" }, [
+              _vm._v("@" + _vm._s(_vm.user.username))
+            ])
           ])
-        ])
-      ]),
+        ]
+      ),
       _vm._v(" "),
-      _c("div", [
-        _c("p", { staticClass: "text-gray-200 text-xl font-bold block" }, [
-          _vm._v(_vm._s(_vm.user.name))
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-gray-600 font-bold block" }, [
-          _vm._v("@" + _vm._s(_vm.user.username))
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
-      },
       _vm._l(_vm.followers, function(follower) {
         return _c("app-follower", {
           key: follower.id,
+          staticClass:
+            "w-full inline-block p-4 border-b border-gray-800 hover:bg-gray-800 cursor-pointer",
           attrs: { follower: follower, auth: _vm.auth }
         })
-      }),
-      1
-    )
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

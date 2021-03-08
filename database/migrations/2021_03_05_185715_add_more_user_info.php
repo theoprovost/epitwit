@@ -14,12 +14,12 @@ class AddMoreUserInfo extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('gender')->after('username');
-            $table->string('telephone')->after('email');
-            $table->string('country')->after('telephone');
-            $table->string('city')->after('country');
-            $table->string('biography')->after('city');
-            $table->string('website')->after('biography');
+            $table->string('gender')->after('username')->nullable();
+            $table->string('telephone')->after('email')->nullable();
+            $table->string('country')->after('telephone')->nullable();
+            $table->string('city')->after('country')->nullable();
+            $table->string('biography')->after('city')->nullable();
+            $table->string('website')->after('biography')->nullable();
         });
     }
 

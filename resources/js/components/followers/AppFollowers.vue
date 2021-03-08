@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex items-center cursor-pointer">
+        <div class="flex items-center cursor-pointer border-b-2 border-gray-800">
             <div class="p-2">
             <div class="p-2 hover:bg-gray-800 rounded-full">
                 <a href="">
@@ -12,12 +12,10 @@
             </div>
             <div>
                 <p class="text-gray-200 text-xl font-bold block">{{user.name}}</p>
-                <p class="text-gray-600 font-bold block">@{{user.username}}</p>
+                <p class="text-gray-600 block">@{{user.username}}</p>
             </div>
         </div>
-        <div class="w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer">
-            <app-follower v-for="follower in followers" :key="follower.id" :follower="follower" :auth="auth"/>
-        </div>
+        <app-follower v-for="follower in followers" :key="follower.id" :follower="follower" :auth="auth" class="w-full inline-block p-4 border-b border-gray-800 hover:bg-gray-800 cursor-pointer"/>
     </div>
 </template>
 
