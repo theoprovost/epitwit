@@ -52,7 +52,7 @@ const store = new Vuex.Store({
         likes,
         retweets,
         notifications,
-        conversation
+        conversation,
     }
 });
 

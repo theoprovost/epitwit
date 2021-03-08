@@ -26,5 +26,7 @@ Route::get('/notifications', [App\Http\Controllers\Notifications\NotificationCon
 
 Route::get('/tweets/{tweet}', [App\Http\Controllers\Tweets\TweetController::class, 'show']);
 
-Route::get('/{username}', [App\Http\Controllers\Users\UserController::class, 'index']);
 
+Route::get('/{username}', [App\Http\Controllers\Users\UserController::class, 'index']);
+Route::get('/{username}/followers', [App\Http\Controllers\Users\FollowersController::class, 'index']);
+Route::get('/{username}/following', [App\Http\Controllers\Users\FollowingController::class, 'index']);
