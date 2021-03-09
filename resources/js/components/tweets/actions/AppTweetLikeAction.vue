@@ -1,11 +1,13 @@
 <template>
-  <a href="#" class="flex items-center text-base text-gray-600 hover:text-red-600" @click.stop.prevent="likeOrUnlike">
+  <div class="flex items-center text-base text-gray-600 hover:text-red-600" @click.stop.prevent="likeOrUnlike">
+      <div class="pr-1">
+          <div class="p-2 rounded-full hover:bg-gray-700">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="24"
       height="24"
-      class="fill-current w-5 mr-2"
+      class="fill-current w-5"
       :class="{
         'text-red-600': liked,
       }"
@@ -14,6 +16,7 @@
         d="M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
       />
     </svg>
+    </div></div>
     <span
       :class="{
         'text-red-600': liked,
@@ -21,7 +24,7 @@
     >
       {{ tweet.likes_count }}
     </span>
-  </a>
+  </div>
 </template>
 
 <script>
