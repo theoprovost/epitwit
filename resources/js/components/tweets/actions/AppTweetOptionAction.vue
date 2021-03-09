@@ -5,9 +5,6 @@
         <app-tweet-option-action-button />
       </template>
 
-      <app-dropdown-item >
-        Edit tweet
-      </app-dropdown-item>
       <app-dropdown-item @click.stop.prevent="deleteTweet">
         Delete tweet
       </app-dropdown-item>

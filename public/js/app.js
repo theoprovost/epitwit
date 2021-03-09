@@ -4215,9 +4215,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -51037,8 +51034,14 @@ var render = function() {
                       staticClass:
                         "bg-blue-400 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none focus:outline-none",
                       class: {
-                        "bg-blue-500": _vm.form.body,
-                        "cursor-default": !_vm.form.body
+                        "bg-blue-500":
+                          _vm.form.body ||
+                          _vm.media.video ||
+                          _vm.media.images.length,
+                        "cursor-default":
+                          !_vm.form.body &&
+                          _vm.media.video &&
+                          _vm.media.images.length
                       },
                       attrs: { type: "submit" }
                     },
@@ -53593,8 +53596,6 @@ var render = function() {
             [_c("app-tweet-option-action-button")],
             1
           ),
-          _vm._v(" "),
-          _c("app-dropdown-item", [_vm._v("\n      Edit tweet\n    ")]),
           _vm._v(" "),
           _c(
             "app-dropdown-item",
