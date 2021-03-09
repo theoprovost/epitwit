@@ -1,5 +1,6 @@
 <template>
-  <div class="flex items-center text-base text-gray-600 hover:text-red-600" @click.stop.prevent="likeOrUnlike">
+<div class="flex">
+  <div class="flex items-center text-base text-gray-600 hover:text-red-600 pr-2" @click.stop.prevent="likeOrUnlike">
       <div class="pr-1">
           <div class="p-2 rounded-full hover:bg-gray-700">
     <svg
@@ -25,6 +26,7 @@
       {{ tweet.likes_count }}
     </span>
   </div>
+</div>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
-<div>
+<div class="flex">
     <div
-        class="flex items-center text-base text-gray-600 hover:text-blue-600 cursor-pointer"
+        class="flex items-center text-base text-gray-600 hover:text-blue-600 pr-2 cursor-pointer"
         @click.stop.prevent="$modal.show(AppTweetReplyModal, { tweet })"
     >
         <div class="pr-1">

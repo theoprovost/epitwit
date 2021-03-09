@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="flex items-center text-base text-gray-600 hover:text-green-600 cursor-pointer"
-    @click.prevent="$emit('click', $event)"
-  >
+  <div class="flex items-center text-base text-gray-600 hover:text-green-600 pr-2" @click.prevent="$emit('click', $event)">
   <div class="pr-1">
       <div class="p-2 rounded-full hover:bg-gray-700">
     <svg
@@ -27,7 +24,7 @@
       }"
       >{{ tweet.retweets_count }}</span
     >
-  </div>
+    </div>
 </template>
 
 <script>

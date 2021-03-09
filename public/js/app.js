@@ -4140,6 +4140,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -4409,9 +4411,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
 //
 //
 //
@@ -53572,59 +53571,61 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "flex items-center text-base text-gray-600 hover:text-red-600",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          $event.preventDefault()
-          return _vm.likeOrUnlike($event)
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "pr-1" }, [
-        _c("div", { staticClass: "p-2 rounded-full hover:bg-gray-700" }, [
-          _c(
-            "svg",
-            {
-              staticClass: "fill-current w-5",
-              class: {
-                "text-red-600": _vm.liked
-              },
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 24 24",
-                width: "24",
-                height: "24"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
-                }
-              })
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          class: {
-            "text-red-600": _vm.liked
+  return _c("div", { staticClass: "flex" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "flex items-center text-base text-gray-600 hover:text-red-600 pr-2",
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            $event.preventDefault()
+            return _vm.likeOrUnlike($event)
           }
-        },
-        [_vm._v("\n    " + _vm._s(_vm.tweet.likes_count) + "\n  ")]
-      )
-    ]
-  )
+        }
+      },
+      [
+        _c("div", { staticClass: "pr-1" }, [
+          _c("div", { staticClass: "p-2 rounded-full hover:bg-gray-700" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "fill-current w-5",
+                class: {
+                  "text-red-600": _vm.liked
+                },
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  viewBox: "0 0 24 24",
+                  width: "24",
+                  height: "24"
+                }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    d:
+                      "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
+                  }
+                })
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            class: {
+              "text-red-600": _vm.liked
+            }
+          },
+          [_vm._v("\n      " + _vm._s(_vm.tweet.likes_count) + "\n    ")]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -53763,12 +53764,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "flex" }, [
     _c(
       "div",
       {
         staticClass:
-          "flex items-center text-base text-gray-600 hover:text-blue-600 cursor-pointer",
+          "flex items-center text-base text-gray-600 hover:text-blue-600 pr-2 cursor-pointer",
         on: {
           click: function($event) {
             $event.stopPropagation()
@@ -53833,6 +53834,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "flex" },
     [
       _c(
         "app-dropdown",
@@ -53925,7 +53927,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex items-center text-base text-gray-600 hover:text-green-600 cursor-pointer",
+        "flex items-center text-base text-gray-600 hover:text-green-600 pr-2",
       on: {
         click: function($event) {
           $event.preventDefault()

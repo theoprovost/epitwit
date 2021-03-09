@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="flex">
     <app-dropdown>
       <template slot="trigger">
-        <app-tweet-retweet-action-button :tweet="tweet" />
+        <app-tweet-retweet-action-button :tweet="tweet"/>
       </template>
 
       <app-dropdown-item v-if="!retweeted" @click.stop.prevent="retweetOrUnretweet">
