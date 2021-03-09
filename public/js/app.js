@@ -54016,7 +54016,8 @@ var render = function() {
           _vm._v(" "),
           _vm.tweet.original_tweet
             ? _c("app-tweet-variant-tweet", {
-                staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
+                staticClass:
+                  "border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-700",
                 attrs: { tweet: _vm.tweet.original_tweet, inReply: true }
               })
             : _c(
@@ -54160,6 +54161,7 @@ var render = function() {
       staticClass: "flex w-full cursor-pointer",
       on: {
         click: function($event) {
+          $event.stopPropagation()
           $event.preventDefault()
           return _vm.triggerTweet($event)
         }

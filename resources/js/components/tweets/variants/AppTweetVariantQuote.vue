@@ -13,7 +13,7 @@
         :tweet="tweet.original_tweet"
         v-if="tweet.original_tweet"
         :inReply="true"
-        class="border border-gray-700 rounded-lg mt-4 p-4"
+        class="border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-700"
       />
       <div v-else class="border border-gray-700 rounded-lg mt-4 p-4 text-gray-500">
           This tweet was deleted.
