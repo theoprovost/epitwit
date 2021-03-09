@@ -25,6 +25,7 @@ Route::get('api/notifications', [App\Http\Controllers\Api\Notifications\Notifica
 Route::get('/notifications', [App\Http\Controllers\Notifications\NotificationController::class, 'index']);
 
 Route::get('/tweets/{tweet}', [App\Http\Controllers\Tweets\TweetController::class, 'show']);
+Route::get('/messages', [App\Http\Controllers\MessagesController::class, 'index']);
 
 
 Route::get('/{username}', [App\Http\Controllers\Users\UserController::class, 'index']);

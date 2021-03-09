@@ -40,11 +40,7 @@
 
           <button
             type="submit"
-            class="bg-blue-400 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none focus:outline-none"
-            :class="{
-                'bg-blue-500': form.body || media.video || media.images.length,
-                'cursor-default': !form.body && media.video && media.images.length,
-            }"
+            class="bg-blue-500 rounded-full text-gray-300 text-center px-4 py-3 font-bold leading-none focus:outline-none"
           >
             Tweet
           </button>

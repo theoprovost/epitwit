@@ -4,7 +4,7 @@
       <img src="" alt="" />
     </div>
     <div class="w-full flex h-12 rounded-full mb-2">
-       <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.stop.prevent="triggerHome">
+       <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click="triggerHome">
       <div class="w-full h-full flex align-center">
         <svg
           viewBox="0 0 24 24"
@@ -55,7 +55,7 @@
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.prevent="triggerNotifications">
+         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click="triggerNotifications">
       <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
@@ -81,7 +81,7 @@
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer">
+         <div  class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click="triggerMessages">
       <div class="w-full h-full flex align-center">
         <div class="self-center">
           <svg
@@ -107,7 +107,7 @@
     </div>
 
     <div class="w-full flex h-12 rounded-full mb-2">
-        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click.prevent="triggerProfile">
+        <div class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer" @click="triggerProfile">
             <div class="w-full h-full flex align-center">
                 <div class="self-center">
           <svg
@@ -176,6 +176,9 @@ export default {
       },
       triggerHome() {
         window.location.pathname = 'home';
+      },
+      triggerMessages() {
+        window.location.pathname = 'messages';
       }
   }
 };
