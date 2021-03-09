@@ -2690,7 +2690,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2737,8 +2736,8 @@ __webpack_require__.r(__webpack_exports__);
       }).length > 0) return "Unfollow";
       return "Follow";
     },
-    trigger: function trigger() {
-      window.location = "http://" + this.follower.website;
+    triggerUser: function triggerUser() {
+      window.location.pathname = this.follower.username;
     }
   },
   mounted: function mounted() {
@@ -51838,7 +51837,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex w-full cursor-pointer justify-between" },
+    {
+      staticClass: "flex w-full cursor-pointer justify-between",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.triggerUser($event)
+        }
+      }
+    },
     [
       _c("div", { staticClass: "flex" }, [
         _c("img", {
@@ -51851,7 +51859,14 @@ var render = function() {
             "span",
             {
               staticClass:
-                "text-gray-200 font-bold hover:underline cursor-pointer block"
+                "text-gray-200 font-bold hover:underline cursor-pointer block",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.triggerUser($event)
+                }
+              }
             },
             [_vm._v(_vm._s(_vm.follower.name))]
           ),

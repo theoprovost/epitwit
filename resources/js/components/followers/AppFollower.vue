@@ -1,12 +1,11 @@
 <template>
-    <div class="flex w-full cursor-pointer justify-between">
+    <div class="flex w-full cursor-pointer justify-between" @click.stop.prevent="triggerUser">
         <div class="flex">
             <img :src="follower.avatar" alt=" " class="w-12 h-12 mr-3 rounded-full" />
             <div class="flex-grow">
-                <span class="text-gray-200 font-bold hover:underline cursor-pointer block">{{ follower.name }}</span>
+                <span class="text-gray-200 font-bold hover:underline cursor-pointer block" @click.stop.prevent="triggerUser">{{ follower.name }}</span>
                 <span class="text-gray-500 font-normal block">@{{ follower.username }}</span>
                 <span class="text-gray-500 font-normal block">{{ follower.biography }}</span>
-
             </div>
         </div>
         <div>
@@ -75,8 +74,8 @@ export default {
             return "Follow";
         },
 
-        trigger() {
-            window.location = "http://" + this.follower.website;
+        triggerUser() {
+            window.location.pathname = this.follower.username;
         }
   },
 
