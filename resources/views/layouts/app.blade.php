@@ -25,7 +25,8 @@
         window.User = {
             id: {{ auth()->user()->id ?? '' }},
             avatar: "{{ optional(auth()->user())->avatar() ?? '' }}",
-            username: "{{auth()->user()->username ?? ''}}"
+            username: "{{auth()->user()->username ?? ''}}",
+            name: "{{auth()->user()->name ?? ''}}"
         };
 
     </script>

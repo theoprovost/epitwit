@@ -3099,6 +3099,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -3261,10 +3271,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
-    username: function username() {
-      return this.$user.username;
+    user: function user() {
+      return this.$user;
     }
   },
   methods: {
@@ -3272,13 +3315,38 @@ __webpack_require__.r(__webpack_exports__);
       window.location.pathname = this.$user.username;
     },
     triggerNotifications: function triggerNotifications() {
-      window.location.pathname = 'notifications';
+      window.location.pathname = "notifications";
     },
     triggerHome: function triggerHome() {
-      window.location.pathname = 'home';
+      window.location.pathname = "home";
     },
     triggerMessages: function triggerMessages() {
-      window.location.pathname = 'messages';
+      window.location.pathname = "messages";
+    },
+    logout: function logout() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var isUnlogged;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/logout");
+
+              case 2:
+                isUnlogged = _context.sent;
+
+                if (isUnlogged) {
+                  window.location.href = "/";
+                }
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -52860,7 +52928,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
-                _vm._v("\n        Home\n      ")
+                _vm._v("Home")
               ])
             ])
           ]
@@ -52897,7 +52965,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
-                _vm._v("\n        Explore\n      ")
+                _vm._v("Explore")
               ])
             ])
           ]
@@ -52934,8 +53002,8 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "self-center ml-4 text-lg font-bold " }, [
-                _vm._v("\n        Notifications\n      ")
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("Notifications")
               ])
             ])
           ]
@@ -52973,7 +53041,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
-                _vm._v("\n        Messages\n      ")
+                _vm._v("Messages")
               ])
             ])
           ]
@@ -53011,7 +53079,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
-                _vm._v("\n        Profile\n      ")
+                _vm._v("Profile")
               ])
             ])
           ]
@@ -53047,13 +53115,97 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("p", { staticClass: "self-center ml-4 text-lg font-bold " }, [
-                _vm._v("\n        Search\n      ")
+              _c("p", { staticClass: "self-center ml-4 text-lg font-bold" }, [
+                _vm._v("Search")
               ])
             ])
           ]
         )
-      ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "flex rounded-full mb-2 p-4 flex items-center fixed bottom-0"
+        },
+        [
+          _c("div", { staticClass: "align-middle" }, [
+            _c("img", {
+              staticClass: "mr-3 rounded-full w-10",
+              attrs: { src: _vm.user.avatar, alt: " " }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "w-full h-full pl-4" }, [
+            _c("p", { staticClass: "font-semibold" }, [
+              _vm._v(_vm._s(_vm.user.name))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-gray-500" }, [
+              _vm._v("@" + _vm._s(_vm.user.username))
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "app-dropdown",
+            [
+              _c("template", { slot: "trigger" }, [
+                _c("div", { staticClass: "items-center pl-2" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "rounded-full hover:border-gray-500 hover:bg-gray-500 text-gray-400 hover:text-gray-200 p-1"
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d:
+                                "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "app-dropdown-item",
+                {
+                  on: {
+                    click: function($event) {
+                      $event.stopPropagation()
+                      $event.preventDefault()
+                      return _vm.logout($event)
+                    }
+                  }
+                },
+                [_vm._v("\n        Logout\n      ")]
+              )
+            ],
+            2
+          )
+        ],
+        1
+      )
     ]
   )
 }
@@ -54107,7 +54259,7 @@ var render = function() {
         _c(
           "svg",
           {
-            staticClass: "h-6",
+            staticClass: "h-4",
             attrs: {
               xmlns: "http://www.w3.org/2000/svg",
               fill: "none",
