@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api\Explore;
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Entity;
+use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\TweetCollection;
 use SebastianBergmann\Environment\Console;
 
 class HashtagController extends Controller
@@ -18,8 +20,15 @@ class HashtagController extends Controller
 
     public function find(Request $request)
     {
-        return Entity::with([
+        $query = Entity::with([
             'tweets'
-        ])->where('body_plain', 'like', '%' . $request->data . '%')->get();
+        ])
+        ->where('body_plain', 'like', $request->data . '%')
+        ->get();
+
+        $tweets = $query->pluck('tweets')->collapse(); // remove nested array
+
+        return new TweetCollection($tweets);
     }
+
 }

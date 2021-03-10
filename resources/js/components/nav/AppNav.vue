@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen flex flex-col flex-end text-gray-300 fixed">
+  <div class="w-3/12 h-screen flex flex-col flex-end text-gray-300 fixed">
     <div class="w-full inline-block h-12 rounded-full mb-2">
       <img src="" alt="" />
     </div>
@@ -130,6 +130,7 @@
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
+        @click="triggerSearch"
       >
         <div class="w-full h-full flex align-center">
           <div class="self-center">
@@ -151,7 +152,7 @@
       </div>
     </div>
 
-    <div class="flex mb-2 p-4 flex items-center fixed w-full bottom-0 mb-6">
+    <div class="flex mb-2 p-4 flex items-center absolute bottom-0 left-0 mb-6">
       <div class="align-middle">
         <img :src="user.avatar" alt=" " class="mr-3 rounded-full w-10" />
       </div>
@@ -221,6 +222,10 @@ export default {
 
     triggerExplore() {
       window.location.pathname = "explore";
+    },
+
+    triggerSearch() {
+      window.location.pathname = "search";
     },
 
     async logout() {

@@ -3304,6 +3304,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
@@ -3326,6 +3327,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     triggerExplore: function triggerExplore() {
       window.location.pathname = "explore";
+    },
+    triggerSearch: function triggerSearch() {
+      window.location.pathname = "search";
     },
     logout: function logout() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -3947,10 +3951,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      tweets: []
+    };
+  },
   methods: {
     handleSearch: function handleSearch(e) {
+      var _this = this;
+
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
         var search, axiosToken, fetchData, cancel;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
@@ -3983,23 +4000,26 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                               data: search
                             }, {
                               cancelToken: axiosToken.token
+                            }).then(function (res) {
+                              return res.data.data;
                             });
 
                           case 3:
-                            _context.next = 8;
+                            _this.tweets = _context.sent;
+                            _context.next = 9;
                             break;
 
-                          case 5:
-                            _context.prev = 5;
+                          case 6:
+                            _context.prev = 6;
                             _context.t0 = _context["catch"](0);
                             console.log(_context.t0);
 
-                          case 8:
+                          case 9:
                           case "end":
                             return _context.stop();
                         }
                       }
-                    }, _callee, null, [[0, 5]]);
+                    }, _callee, null, [[0, 6]]);
                   }));
 
                   return function fetchData() {
@@ -53160,7 +53180,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-full h-screen flex flex-col flex-end text-gray-300 fixed"
+      staticClass: "w-3/12 h-screen flex flex-col flex-end text-gray-300 fixed"
     },
     [
       _vm._m(0),
@@ -53358,7 +53378,8 @@ var render = function() {
           "div",
           {
             staticClass:
-              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
+              "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
+            on: { click: _vm.triggerSearch }
           },
           [
             _c("div", { staticClass: "w-full h-full flex align-center" }, [
@@ -53394,7 +53415,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex mb-2 p-4 flex items-center fixed w-full bottom-0 mb-6"
+            "flex mb-2 p-4 flex items-center absolute bottom-0 left-0 mb-6"
         },
         [
           _c("div", { staticClass: "align-middle" }, [
@@ -54029,18 +54050,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("form", { attrs: { action: "" } }, [
-      _c("label", { staticClass: "hidden", attrs: { for: "search" } }, [
-        _vm._v("Search the site:")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "bg-gray-800 outline-none text-gray-300",
-        attrs: { type: "search", name: "search", id: "search" },
-        on: { keyup: _vm.handleSearch }
-      })
-    ])
+  return _c("div", { staticClass: "v-full h-full" }, [
+    _c("div", { staticClass: "v-full h-12" }, [
+      _c("form", { attrs: { action: "" } }, [
+        _c("label", { staticClass: "hidden", attrs: { for: "search" } }, [
+          _vm._v("Search hashtags:")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "bg-gray-800 outline-none text-gray-300",
+          attrs: { type: "search", name: "search", id: "search" },
+          on: { keyup: _vm.handleSearch }
+        })
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.tweets.length
+      ? _c(
+          "div",
+          { staticClass: "w-full h-full" },
+          _vm._l(_vm.tweets, function(tweet) {
+            return _c("app-tweet", { key: tweet.id, attrs: { tweet: tweet } })
+          }),
+          1
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []

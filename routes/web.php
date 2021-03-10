@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index']);
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
