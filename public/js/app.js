@@ -53432,7 +53432,7 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-2 h-16 text-gray-400" }, [
+      _c("div", { staticClass: "mt-2 h-16 text-gray-400 c-break" }, [
         _vm._v("\n            " + _vm._s(_vm.user.biography) + "\n        ")
       ]),
       _vm._v(" "),
