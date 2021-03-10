@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Follower;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Rules\OlderThan;
@@ -76,8 +77,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // To do : automatic 'auto-following'
+        $this->autoFollow($user->toArray());
 
         return $user;
+    }
+
+    protected function autoFollow(array $data)
+    {
+        Follower::create([
+            'user_id' => $data['id'],
+            'following_id' => $data['id'],
+        ]);
     }
 }
