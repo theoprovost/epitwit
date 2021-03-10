@@ -4081,12 +4081,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
       required: true,
       type: Object
+    },
+    tweet: {
+      required: true,
+      type: Object
+    },
+    inReply: {
+      required: false,
+      type: Boolean
+    },
+    created_at: {
+      required: false
     }
+  },
+  data: function data() {
+    return {
+      auth: ''
+    };
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = "./" + this.user.username;
+    }
+  },
+  mounted: function mounted() {
+    Vue.set(this, 'auth', window.User.id);
   }
 });
 
@@ -4511,6 +4541,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4520,6 +4555,15 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
+    },
+    inReply: {
+      required: false,
+      type: Boolean
+    }
+  },
+  methods: {
+    trigger: function trigger() {
+      window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
 });
@@ -4537,6 +4581,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -4563,11 +4609,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     tweet: {
       required: true,
       type: Object
+    }
+  },
+  methods: {
+    triggerTweet: function triggerTweet() {
+      window.location.pathname = "./tweets/" + this.tweet.original_tweet.id;
+    },
+    triggerUser: function triggerUser() {
+      window.location.pathname = "./" + this.tweet.user.username;
     }
   }
 });
@@ -4601,6 +4657,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4610,6 +4678,25 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
+    },
+    inReply: {
+      required: false,
+      type: Boolean
+    }
+  },
+  computed: {
+    images: function images() {
+      return this.tweet.media.data.filter(function (m) {
+        return m.type === "image";
+      });
+    }
+  },
+  methods: {
+    triggerTweet: function triggerTweet() {
+      window.location.pathname = "./tweets/" + this.tweet.id;
+    },
+    triggerUser: function triggerUser() {
+      window.location.pathname = "./" + this.tweet.replying_to;
     }
   }
 });
@@ -53648,7 +53735,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800"
+        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
     },
     [
       _c("app-tweet-variant-" + _vm.tweet.type, {
@@ -53712,11 +53799,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("span", { staticClass: "text-gray-300 font-bold" }, [
-    _vm._v(_vm._s(_vm.user.name)),
-    _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
-      _vm._v("@" + _vm._s(_vm.user.username))
-    ])
+  return _c("div", { staticClass: "flex justify-between" }, [
+    _c("div", [
+      _c(
+        "span",
+        {
+          staticClass: "text-gray-200 font-bold hover:underline cursor-pointer",
+          on: {
+            click: function($event) {
+              $event.stopPropagation()
+              $event.preventDefault()
+              return _vm.trigger($event)
+            }
+          }
+        },
+        [_vm._v(_vm._s(_vm.user.name))]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
+        _vm._v("@" + _vm._s(_vm.user.username))
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex items-center justify-around -mt-1" },
+      [
+        _c("div", [
+          _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
+            _vm._v(_vm._s(_vm.created_at))
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.tweet.user.id == _vm.auth && !_vm.inReply
+          ? _c("app-tweet-option-action", { attrs: { tweet: _vm.tweet } })
+          : _vm._e()
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -54233,34 +54353,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex w-full" }, [
-    _c("div", { staticClass: "mr-3" }, [
-      _c("img", {
-        staticClass: "w-12 rounded-full",
-        attrs: { src: _vm.tweet.user.avatar, alt: " " }
-      })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex-grow" },
-      [
-        _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
-          _vm._v(_vm._s(_vm.tweet.body))
-        ]),
-        _vm._v(" "),
-        _c("app-tweet-variant-tweet", {
-          staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
-          attrs: { tweet: _vm.tweet.original_tweet }
-        }),
-        _vm._v(" "),
-        _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
-      ],
-      1
-    )
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "flex w-full cursor-pointer",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.trigger($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "mr-3" }, [
+        _c("img", {
+          staticClass: "w-12 rounded-full",
+          attrs: { src: _vm.tweet.user.avatar, alt: " " }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex-grow" },
+        [
+          _c("app-tweet-username", {
+            attrs: {
+              user: _vm.tweet.user,
+              created_at: _vm.tweet.creation_date,
+              tweet: _vm.tweet,
+              inReply: _vm.inReply
+            }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
+            _vm._v(_vm._s(_vm.tweet.body))
+          ]),
+          _vm._v(" "),
+          _vm.tweet.original_tweet
+            ? _c("app-tweet-variant-tweet", {
+                staticClass:
+                  "border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-700",
+                attrs: { tweet: _vm.tweet.original_tweet, inReply: true }
+              })
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "border border-gray-700 rounded-lg mt-4 p-4 text-gray-500"
+                },
+                [_vm._v("\n        This tweet was deleted.\n    ")]
+              ),
+          _vm._v(" "),
+          !_vm.inReply
+            ? _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+            : _vm._e()
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54285,45 +54436,75 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "text-gray-600 font-medium text-sm flex items-center mb-2"
-      },
-      [
-        _c(
-          "svg",
-          {
-            staticClass: "fill-current text-gray-600 w-4 mr-2",
-            attrs: { viewBox: "0 0 24 24", width: "24", height: "24" }
-          },
-          [
-            _c("path", {
-              staticClass: "heroicon-ui",
-              attrs: {
-                d:
-                  "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
+  return _c(
+    "div",
+    {
+      staticClass: "cursor-pointer",
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.triggerTweet($event)
+        }
+      }
+    },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "text-gray-600 font-medium text-sm flex items-center mb-2"
+        },
+        [
+          _c(
+            "svg",
+            {
+              staticClass: "fill-current text-gray-600 w-4 mr-2",
+              attrs: { viewBox: "0 0 24 24", width: "24", height: "24" }
+            },
+            [
+              _c("path", {
+                staticClass: "heroicon-ui",
+                attrs: {
+                  d:
+                    "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
+                }
+              })
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              staticClass: "hover:underline cursor-pointer",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                  $event.preventDefault()
+                  return _vm.triggerUser($event)
+                }
               }
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")])
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c("app-tweet-variant-" + _vm.tweet.original_tweet.type, {
-          tag: "component",
-          attrs: { tweet: _vm.tweet.original_tweet }
-        })
-      ],
-      1
-    )
-  ])
+            },
+            [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")]
+          ),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+            _vm._v(_vm._s(_vm.tweet.creation_date))
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c("app-tweet-variant-" + _vm.tweet.original_tweet.type, {
+            tag: "component",
+            attrs: { tweet: _vm.tweet.original_tweet }
+          })
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54348,29 +54529,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex w-full" }, [
-    _c("div", { staticClass: "mr-3" }, [
+  return _c(
+    "div",
+    {
+      staticClass: "flex w-full cursor-pointer",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          $event.preventDefault()
+          return _vm.triggerTweet($event)
+        }
+      }
+    },
+    [
       _c("img", {
-        staticClass: "w-12 rounded-full",
+        staticClass: "w-12 h-12 mr-3 rounded-full",
         attrs: { src: _vm.tweet.user.avatar, alt: " " }
-      })
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex-grow" },
-      [
-        _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
-        _vm._v(" "),
-        _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
-          _vm._v(_vm._s(_vm.tweet.body))
-        ]),
-        _vm._v(" "),
-        _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
-      ],
-      1
-    )
-  ])
+      }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex-grow" },
+        [
+          _c("app-tweet-username", {
+            attrs: {
+              user: _vm.tweet.user,
+              tweet: _vm.tweet,
+              created_at: _vm.tweet.creation_date,
+              inReply: _vm.inReply
+            }
+          }),
+          _vm._v(" "),
+          _vm.tweet.replying_to
+            ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
+                _vm._v("\n      Replying to "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "hover:underline cursor-pointer",
+                    attrs: { href: "" },
+                    on: {
+                      click: function($event) {
+                        $event.stopPropagation()
+                        $event.preventDefault()
+                        return _vm.triggerUser($event)
+                      }
+                    }
+                  },
+                  [_vm._v("@" + _vm._s(_vm.tweet.replying_to))]
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.tweet.body
+            ? _c("app-tweet-body", { attrs: { tweet: _vm.tweet } })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.images.length
+            ? _c(
+                "div",
+                { staticClass: "flex flex-wrap mb-4 mt-4" },
+                _vm._l(_vm.images, function(image, index) {
+                  return _c(
+                    "div",
+                    { key: index, staticClass: "w-6/12 flex-grow" },
+                    [
+                      _c("img", {
+                        staticClass: "rounded-lg bg-gray-600",
+                        attrs: { src: image.url, alt: " " }
+                      })
+                    ]
+                  )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.inReply
+            ? _c("app-tweet-action-group", {
+                attrs: { tweet: _vm.tweet, inReply: _vm.inReply }
+              })
+            : _vm._e()
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
