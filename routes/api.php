@@ -33,3 +33,6 @@ Route::delete('/tweets/{user_id}/follow', [App\Http\Controllers\Api\Users\UserFo
 Route::get('/tweets/{tweet}', [App\Http\Controllers\Api\Tweets\TweetController::class, 'show']);
 Route::delete('/tweets/{tweet}', [App\Http\Controllers\Api\Tweets\TweetController::class, 'destroy']);
 Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, 'submit']);
+
+
+Route::get('/messages', [App\Http\Controllers\Api\Conversations\ConversationPanelController::class, 'index']);
