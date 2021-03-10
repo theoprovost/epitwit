@@ -4081,42 +4081,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     user: {
       required: true,
       type: Object
-    },
-    tweet: {
-      required: true,
-      type: Object
-    },
-    inReply: {
-      required: false,
-      type: Boolean
-    },
-    created_at: {
-      required: false
     }
-  },
-  data: function data() {
-    return {
-      auth: ''
-    };
-  },
-  methods: {
-    trigger: function trigger() {
-      window.location.pathname = "./" + this.user.username;
-    }
-  },
-  mounted: function mounted() {
-    Vue.set(this, 'auth', window.User.id);
   }
 });
 
@@ -4260,10 +4230,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -4271,11 +4237,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true,
       type: Object
     }
-  },
-  data: function data() {
-    return {
-      color: 'red'
-    };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     likes: "likes/likes"
@@ -4288,7 +4249,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     likeTweet: "likes/likeTweet",
     unlikeTweet: "likes/unlikeTweet"
   })), {}, {
-    likeOrUnlike: function likeOrUnlike() {
+    LikeOrUnlike: function LikeOrUnlike() {
       if (this.liked) {
         this.unlikeTweet(this.tweet);
         return;
@@ -4379,59 +4340,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _modals_AppTweetReplyModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modals/AppTweetReplyModal */ "./resources/js/components/modals/AppTweetReplyModal.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: {
-    tweet: {
-      require: true,
-      type: Object
-    }
-  },
-  data: function data() {
-    return {
-      AppTweetReplyModal: _modals_AppTweetReplyModal__WEBPACK_IMPORTED_MODULE_0__.default
-    };
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetRetweetAction.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetRetweetAction.vue?vue&type=script&lang=js& ***!
@@ -4443,8 +4351,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modals_AppTweetRetweetModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../modals/AppTweetRetweetModal */ "./resources/js/components/modals/AppTweetRetweetModal.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -4472,12 +4379,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -4486,19 +4387,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       type: Object
     }
   },
-  data: function data() {
-    return {
-      AppTweetRetweetModal: _modals_AppTweetRetweetModal__WEBPACK_IMPORTED_MODULE_0__.default
-    };
-  },
-  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapGetters)({
+  computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
     retweets: "retweets/retweets"
   })), {}, {
     retweeted: function retweeted() {
       return this.retweets.includes(this.tweet.id);
     }
   }),
-  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_1__.mapActions)({
+  methods: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapActions)({
     retweetTweet: "retweets/retweetTweet",
     unretweetTweet: "retweets/unretweetTweet"
   })), {}, {
@@ -4533,6 +4429,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
 //
 //
 //
@@ -4614,11 +4511,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4628,15 +4520,6 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
-    },
-    inReply: {
-      required: false,
-      type: Boolean
-    }
-  },
-  methods: {
-    trigger: function trigger() {
-      window.location.pathname = "./tweets/" + this.tweet.id;
     }
   }
 });
@@ -4654,8 +4537,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -4682,21 +4563,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     tweet: {
       required: true,
       type: Object
-    }
-  },
-  methods: {
-    triggerTweet: function triggerTweet() {
-      window.location.pathname = "./tweets/" + this.tweet.original_tweet.id;
-    },
-    triggerUser: function triggerUser() {
-      window.location.pathname = "./" + this.tweet.original_tweet.user.username;
     }
   }
 });
@@ -4730,18 +4601,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -4751,25 +4610,6 @@ __webpack_require__.r(__webpack_exports__);
     tweet: {
       required: true,
       type: Object
-    },
-    inReply: {
-      required: false,
-      type: Boolean
-    }
-  },
-  computed: {
-    images: function images() {
-      return this.tweet.media.data.filter(function (m) {
-        return m.type === "image";
-      });
-    }
-  },
-  methods: {
-    triggerTweet: function triggerTweet() {
-      window.location.pathname = "./tweets/" + this.tweet.id;
-    },
-    triggerUser: function triggerUser() {
-      window.location.pathname = "./" + this.tweet.replying_to;
     }
   }
 });
@@ -5260,7 +5100,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/tweets/".concat(tweet.id, "/likes"));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("api/tweets/".concat(tweet.id, "/likes"));
 
               case 2:
               case "end":
@@ -5277,7 +5117,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/api/tweets/".concat(tweet.id, "/likes"));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("api/tweets/".concat(tweet.id, "/likes"));
 
               case 2:
               case "end":
@@ -5471,7 +5311,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/tweets/".concat(tweet.id, "/retweets"));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("api/tweets/".concat(tweet.id, "/retweets"));
 
               case 2:
               case "end":
@@ -5488,7 +5328,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("/api/tweets/".concat(tweet.id, "/retweets"));
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("api/tweets/".concat(tweet.id, "/retweets"));
 
               case 2:
               case "end":
@@ -5525,9 +5365,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _tweet_getters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tweet/getters */ "./resources/js/store/tweet/getters.js");
-/* harmony import */ var _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tweet/mutations */ "./resources/js/store/tweet/mutations.js");
-/* harmony import */ var _tweet_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tweet/actions */ "./resources/js/store/tweet/actions.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
 
@@ -5536,9 +5396,95 @@ __webpack_require__.r(__webpack_exports__);
   state: {
     tweets: []
   },
-  getters: _tweet_getters__WEBPACK_IMPORTED_MODULE_0__.default,
-  mutations: _tweet_mutations__WEBPACK_IMPORTED_MODULE_1__.default,
-  actions: _tweet_actions__WEBPACK_IMPORTED_MODULE_2__.default
+  getters: {
+    tweets: function tweets(state) {
+      return state.tweets.sort(function (a, b) {
+        return b.created_at - a.created_at;
+      });
+    }
+  },
+  mutations: {
+    PUSH_TWEETS: function PUSH_TWEETS(state, data) {
+      var _state$tweets;
+
+      (_state$tweets = state.tweets).push.apply(_state$tweets, _toConsumableArray(data.filter(function (tweet) {
+        return !state.tweets.map(function (t) {
+          return t.id;
+        }).includes(tweet.id);
+      })));
+    },
+    SET_LIKES: function SET_LIKES(state, _ref) {
+      var id = _ref.id,
+          count = _ref.count;
+      state.tweets = state.tweets.map(function (t) {
+        var _t$original_tweet;
+
+        if (t.id === id) {
+          t.likes_count = count;
+        }
+
+        if (((_t$original_tweet = t.original_tweet) === null || _t$original_tweet === void 0 ? void 0 : _t$original_tweet.id) === id) {
+          t.original_tweet.likes_count = count;
+        }
+
+        return t;
+      });
+    },
+    SET_RETWEETS: function SET_RETWEETS(state, _ref2) {
+      var id = _ref2.id,
+          count = _ref2.count;
+      state.tweets = state.tweets.map(function (t) {
+        var _t$original_tweet2;
+
+        if (t.id === id) {
+          t.retweets_count = count;
+        }
+
+        if (((_t$original_tweet2 = t.original_tweet) === null || _t$original_tweet2 === void 0 ? void 0 : _t$original_tweet2.id) === id) {
+          t.original_tweet.retweets_count = count;
+        }
+
+        return t;
+      });
+    },
+    POP_TWEET: function POP_TWEET(state, id) {
+      state.tweets = state.tweets.filter(function (t) {
+        return t.id !== id;
+      });
+    }
+  },
+  actions: {
+    getTweets: function getTweets(_ref3, url) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var commit, res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref3.commit;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().get(url);
+
+              case 3:
+                res = _context.sent;
+                commit('PUSH_TWEETS', res.data.data);
+                commit('likes/PUSH_LIKES', res.data.meta.likes, {
+                  root: true
+                });
+                commit('retweets/PUSH_RETWEETS', res.data.meta.retweets, {
+                  root: true
+                });
+                return _context.abrupt("return", res);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
 });
 
 /***/ }),
@@ -49584,17 +49530,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _AppTweetReplyAction_vue_vue_type_template_id_4392e13c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppTweetReplyAction.vue?vue&type=template&id=4392e13c& */ "./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=template&id=4392e13c&");
-/* harmony import */ var _AppTweetReplyAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppTweetReplyAction.vue?vue&type=script&lang=js& */ "./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _AppTweetReplyAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
+  script,
   _AppTweetReplyAction_vue_vue_type_template_id_4392e13c___WEBPACK_IMPORTED_MODULE_0__.render,
   _AppTweetReplyAction_vue_vue_type_template_id_4392e13c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -50395,22 +50339,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTweetOptionAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppTweetOptionAction.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetOptionAction.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTweetOptionAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
-
-/***/ }),
-
-/***/ "./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTweetReplyAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AppTweetReplyAction.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tweets/actions/AppTweetReplyAction.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AppTweetReplyAction_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -53720,7 +53648,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800 cursor-pointer"
+        "w-full inline-block p-4 border border-0 border-gray-800 hover:bg-gray-800"
     },
     [
       _c("app-tweet-variant-" + _vm.tweet.type, {
@@ -53784,44 +53712,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex justify-between" }, [
-    _c("div", [
-      _c(
-        "span",
-        {
-          staticClass: "text-gray-200 font-bold hover:underline cursor-pointer",
-          on: {
-            click: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-              return _vm.trigger($event)
-            }
-          }
-        },
-        [_vm._v(_vm._s(_vm.user.name))]
-      ),
-      _vm._v(" "),
-      _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
-        _vm._v("@" + _vm._s(_vm.user.username))
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "flex items-center justify-around -mt-1" },
-      [
-        _c("div", [
-          _c("span", { staticClass: "text-gray-500 font-normal ml-2" }, [
-            _vm._v(_vm._s(_vm.created_at))
-          ])
-        ]),
-        _vm._v(" "),
-        _vm.tweet.user.id == _vm.auth && !_vm.inReply
-          ? _c("app-tweet-option-action", { attrs: { tweet: _vm.tweet } })
-          : _vm._e()
-      ],
-      1
-    )
+  return _c("span", { staticClass: "text-gray-300 font-bold" }, [
+    _vm._v(_vm._s(_vm.user.name)),
+    _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
+      _vm._v("@" + _vm._s(_vm.user.username))
+    ])
   ])
 }
 var staticRenderFns = []
@@ -53916,12 +53811,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("ul", { staticClass: "flex mt-4" }, [
-    _c(
-      "li",
-      { staticClass: "w-3/12" },
-      [_c("app-tweet-reply-action", { attrs: { tweet: _vm.tweet } })],
-      1
-    ),
+    _c("li", { staticClass: "w-3/12" }, [_c("app-tweet-reply-action")], 1),
     _vm._v(" "),
     _c(
       "li",
@@ -53961,61 +53851,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "flex items-center text-base text-gray-600 hover:text-red-600 pr-2",
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            $event.preventDefault()
-            return _vm.likeOrUnlike($event)
-          }
+  return _c(
+    "a",
+    {
+      staticClass: "flex items-center text-base",
+      attrs: { href: "#" },
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.LikeOrUnlike($event)
         }
-      },
-      [
-        _c("div", { staticClass: "pr-1" }, [
-          _c("div", { staticClass: "p-2 rounded-full hover:bg-gray-700" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current w-5",
-                class: {
-                  "text-red-600": _vm.liked
-                },
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 24 24",
-                  width: "24",
-                  height: "24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
-                  }
-                })
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            class: {
-              "text-red-600": _vm.liked
-            }
+      }
+    },
+    [
+      _c(
+        "svg",
+        {
+          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          class: {
+            "text-red-600": _vm.liked
           },
-          [_vm._v("\n      " + _vm._s(_vm.tweet.likes_count) + "\n    ")]
-        )
-      ]
-    )
-  ])
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            width: "24",
+            height: "24"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "span",
+        {
+          staticClass: "text-gray-600",
+          class: {
+            "text-red-600": _vm.liked
+          }
+        },
+        [_vm._v("\n    " + _vm._s(_vm.tweet.likes_count))]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54154,50 +54038,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "flex items-center text-base text-gray-600 hover:text-blue-600 pr-2 cursor-pointer",
-        on: {
-          click: function($event) {
-            $event.stopPropagation()
-            $event.preventDefault()
-            return _vm.$modal.show(_vm.AppTweetReplyModal, { tweet: _vm.tweet })
+  return _c(
+    "a",
+    { staticClass: "flex items-center text-base", attrs: { href: "#" } },
+    [
+      _c(
+        "svg",
+        {
+          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            width: "24",
+            height: "24"
           }
-        }
-      },
-      [
-        _c("div", { staticClass: "pr-1" }, [
-          _c("div", { staticClass: "p-2 rounded-full hover:bg-gray-700" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "fill-current w-5",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 24 24",
-                  width: "24",
-                  height: "24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z"
-                  }
-                })
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.tweet.replies_count))])
-      ]
-    )
-  ])
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M2 15V5c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v15a1 1 0 0 1-1.7.7L16.58 17H4a2 2 0 0 1-2-2zM20 5H4v10h13a1 1 0 0 1 .7.3l2.3 2.29V5z"
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("span", { staticClass: "text-gray-600" }, [_vm._v("0")])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54224,68 +54092,48 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex" },
     [
-      _c(
-        "app-dropdown",
-        [
-          _c(
-            "template",
-            { slot: "trigger" },
+      !_vm.retweeted
+        ? _c(
+            "app-dropdown",
             [
-              _c("app-tweet-retweet-action-button", {
-                attrs: { tweet: _vm.tweet }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          !_vm.retweeted
-            ? _c(
+              _c(
+                "template",
+                { slot: "trigger" },
+                [
+                  _c("app-tweet-retweet-action-button", {
+                    attrs: { tweet: _vm.tweet }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
                 "app-dropdown-item",
                 {
                   on: {
                     click: function($event) {
-                      $event.stopPropagation()
                       $event.preventDefault()
                       return _vm.retweetOrUnretweet($event)
                     }
                   }
                 },
                 [_vm._v("\n      Retweet\n    ")]
-              )
-            : _c(
-                "app-dropdown-item",
-                {
-                  on: {
-                    click: function($event) {
-                      $event.stopPropagation()
-                      $event.preventDefault()
-                      return _vm.retweetOrUnretweet($event)
-                    }
-                  }
-                },
-                [_vm._v("\n      Undo retweet\n    ")]
               ),
-          _vm._v(" "),
-          _c(
-            "app-dropdown-item",
-            {
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                  return _vm.$modal.show(_vm.AppTweetRetweetModal, {
-                    tweet: _vm.tweet
-                  })
-                }
-              }
-            },
-            [_vm._v("\n      Retweet with comment\n    ")]
+              _vm._v(" "),
+              _c("app-dropdown-item", [_vm._v(" Retweet with comment ")])
+            ],
+            2
           )
-        ],
-        2
-      )
+        : _c("app-tweet-retweet-action-button", {
+            attrs: { tweet: _vm.tweet },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.retweetOrUnretweet($event)
+              }
+            }
+          })
     ],
     1
   )
@@ -54314,49 +54162,45 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "a",
     {
-      staticClass:
-        "flex items-center text-base text-gray-600 hover:text-green-600 pr-2",
+      staticClass: "flex items-center text-base",
+      attrs: { href: "#" },
       on: {
         click: function($event) {
-          $event.preventDefault()
           return _vm.$emit("click", $event)
         }
       }
     },
     [
-      _c("div", { staticClass: "pr-1" }, [
-        _c("div", { staticClass: "p-2 rounded-full hover:bg-gray-700" }, [
-          _c(
-            "svg",
-            {
-              staticClass: "fill-current w-5",
-              class: {
-                "text-green-600": _vm.retweeted
-              },
-              attrs: {
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 24 24",
-                width: "24",
-                height: "24"
-              }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  d:
-                    "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
-                }
-              })
-            ]
-          )
-        ])
-      ]),
+      _c(
+        "svg",
+        {
+          staticClass: "fill-current text-gray-600 w-5 mr-2",
+          class: {
+            "text-green-600": _vm.retweeted
+          },
+          attrs: {
+            xmlns: "http://www.w3.org/2000/svg",
+            viewBox: "0 0 24 24",
+            width: "24",
+            height: "24"
+          }
+        },
+        [
+          _c("path", {
+            attrs: {
+              d:
+                "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
+            }
+          })
+        ]
+      ),
       _vm._v(" "),
       _c(
         "span",
         {
+          staticClass: "text-gray-600",
           class: {
             "text-green-600": _vm.retweeted
           }
@@ -54389,66 +54233,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "flex w-full cursor-pointer",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          $event.preventDefault()
-          return _vm.trigger($event)
-        }
-      }
-    },
-    [
-      _c("div", { staticClass: "mr-3" }, [
-        _c("img", {
-          staticClass: "w-12 rounded-full",
-          attrs: { src: _vm.tweet.user.avatar, alt: " " }
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex-grow" },
-        [
-          _c("app-tweet-username", {
-            attrs: {
-              user: _vm.tweet.user,
-              created_at: _vm.tweet.creation_date,
-              tweet: _vm.tweet,
-              inReply: _vm.inReply
-            }
-          }),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
-            _vm._v(_vm._s(_vm.tweet.body))
-          ]),
-          _vm._v(" "),
-          _vm.tweet.original_tweet
-            ? _c("app-tweet-variant-tweet", {
-                staticClass:
-                  "border border-gray-700 rounded-lg mt-4 p-4 hover:bg-gray-700",
-                attrs: { tweet: _vm.tweet.original_tweet, inReply: true }
-              })
-            : _c(
-                "div",
-                {
-                  staticClass:
-                    "border border-gray-700 rounded-lg mt-4 p-4 text-gray-500"
-                },
-                [_vm._v("\n        This tweet was deleted.\n    ")]
-              ),
-          _vm._v(" "),
-          !_vm.inReply
-            ? _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
-            : _vm._e()
-        ],
-        1
-      )
-    ]
-  )
+  return _c("div", { staticClass: "flex w-full" }, [
+    _c("div", { staticClass: "mr-3" }, [
+      _c("img", {
+        staticClass: "w-12 rounded-full",
+        attrs: { src: _vm.tweet.user.avatar, alt: " " }
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex-grow" },
+      [
+        _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
+          _vm._v(_vm._s(_vm.tweet.body))
+        ]),
+        _vm._v(" "),
+        _c("app-tweet-variant-tweet", {
+          staticClass: "border border-gray-700 rounded-lg mt-4 p-4",
+          attrs: { tweet: _vm.tweet.original_tweet }
+        }),
+        _vm._v(" "),
+        _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54473,76 +54285,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "cursor-pointer",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          $event.preventDefault()
-          return _vm.triggerTweet($event)
-        }
-      }
-    },
-    [
-      _c(
-        "div",
-        {
-          staticClass:
-            "text-gray-600 font-medium text-sm flex items-center mb-2"
-        },
-        [
-          _c(
-            "svg",
-            {
-              staticClass: "fill-current text-gray-600 w-4 mr-2",
-              attrs: { viewBox: "0 0 24 24", width: "24", height: "24" }
-            },
-            [
-              _c("path", {
-                staticClass: "heroicon-ui",
-                attrs: {
-                  d:
-                    "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
-                }
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              staticClass: "hover:underline cursor-pointer",
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                  $event.preventDefault()
-                  return _vm.triggerUser($event)
-                }
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "text-gray-600 font-medium text-sm flex items-center mb-2"
+      },
+      [
+        _c(
+          "svg",
+          {
+            staticClass: "fill-current text-gray-600 w-4 mr-2",
+            attrs: { viewBox: "0 0 24 24", width: "24", height: "24" }
+          },
+          [
+            _c("path", {
+              staticClass: "heroicon-ui",
+              attrs: {
+                d:
+                  "M5.41 16H18a2 2 0 0 0 2-2 1 1 0 0 1 2 0 4 4 0 0 1-4 4H5.41l2.3 2.3a1 1 0 0 1-1.42 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.4L5.4 16zM6 8a2 2 0 0 0-2 2 1 1 0 0 1-2 0 4 4 0 0 1 4-4h12.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4L18.6 8H6z"
               }
-            },
-            [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")]
-          ),
-          _vm._v(" "),
-          _c("span", { staticClass: "text-gray-600 font-normal ml-2" }, [
-            _vm._v(_vm._s(_vm.tweet.creation_date))
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _c("app-tweet-variant-" + _vm.tweet.original_tweet.type, {
-            tag: "component",
-            attrs: { tweet: _vm.tweet.original_tweet }
-          })
-        ],
-        1
-      )
-    ]
-  )
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.tweet.user.name) + " retweeted")])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("app-tweet-variant-" + _vm.tweet.original_tweet.type, {
+          tag: "component",
+          attrs: { tweet: _vm.tweet.original_tweet }
+        })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54567,92 +54348,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "flex w-full cursor-pointer",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          $event.preventDefault()
-          return _vm.triggerTweet($event)
-        }
-      }
-    },
-    [
+  return _c("div", { staticClass: "flex w-full" }, [
+    _c("div", { staticClass: "mr-3" }, [
       _c("img", {
-        staticClass: "w-12 h-12 mr-3 rounded-full",
+        staticClass: "w-12 rounded-full",
         attrs: { src: _vm.tweet.user.avatar, alt: " " }
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex-grow" },
-        [
-          _c("app-tweet-username", {
-            attrs: {
-              user: _vm.tweet.user,
-              tweet: _vm.tweet,
-              created_at: _vm.tweet.creation_date,
-              inReply: _vm.inReply
-            }
-          }),
-          _vm._v(" "),
-          _vm.tweet.replying_to
-            ? _c("div", { staticClass: "text-gray-600 mb-2" }, [
-                _vm._v("\n      Replying to "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "hover:underline cursor-pointer",
-                    attrs: { href: "" },
-                    on: {
-                      click: function($event) {
-                        $event.stopPropagation()
-                        $event.preventDefault()
-                        return _vm.triggerUser($event)
-                      }
-                    }
-                  },
-                  [_vm._v("@" + _vm._s(_vm.tweet.replying_to))]
-                )
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.tweet.body
-            ? _c("app-tweet-body", { attrs: { tweet: _vm.tweet } })
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.images.length
-            ? _c(
-                "div",
-                { staticClass: "flex flex-wrap mb-4 mt-4" },
-                _vm._l(_vm.images, function(image, index) {
-                  return _c(
-                    "div",
-                    { key: index, staticClass: "w-6/12 flex-grow" },
-                    [
-                      _c("img", {
-                        staticClass: "rounded-lg bg-gray-600",
-                        attrs: { src: image.url, alt: " " }
-                      })
-                    ]
-                  )
-                }),
-                0
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          !_vm.inReply
-            ? _c("app-tweet-action-group", {
-                attrs: { tweet: _vm.tweet, inReply: _vm.inReply }
-              })
-            : _vm._e()
-        ],
-        1
-      )
-    ]
-  )
+      })
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex-grow" },
+      [
+        _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-gray-300 whitespace-pre-wrap" }, [
+          _vm._v(_vm._s(_vm.tweet.body))
+        ]),
+        _vm._v(" "),
+        _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
