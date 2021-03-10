@@ -3303,6 +3303,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
@@ -52895,7 +52897,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full h-screen flex flex-col flex-end text-gray-300" },
+    {
+      staticClass:
+        "w-full h-screen flex flex-col flex-end text-gray-300 relative"
+    },
     [
       _vm._m(0),
       _vm._v(" "),
@@ -53127,7 +53132,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "flex rounded-full mb-2 p-4 flex items-center fixed bottom-0"
+            "flex mb-2 p-4 flex items-center absolute w-full bottom-0 mb-6 left-0"
         },
         [
           _c("div", { staticClass: "align-middle" }, [
@@ -53149,6 +53154,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "app-dropdown",
+            { staticClass: "relative right-0" },
             [
               _c("template", { slot: "trigger" }, [
                 _c("div", { staticClass: "items-center pl-2" }, [
@@ -53190,6 +53196,7 @@ var render = function() {
               _c(
                 "app-dropdown-item",
                 {
+                  staticClass: "text-black",
                   on: {
                     click: function($event) {
                       $event.stopPropagation()

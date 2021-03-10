@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen flex flex-col flex-end text-gray-300">
+  <div class="w-full h-screen flex flex-col flex-end text-gray-300 relative">
     <div class="w-full inline-block h-12 rounded-full mb-2">
       <img src="" alt="" />
     </div>
@@ -150,7 +150,9 @@
       </div>
     </div>
 
-    <div class="flex rounded-full mb-2 p-4 flex items-center fixed bottom-0">
+    <div
+      class="flex mb-2 p-4 flex items-center absolute w-full bottom-0 mb-6 left-0"
+    >
       <div class="align-middle">
         <img :src="user.avatar" alt=" " class="mr-3 rounded-full w-10" />
       </div>
@@ -160,7 +162,7 @@
         <p class="text-gray-500">@{{ user.username }}</p>
       </div>
 
-      <app-dropdown>
+      <app-dropdown class="relative right-0">
         <template slot="trigger">
           <div class="items-center pl-2">
             <div
@@ -184,7 +186,7 @@
           </div>
         </template>
 
-        <app-dropdown-item @click.stop.prevent="logout">
+        <app-dropdown-item @click.stop.prevent="logout" class="text-black">
           Logout
         </app-dropdown-item>
       </app-dropdown>
