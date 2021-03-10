@@ -3689,6 +3689,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3757,10 +3799,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    Vue.set(this, 'button', this.followOrNot());
-    Vue.set(this, 'follow', this.followed());
-    Vue.set(this, 'followers', this.followersCount());
-    Vue.set(this.user, 'avatar', this.avatar);
+    Vue.set(this, "button", this.followOrNot());
+    Vue.set(this, "follow", this.followed());
+    Vue.set(this, "followers", this.followersCount());
+    Vue.set(this.user, "avatar", this.avatar);
   }
 });
 
@@ -4233,6 +4275,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     body: {
@@ -4242,7 +4286,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     trigger: function trigger() {
-      window.location.pathname = this.body.replace('@', '');
+      window.location.pathname = this.body.replace("@", "");
     }
   }
 });
@@ -53490,25 +53534,25 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-gray-400" }, [
-            _vm._v("@"),
+          _c("p", { staticClass: "text-gray-500" }, [
+            _vm._v("\n          @"),
             _c("span", [_vm._v(_vm._s(_vm.user.username))])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "text-gray-300" }, [
+        _c("div", { staticClass: "text-gray-500" }, [
           _c("p", [_vm._v("Joined " + _vm._s(_vm.date))])
         ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-between pt-1" }, [
         _c("div", { staticClass: "flex items-center text-gray-300" }, [
-          _c("p", { staticClass: "pr-2" }, [_vm._v("Born")]),
+          _c("p", { staticClass: "pr-2 text-gray-500" }, [_vm._v("Born")]),
           _vm._v(" "),
           _c(
             "svg",
             {
-              staticClass: "h-5",
+              staticClass: "h-5 text-gray-500",
               attrs: {
                 xmlns: "http://www.w3.org/2000/svg",
                 fill: "none",
@@ -53517,7 +53561,7 @@ var render = function() {
               }
             },
             [
-              _vm._v(">\n                        "),
+              _vm._v("\n          >\n          "),
               _c("path", {
                 attrs: {
                   "stroke-linecap": "round",
@@ -53530,7 +53574,9 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("span", { staticClass: "text-sm" }, [_vm._v(_vm._s(_vm.bdate))])
+          _c("span", { staticClass: "text-sm text-gray-500 pl-2" }, [
+            _vm._v(" " + _vm._s(_vm.bdate))
+          ])
         ]),
         _vm._v(" "),
         _vm.user.website
@@ -53569,7 +53615,7 @@ var render = function() {
                       })
                     ]
                   ),
-                  _vm._v("\n                    " + _vm._s(_vm.user.website))
+                  _vm._v("\n          " + _vm._s(_vm.user.website))
                 ]
               )
             ])
@@ -53577,7 +53623,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "mt-2 h-16 text-gray-400" }, [
-        _vm._v("\n            " + _vm._s(_vm.user.biography) + "\n        ")
+        _vm._v("\n      " + _vm._s(_vm.user.biography) + "\n    ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex justify-between" }, [
@@ -53593,10 +53639,11 @@ var render = function() {
                 _c("span", { staticClass: "text-gray-200 font-bold" }, [
                   _vm._v(_vm._s(_vm.user.following.length - 1))
                 ]),
-                _vm._v(" Following")
+                _vm._v("\n            Following")
               ]
             )
           ]),
+          _vm._v(" "),
           _c("div", { staticClass: "pl-2" }, [
             _c(
               "a",
@@ -53608,7 +53655,7 @@ var render = function() {
                 _c("span", { staticClass: "text-gray-200 font-bold" }, [
                   _vm._v(_vm._s(_vm.followers - 1))
                 ]),
-                _vm._v(" Followers")
+                _vm._v("\n            Followers")
               ]
             )
           ])
@@ -53642,13 +53689,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(_vm.button) +
-                        "\n                "
-                    )
-                  ]
+                  [_vm._v("\n          " + _vm._s(_vm.button) + "\n        ")]
                 )
               : _vm._e(),
             _vm._v(" "),

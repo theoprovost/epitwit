@@ -1,5 +1,7 @@
 <template>
-  <a href="" class="hover:underline" @click.stop.prevent="trigger">{{ body }}</a>
+  <a href="" class="hover:underline" @click.stop.prevent="trigger">{{
+    body
+  }}</a>
 </template>
 
 <script>
@@ -11,9 +13,9 @@ export default {
     },
   },
   methods: {
-      trigger () {
-          window.location.pathname = this.body.replace('@', '');
-      }
-  }
+    trigger() {
+      window.location.pathname = this.body.replace("@", "");
+    },
+  },
 };
 </script>
