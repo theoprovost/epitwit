@@ -1,11 +1,11 @@
 <template>
-  <div v-click-outside="close" class="relative">
-    <div @click.prevent="open = !open">
+  <div v-click-outside="close">
+    <div @click.stop.prevent="open = !open">
       <slot name="trigger" />
     </div>
     <div
       v-show="open"
-      class="absolute bg-gray-900 z-50 rounded-lg w-56 overflow-hidden shadow-light"
+      class="-ml-20 absolute bg-gray-900 z-50 rounded-lg w-56 overflow-hidden shadow-light"
     >
       <slot />
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ClickOutside from "vue-click-outside";
+import ClickOutside from 'vue-click-outside';
 
 export default {
   data() {

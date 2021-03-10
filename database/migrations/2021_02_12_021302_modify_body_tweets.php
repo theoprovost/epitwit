@@ -14,7 +14,7 @@ class ModifyBodyTweets extends Migration
     public function up()
     {
         Schema::table('tweets', function (Blueprint $table) {
-            $table->string('body')->nullable()->change();
+            $table->string('body')->nullable()->change(); // Should have been TEXT : see next migrations for changes
         });
     }
 

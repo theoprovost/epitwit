@@ -49,6 +49,5 @@ class TweetWasCreated implements ShouldBroadcast
             return new PrivateChannel('timeline.' . $user->id);
         })
             ->toArray();
-
     }
 }

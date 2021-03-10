@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Follower extends Model
 {
+
+    protected $guarded = [];
     use HasFactory;
     use SoftDeletes;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\UserResource;
 use App\Models\Like;
 use App\Models\Tweet;
 use App\Tweets\TweetType;
@@ -27,6 +28,10 @@ class User extends Authenticatable
         'dob',
         'email',
         'password',
+        'country',
+        'city',
+        'website',
+        'biography',
     ];
 
     /**
@@ -101,7 +106,6 @@ class User extends Authenticatable
             'following_id' // local key of the intermediate model
         );
     }
-
     /**
     *
     */
@@ -110,15 +114,74 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class);
     }
 
-     public function likes()
+    public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    public function follow()
+    {
+        return $this->hasMany(Follower::class);
     }
 
     public function retweets()
     {
         return $this->hasMany(Tweet::class)
-            ->where('type', TweetType::RETWEET)
-            ->orWhere('type', TweetType::QUOTE);
+            ->where('type', TweetType::RETWEET);
+    }
+
+    public function sent()
+    {
+        return $this->hasMany(Message::class, 'sender_id');
+    }
+
+    public function received()
+    {
+        return $this->hasMany(Message::class, 'sent_to_id');
+    }
+
+    public function lastsentTo($userId)
+    {
+        return $this->hasMany(Message::class, 'sender_id')->where('sent_to_id', $userId)->latest()->first();
+    }
+
+    public function lastsentBy($userId)
+    {
+        return $this->hasMany(Message::class, 'sent_to_id')->where('sender_id', $userId)->latest()->first();
+    }
+
+    public function senders()
+    {
+        return $this->hasManyThrough(
+            User::class,
+            Message::class,
+            'sent_to_id',
+            'id',
+            'id',
+            'sender_id'
+        )->distinct();
+    }
+
+    public function receivers()
+    {
+        return $this->hasManyThrough(
+            User::class,
+            Message::class,
+            'sender_id',
+            'id',
+            'id',
+            'sent_to_id'
+        )->distinct();
+    }
+
+    public function latestWith($userId)
+    {
+        $lastSentTo = $this->lastsentTo($userId);
+        $lastSentBy = $this->lastsentBy($userId);
+        if (!$lastSentTo)
+            return $lastSentBy;
+            if (!$lastSentBy)
+            return $lastSentTo;
+        return ($lastSentTo->created_at > $lastSentBy->created_at) ? $lastSentTo : $lastSentBy;
     }
 }

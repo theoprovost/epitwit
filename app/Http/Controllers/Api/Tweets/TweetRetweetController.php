@@ -13,6 +13,11 @@ use App\Events\Tweets\TweetWasDeleted;
 
 class TweetRetweetController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum']);
+    }
+
     public function store(Tweet $tweet, Request $request)
     {
         $retweet = $request->user()->tweets()->create([
@@ -28,7 +33,7 @@ class TweetRetweetController extends Controller
     {
         broadcast(new TweetWasDeleted($tweet->retweetedTweet)); //Important : needs to be fired before actually being deleted in DB, otherwise, the resource won't be accessible.
 
-        $tweet->retweetedTweet()->where('user_id', $request->user()->id)->delete(); // where clause prevents from deleting other people posts + relation retweetedTweet leads to the retweet and not the original tweet.
+        $tweet->retweetedTweet()->where('user_id', $request->user()->id)->where('type', TweetType::RETWEET)->delete(); // where clause prevents from deleting other people posts + relation retweetedTweet leads to the retweet and not the original tweet.
 
         broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
     }

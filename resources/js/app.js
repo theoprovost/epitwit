@@ -14,6 +14,17 @@ Vue.use(Vuex);
 import viewObserveVisibility from 'vue-observe-visibility';
 Vue.use(viewObserveVisibility);
 
+import vueModal from 'vue-js-modal';
+Vue.use(vueModal, {
+    dynamic: true, // generated on the fly
+    injectModalsContainer: true,
+    dynamicDefaults: {
+        pivotY: 0.1,
+        height: 'auto',
+        classes: '!bg-gray-900 rounded-lg p-4'
+    }
+});
+
 Vue.prototype.$user = window.User;
 
 /**
@@ -32,13 +43,16 @@ import timeline from './store/timeline';
 import likes from './store/likes';
 import Echo from 'laravel-echo';
 import retweets from './store/retweets';
-
+import notifications from './store/notifications';
+import conversation from './store/conversation';
 
 const store = new Vuex.Store({
     modules: {
         timeline,
         likes,
-        retweets
+        retweets,
+        notifications,
+        conversation,
     }
 });
 
@@ -61,6 +75,8 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
         }
 
         store.commit('timeline/SET_LIKES', e);
+        store.commit('notifications/SET_LIKES', e);
+        store.commit('conversation/SET_LIKES', e)
     })
     .listen('.TweetRetweetsWereUpdated', (e) => {
         if (e.user_id === window.User.id) {
@@ -68,8 +84,16 @@ window.Echo.channel('tweets') // Makes it global listening to events in channel 
         }
 
         store.commit('timeline/SET_RETWEETS', e);
+        store.commit('conversation/SET_RETWEETS', e);
+        store.commit('notifications/SET_RETWEETS', e)
+    })
+    .listen('.TweetRepliesWereUpdated', (e) => {
+        store.commit('timeline/SET_REPLIES', e);
+        store.commit('notifications/SET_REPLIES', e)
+        store.commit('conversation/SET_REPLIES', e)
     })
     .listen('.TweetWasDeleted', (e) => {
         store.commit('timeline/POP_TWEET', e.id);
+        store.commit('conversation/POP_TWEET', e.id);
         store.dispatch('retweets/syncRetweet', e.id);
     })
