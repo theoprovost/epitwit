@@ -36,3 +36,5 @@ Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, '
 
 
 Route::get('/messages', [App\Http\Controllers\Api\Conversations\ConversationPanelController::class, 'index']);
+
+Route::post('/explore/search', [App\Http\Controllers\Api\Explore\HashtagController::class, 'find']);

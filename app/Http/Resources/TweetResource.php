@@ -30,7 +30,7 @@ class TweetResource extends JsonResource
             'media' => new MediaCollection($this->media),
             'entities' => new EntityCollection($this->entities),
             'created_at' => $this->created_at->timestamp,
-            'creation_date' => date_format($this->created_at, "g:i a . M j, Y"),
+            'creation_date' => date_format($this->created_at, "g:i a | M j, Y"),
         ];
     }
 }

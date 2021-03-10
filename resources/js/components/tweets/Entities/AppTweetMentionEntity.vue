@@ -1,7 +1,7 @@
 <template>
-  <a href="" class="hover:underline" @click.stop.prevent="trigger">{{
-    body
-  }}</a>
+  <a href="" class="hover:underline" @click.stop.prevent="trigger">
+    {{ body }}</a
+  >
 </template>
 
 <script>
