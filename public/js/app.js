@@ -4823,6 +4823,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -4833,7 +4846,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      color: 'red'
+      color: "red"
     };
   },
   computed: _objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)({
@@ -55107,7 +55120,8 @@ var render = function() {
               {
                 staticClass: "fill-current w-5",
                 class: {
-                  "text-red-600": _vm.liked
+                  "text-red-600": _vm.liked,
+                  "fill-current": _vm.liked
                 },
                 attrs: {
                   xmlns: "http://www.w3.org/2000/svg",
@@ -55117,12 +55131,19 @@ var render = function() {
                 }
               },
               [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
-                  }
-                })
+                !_vm.liked
+                  ? _c("path", {
+                      attrs: {
+                        d:
+                          "M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
+                      }
+                    })
+                  : _c("path", {
+                      attrs: {
+                        d:
+                          "M12 21.638h-.014C9.403 21.59 1.95 14.856 1.95\n          8.478c0-3.064 2.525-5.754 5.403-5.754 2.29 0 3.83 1.58 4.646\n          2.73.814-1.148 2.354-2.73 4.645-2.73 2.88 0 5.404 2.69 5.404 5.755 0\n          6.376-7.454 13.11-10.037 13.157H12z"
+                      }
+                    })
               ]
             )
           ])
