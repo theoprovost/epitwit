@@ -2627,6 +2627,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -2678,8 +2690,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    Vue.set(this, 'button', this.followOrNot());
-    Vue.set(this, 'follow', this.followed());
+    Vue.set(this, "button", this.followOrNot());
+    Vue.set(this, "follow", this.followed());
   }
 });
 
@@ -3970,6 +3982,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -3988,6 +4002,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    whoami: function whoami() {
+      return this.$user;
+    },
     handleSearch: function handleSearch(e) {
       var _this = this;
 
@@ -4021,7 +4038,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                             //   cancelToken: source.token,
                             // }
                             ).then(function (res) {
-                              return res.data;
+                              return res.data.data || res.data;
                             });
 
                           case 3:
@@ -52480,11 +52497,7 @@ var render = function() {
                   }
                 }
               },
-              [
-                _vm._v(
-                  "\n                    " + _vm._s(_vm.button) + "\n        "
-                )
-              ]
+              [_vm._v("\n      " + _vm._s(_vm.button) + "\n    ")]
             )
           : _vm._e()
       ])
@@ -54080,7 +54093,7 @@ var render = function() {
             return _c(_vm.component, {
               key: result.id,
               tag: "component",
-              attrs: { tweet: result }
+              attrs: { follower: result, auth: _vm.whoami, tweet: result }
             })
           }),
           1

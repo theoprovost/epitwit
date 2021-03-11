@@ -18,6 +18,8 @@
         :is="component"
         v-for="result in results"
         :key="result.id"
+        :follower="result"
+        :auth="whoami"
         :tweet="result"
       />
     </div>
@@ -46,6 +48,10 @@ export default {
   },
 
   methods: {
+    whoami() {
+      return this.$user;
+    },
+
     async handleSearch(e) {
       e.preventDefault();
 
@@ -68,7 +74,7 @@ export default {
                 // }
               )
               .then((res) => {
-                return res.data;
+                return res.data.data || res.data;
               });
           } catch (e) {
             console.log(e);

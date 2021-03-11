@@ -18,7 +18,10 @@ class UserController extends Controller
 
      public function find(Request $request)
     {
-        $users = User::where('username', 'like', $request->data . '%')
+        $users = User::with([
+            'followers'
+        ])
+        ->where('username', 'like', $request->data . '%')
         ->orWhere('name','like', '%' . $request->data . '%')
         ->where('id', '!=', Auth::id())
         ->get();
