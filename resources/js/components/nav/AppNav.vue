@@ -5,6 +5,7 @@
     </div>
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        ref="home"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerHome"
       >
@@ -29,6 +30,7 @@
 
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        ref="explore"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerExplore"
       >
@@ -54,6 +56,7 @@
 
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        ref="notifications"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerNotifications"
       >
@@ -79,6 +82,7 @@
 
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        ref="messages"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerMessages"
       >
@@ -104,6 +108,7 @@
 
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        :ref="user.username"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerProfile"
       >
@@ -129,6 +134,7 @@
 
     <div class="w-full flex h-12 rounded-full mb-2">
       <div
+        ref="search"
         class="rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer"
         @click="triggerSearch"
       >
@@ -183,6 +189,7 @@
                 />
               </svg>
             </div>
+            {{ current() }}
           </div>
         </template>
 
@@ -201,6 +208,12 @@ export default {
     user() {
       return this.$user;
     },
+  },
+
+  data() {
+    return {
+      el: {},
+    };
   },
 
   methods: {
@@ -234,6 +247,15 @@ export default {
         window.location.href = "/";
       }
     },
+
+    current() {},
+  },
+
+  mounted() {
+    let current = window.location.pathname;
+    current = current.substring(1);
+    this.el = this.$refs[`${current}`];
+    this.el.classList.add("text-blue-500");
   },
 };
 </script>

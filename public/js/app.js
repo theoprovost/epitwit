@@ -3569,12 +3569,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     user: function user() {
       return this.$user;
     }
+  },
+  data: function data() {
+    return {
+      el: {}
+    };
   },
   methods: {
     triggerProfile: function triggerProfile() {
@@ -3619,7 +3631,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
-    }
+    },
+    current: function current() {}
+  },
+  mounted: function mounted() {
+    var current = window.location.pathname;
+    current = current.substring(1);
+    this.el = this.$refs["".concat(current)];
+    this.el.classList.add("text-blue-500");
   }
 });
 
@@ -53816,6 +53835,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "home",
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerHome }
@@ -53852,6 +53872,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "explore",
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerExplore }
@@ -53890,6 +53911,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "notifications",
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerNotifications }
@@ -53928,6 +53950,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "messages",
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerMessages }
@@ -53966,6 +53989,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: _vm.user.username,
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerProfile }
@@ -54004,6 +54028,7 @@ var render = function() {
         _c(
           "div",
           {
+            ref: "search",
             staticClass:
               "rounded-full hover:bg-gray-800 p-2 pr-6 pl-4 text-gray-300 hover:text-blue-500 cursor-pointer",
             on: { click: _vm.triggerSearch }
@@ -54099,7 +54124,8 @@ var render = function() {
                         ]
                       )
                     ]
-                  )
+                  ),
+                  _vm._v("\n          " + _vm._s(_vm.current()) + "\n        ")
                 ])
               ]),
               _vm._v(" "),
