@@ -1,5 +1,5 @@
 <template>
-  <form class="flex" @submit.prevent="submit">
+  <form class="flex" @submit.stop.prevent="submit">
     <img :src="$user.avatar" alt=" " class="mr-2 w-12 h-12 rounded-full" />
 
     <div class="flex-grow">

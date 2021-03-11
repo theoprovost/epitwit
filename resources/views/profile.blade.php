@@ -11,7 +11,7 @@
                     :auth="{{$authId}}"
                     :user="{{$user}}"
                     :bdate="'{{ date("F j Y", strtotime($user->dob)) }}'"
-                    :date="'{{ date_format($user->created_at,"F Y") }}'"
+                    :date="'{{ date_format($user->created_at, "F Y") }}'"
                     :avatar="'{{$user->avatar()}}'" />
             </div>
             <div>

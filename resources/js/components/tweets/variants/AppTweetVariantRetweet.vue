@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor-pointer" @click.stop.prevent="triggerTweet">
+  <div class="cursor-pointer" @click.prevent="triggerTweet">
     <div class="text-gray-600 font-medium text-sm flex items-center mb-2">
       <svg
         viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ export default {
         window.location.pathname = "./tweets/" + this.tweet.original_tweet.id;
     },
     triggerUser () {
-        window.location.pathname = "./" + this.tweet.original_tweet.user.username;
+        window.location.pathname = "./" + this.tweet.user.username;
     },
   }
 };
