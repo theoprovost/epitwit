@@ -24,4 +24,9 @@ class UserController extends Controller
         $authId = $authUser->id;
         return view('profile', compact('user', 'authId'));
     }
+    public function get(request $request, $userId)
+    {
+        return new UserResource(User::where('id', $userId)->get()->first());
+
+    }
 }

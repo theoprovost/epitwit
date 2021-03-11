@@ -21,7 +21,7 @@ class ConversationResource extends JsonResource
             'avatar' => $this->avatar(),
             'last' => $request->user()->latestWith($this->id),
             'created_at' => $request->user()->latestWith($this->id)->created_at->timestamp,
-            'creation_date' => date_format($request->user()->latestWith($this->id)->created_at, "g:i a . M j, Y"),
+            'creation_date' => date_format($request->user()->latestWith($this->id)->created_at, "g:i a | M j, Y"),
         ];
     }
 }

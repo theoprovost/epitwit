@@ -70,7 +70,7 @@ export default {
   mounted() {
     this.loadTweets();
 
-    Echo.private(`timeline.${this.$user.id}`).listen(
+    Echo.channel(`timeline.${this.$user.id}`).listen(
       ".TweetWasCreated",
       (e) => {
         this.PUSH_TWEETS([e]);
