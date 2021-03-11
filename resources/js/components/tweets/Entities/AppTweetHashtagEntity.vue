@@ -1,5 +1,10 @@
 <template>
-  <a :href="`/hashtags/${body.replace('#', '')}}`">{{ body }}</a>
+  <a
+    href="#"
+    @click.stop.prevent="trigger"
+    class="hover:underline cursor-pointer"
+    >{{ body }}</a
+  >
 </template>
 
 <script>
@@ -8,6 +13,12 @@ export default {
     body: {
       required: true,
       type: String,
+    },
+  },
+
+  methods: {
+    trigger() {
+      window.location.pathname = `/hashtags/${this.body.replace("#", "")}`;
     },
   },
 };

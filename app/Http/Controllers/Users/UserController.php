@@ -22,6 +22,7 @@ class UserController extends Controller
                 ->get()->first();
         $authUser = $request->user();
         $authId = $authUser->id;
+
         return view('profile', compact('user', 'authId'));
     }
 }

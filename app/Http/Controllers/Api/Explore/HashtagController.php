@@ -24,6 +24,7 @@ class HashtagController extends Controller
             'tweets'
         ])
         ->where('body_plain', 'like', $request->data . '%')
+        ->where('type', '=', 'hashtag')
         ->get();
 
         $tweets = $query->pluck('tweets')->collapse(); // remove nested array

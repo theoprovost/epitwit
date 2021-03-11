@@ -12,6 +12,7 @@ export default {
       type: String,
     },
   },
+
   methods: {
     trigger() {
       window.location.pathname = this.body.replace("@", "");

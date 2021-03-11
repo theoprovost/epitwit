@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\TweetCollection;
+use App\Http\Resources\UserCollection;
+use App\Http\Resources\UserResource;
 use SebastianBergmann\Environment\Console;
 
 class UserController extends Controller
@@ -26,7 +28,7 @@ class UserController extends Controller
         ->where('id', '!=', Auth::id())
         ->get();
 
-        return collect($users);
+        return new UserCollection($users);
     }
 
 }
