@@ -16,4 +16,9 @@ class Entity extends Model
     {
         return new EntityDatabaseCollection($models);
     }
+
+    public function tweets()
+    {
+        return $this->belongsToMany(Tweet::class, 'entities', 'id', 'tweet_id');
+    }
 }

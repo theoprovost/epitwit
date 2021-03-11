@@ -38,3 +38,6 @@ Route::post('/submit', [App\Http\Controllers\EditProfileFormController::class, '
 Route::get('/get/{userId}', [App\Http\Controllers\Users\UserController::class, 'get']);
 Route::get('/messages', [App\Http\Controllers\Api\Conversations\ConversationPanelController::class, 'index']);
 Route::post('/messages/{userId}/submit', [App\Http\Controllers\Api\Conversations\ConversationController::class, 'store']);
+
+Route::post('/explore/search', [App\Http\Controllers\Api\Explore\HashtagController::class, 'find']);
+Route::post('/users/search', [App\Http\Controllers\Api\Explore\UserController::class, 'find']);

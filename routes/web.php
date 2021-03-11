@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index']);
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/timeline', [App\Http\Controllers\Api\Timeline\TimelineController::class, 'index']);

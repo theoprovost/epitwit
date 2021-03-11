@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside';
+import ClickOutside from "vue-click-outside";
 
 export default {
   data() {

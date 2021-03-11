@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Follower;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Rules\OlderThan;
@@ -52,7 +53,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users,username'],
+            'username' => ['required', 'string', 'max:255', 'unique:users,username', 'regex:/^[a-zA-Z0-9_.-]*$/'],
             'dob' => ['required', new OlderThan],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -76,8 +77,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        // To do : automatic 'auto-following'
+        $this->autoFollow($user->toArray());
 
         return $user;
+    }
+
+    protected function autoFollow(array $data)
+    {
+        Follower::create([
+            'user_id' => $data['id'],
+            'following_id' => $data['id'],
+        ]);
     }
 }
