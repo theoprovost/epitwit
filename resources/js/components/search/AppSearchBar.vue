@@ -13,8 +13,13 @@
       </form>
     </div>
 
-    <div v-if="tweets.length" class="w-full h-full">
-      <app-tweet v-for="tweet in tweets" :key="tweet.id" :tweet="tweet" />
+    <div v-if="results.length" class="w-full h-full">
+      <component
+        :is="component"
+        v-for="result in results"
+        :key="result.id"
+        :tweet="result"
+      />
     </div>
   </div>
 </template>
@@ -22,9 +27,21 @@
 <script>
 import axios from "axios";
 export default {
+  props: {
+    url: {
+      type: String,
+      required: true,
+    },
+
+    component: {
+      type: String,
+      required: true,
+    },
+  },
+
   data() {
     return {
-      tweets: [],
+      results: [],
     };
   },
 
@@ -35,35 +52,30 @@ export default {
       let search = e.target.value;
 
       if (search.length >= 2) {
-        if (!axios.isCancel(e)) {
-          cancel;
-        }
-
-        let axiosToken = axios.CancelToken.source();
+        // const CancelToken = axios.CancelToken;
+        // let source = CancelToken.source();
 
         const fetchData = async () => {
           try {
-            this.tweets = await axios
+            this.results = await axios
               .post(
-                "/api/explore/search",
+                this.url,
                 {
                   data: search,
-                },
-                {
-                  cancelToken: axiosToken.token,
                 }
+                // {
+                //   cancelToken: source.token,
+                // }
               )
               .then((res) => {
-                return res.data.data;
+                return res.data;
               });
           } catch (e) {
             console.log(e);
           }
         };
 
-        const cancel = async () => {
-          axiosReq.cancel();
-        };
+        //source && source.cancel("Operation canceled due to new request.");
 
         fetchData();
       } else return;

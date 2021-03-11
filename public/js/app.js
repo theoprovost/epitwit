@@ -3428,6 +3428,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3957,37 +3965,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    url: {
+      type: String,
+      required: true
+    },
+    component: {
+      type: String,
+      required: true
+    }
+  },
   data: function data() {
     return {
-      tweets: []
+      results: []
     };
   },
   methods: {
     handleSearch: function handleSearch(e) {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-        var search, axiosToken, fetchData, cancel;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var search, fetchData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 e.preventDefault();
                 search = e.target.value;
 
                 if (!(search.length >= 2)) {
-                  _context3.next = 10;
+                  _context2.next = 7;
                   break;
                 }
 
-                if (!axios__WEBPACK_IMPORTED_MODULE_1___default().isCancel(e)) {
-                  cancel;
-                }
-
-                axiosToken = axios__WEBPACK_IMPORTED_MODULE_1___default().CancelToken.source();
-
+                // const CancelToken = axios.CancelToken;
+                // let source = CancelToken.source();
                 fetchData = /*#__PURE__*/function () {
                   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
                     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -3996,16 +4015,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                           case 0:
                             _context.prev = 0;
                             _context.next = 3;
-                            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/explore/search", {
+                            return axios__WEBPACK_IMPORTED_MODULE_1___default().post(_this.url, {
                               data: search
-                            }, {
-                              cancelToken: axiosToken.token
-                            }).then(function (res) {
-                              return res.data.data;
+                            } // {
+                            //   cancelToken: source.token,
+                            // }
+                            ).then(function (res) {
+                              return res.data;
                             });
 
                           case 3:
-                            _this.tweets = _context.sent;
+                            _this.results = _context.sent;
                             _context.next = 9;
                             break;
 
@@ -4025,42 +4045,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   return function fetchData() {
                     return _ref.apply(this, arguments);
                   };
-                }();
+                }(); //source && source.cancel("Operation canceled due to new request.");
 
-                cancel = /*#__PURE__*/function () {
-                  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-                      while (1) {
-                        switch (_context2.prev = _context2.next) {
-                          case 0:
-                            axiosReq.cancel();
-
-                          case 1:
-                          case "end":
-                            return _context2.stop();
-                        }
-                      }
-                    }, _callee2);
-                  }));
-
-                  return function cancel() {
-                    return _ref2.apply(this, arguments);
-                  };
-                }();
 
                 fetchData();
-                _context3.next = 11;
+                _context2.next = 8;
                 break;
 
-              case 10:
-                return _context3.abrupt("return");
+              case 7:
+                return _context2.abrupt("return");
 
-              case 11:
+              case 8:
               case "end":
-                return _context3.stop();
+                return _context2.stop();
             }
           }
-        }, _callee3);
+        }, _callee2);
       }))();
     }
   }
@@ -53568,34 +53568,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._l(_vm.notifications, function(notification) {
-        return _c("app-notification", {
-          key: notification.id,
-          attrs: { notification: notification }
+  return _c("div", { staticClass: "w-full h-full" }, [
+    _vm.notifications.lenght
+      ? _c(
+          "div",
+          { staticClass: "w-full h-full" },
+          _vm._l(_vm.notifications, function(notification) {
+            return _c("app-notification", {
+              key: notification.id,
+              attrs: { notification: notification }
+            })
+          }),
+          1
+        )
+      : _c("div", { staticClass: "w-full h-full" }, [
+          _c("p", { staticClass: "text-gray-300 inset-center" }, [
+            _vm._v("\n      You still don't have notifications :(.\n    ")
+          ])
+        ]),
+    _vm._v(" "),
+    _vm.notifications.length
+      ? _c("div", {
+          directives: [
+            {
+              name: "observe-visibility",
+              rawName: "v-observe-visibility",
+              value: {
+                callback: _vm.handleScrolledToBottomNotifications
+              },
+              expression:
+                "{\n      callback: handleScrolledToBottomNotifications,\n    }"
+            }
+          ]
         })
-      }),
-      _vm._v(" "),
-      _vm.notifications.length
-        ? _c("div", {
-            directives: [
-              {
-                name: "observe-visibility",
-                rawName: "v-observe-visibility",
-                value: {
-                  callback: _vm.handleScrolledToBottomNotifications
-                },
-                expression:
-                  "{\n      callback: handleScrolledToBottomNotifications,\n    }"
-              }
-            ]
-          })
-        : _vm._e()
-    ],
-    2
-  )
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -54065,12 +54072,16 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm.tweets.length
+    _vm.results.length
       ? _c(
           "div",
           { staticClass: "w-full h-full" },
-          _vm._l(_vm.tweets, function(tweet) {
-            return _c("app-tweet", { key: tweet.id, attrs: { tweet: tweet } })
+          _vm._l(_vm.results, function(result) {
+            return _c(_vm.component, {
+              key: result.id,
+              tag: "component",
+              attrs: { tweet: result }
+            })
           }),
           1
         )

@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <app-notification
-      v-for="notification in notifications"
-      :key="notification.id"
-      :notification="notification"
-    />
+  <div class="w-full h-full">
+    <div v-if="notifications.lenght" class="w-full h-full">
+      <app-notification
+        v-for="notification in notifications"
+        :key="notification.id"
+        :notification="notification"
+      />
+    </div>
+
+    <div v-else class="w-full h-full">
+      <p class="text-gray-300 inset-center">
+        You still don't have notifications :(.
+      </p>
+    </div>
 
     <div
       v-if="notifications.length"
