@@ -5006,6 +5006,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
@@ -55333,6 +55335,7 @@ var render = function() {
           "flex items-center text-base text-gray-600 hover:text-blue-600 pr-2 cursor-pointer",
         on: {
           click: function($event) {
+            $event.stopPropagation()
             $event.preventDefault()
             return _vm.$modal.show(_vm.AppTweetReplyModal, { tweet: _vm.tweet })
           }
