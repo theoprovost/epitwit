@@ -222,23 +222,23 @@ export default {
     },
 
     triggerNotifications() {
-      window.location.pathname = "notifications";
+      window.location = "notifications";
     },
 
     triggerHome() {
-      window.location.pathname = "home";
+      window.location = "home";
     },
 
     triggerMessages() {
-      window.location.pathname = "messages";
+      window.location = "messages";
     },
 
     triggerExplore() {
-      window.location.pathname = "explore";
+      window.location = "explore";
     },
 
     triggerSearch() {
-      window.location.pathname = "search";
+      window.location = "search";
     },
 
     async logout() {

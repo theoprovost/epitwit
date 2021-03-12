@@ -3593,19 +3593,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       window.location.pathname = this.$user.username;
     },
     triggerNotifications: function triggerNotifications() {
-      window.location.pathname = "notifications";
+      window.location = "notifications";
     },
     triggerHome: function triggerHome() {
-      window.location.pathname = "home";
+      window.location = "home";
     },
     triggerMessages: function triggerMessages() {
-      window.location.pathname = "messages";
+      window.location = "messages";
     },
     triggerExplore: function triggerExplore() {
-      window.location.pathname = "explore";
+      window.location = "explore";
     },
     triggerSearch: function triggerSearch() {
-      window.location.pathname = "search";
+      window.location = "search";
     },
     logout: function logout() {
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -4255,12 +4255,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     url: {
       type: String,
       required: true
+    },
+    placeholder: {
+      required: false,
+      type: String
     },
     component: {
       type: String,
@@ -4350,6 +4363,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
+    }
+  },
+  mounted: function mounted() {
+    var param = window.location.search.substring(2);
+
+    if (param) {
+      var input = this.$refs.search;
+      input.value = param;
+      input.dispatchEvent(new KeyboardEvent("keyup"));
     }
   }
 });
@@ -4496,7 +4518,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     tweets: "timeline/tweets"
   })), {}, {
     urlWithPage: function urlWithPage() {
-      var username = window.location.pathname.split('/');
+      var username = window.location.pathname.split("/");
       return "/api/timeline/".concat(username[1], "?page=").concat(this.page);
     }
   }),
@@ -4529,7 +4551,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var _this2 = this;
 
     this.loadTweets();
-    Echo["private"]("timeline.".concat(this.$user.id)).listen(".TweetWasCreated", function (e) {
+    Echo.channel("timeline.".concat(this.$user.id)).listen(".TweetWasCreated", function (e) {
       _this2.PUSH_TWEETS([e]);
     });
   }
@@ -4717,7 +4739,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     trigger: function trigger() {
-      window.location.pathname = "/hashtags/".concat(this.body.replace("#", ""));
+      var link = "/explore?=".concat(this.body.replace("#", ""));
+      window.location.href = "http://localhost".concat(link);
     }
   }
 });
@@ -54712,36 +54735,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "v-full h-full" }, [
-    _c("div", { staticClass: "v-full h-12" }, [
-      _c("form", { attrs: { action: "" } }, [
-        _c("label", { staticClass: "hidden", attrs: { for: "search" } }, [
-          _vm._v("Search hashtags:")
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "bg-gray-800 outline-none text-gray-300",
-          attrs: { type: "search", name: "search", id: "search" },
-          on: { keyup: _vm.handleSearch }
-        })
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.results.length
-      ? _c(
-          "div",
-          { staticClass: "w-full h-full" },
-          _vm._l(_vm.results, function(result) {
-            return _c(_vm.component, {
-              key: result.id,
-              tag: "component",
-              attrs: { follower: result, auth: _vm.whoami, tweet: result }
-            })
-          }),
-          1
-        )
-      : _vm._e()
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "w-full h-full flex justify-center content-center flex-col"
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "w-full h-12 flex justify-center content-center mb-4" },
+        [
+          _c(
+            "form",
+            {
+              staticClass: "w-full flex justify-center content-center",
+              attrs: { action: "" }
+            },
+            [
+              _c("label", { staticClass: "hidden", attrs: { for: "search" } }, [
+                _vm._v("Search hashtags:")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                ref: "search",
+                staticClass:
+                  "bg-gray-800 outline-none text-gray-300 p-4 rounded-full",
+                attrs: {
+                  autocomplete: "off",
+                  placeholder: _vm.placeholder,
+                  type: "search",
+                  name: "search",
+                  id: "search"
+                },
+                on: { keyup: _vm.handleSearch }
+              })
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _vm.results.length
+        ? _c(
+            "div",
+            { staticClass: "w-full h-full" },
+            [
+              _vm.results.length > 1
+                ? _c("p", { staticClass: "text-gray-600 mb-4" }, [
+                    _vm._v(
+                      "\n      " + _vm._s(_vm.results.length) + " results\n    "
+                    )
+                  ])
+                : _c("p", { staticClass: "text-gray-600 mb-4" }, [
+                    _vm._v(_vm._s(_vm.results.length) + " result")
+                  ]),
+              _vm._v(" "),
+              _vm._l(_vm.results, function(result) {
+                return _c(_vm.component, {
+                  key: result.id,
+                  tag: "component",
+                  staticClass: "mb-4",
+                  attrs: { follower: result, auth: _vm.whoami, tweet: result }
+                })
+              })
+            ],
+            2
+          )
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

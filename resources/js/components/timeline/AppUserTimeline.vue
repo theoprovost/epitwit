@@ -30,7 +30,7 @@ export default {
     }),
 
     urlWithPage() {
-        let username=window.location.pathname.split('/');
+      let username = window.location.pathname.split("/");
       return `/api/timeline/${username[1]}?page=${this.page}`;
     },
   },
@@ -67,7 +67,7 @@ export default {
   mounted() {
     this.loadTweets();
 
-    Echo.private(`timeline.${this.$user.id}`).listen(
+    Echo.channel(`timeline.${this.$user.id}`).listen(
       ".TweetWasCreated",
       (e) => {
         this.PUSH_TWEETS([e]);

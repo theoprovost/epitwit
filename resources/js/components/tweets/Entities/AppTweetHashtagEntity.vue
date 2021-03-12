@@ -18,7 +18,8 @@ export default {
 
   methods: {
     trigger() {
-      window.location.pathname = `/hashtags/${this.body.replace("#", "")}`;
+      const link = `/explore?=${this.body.replace("#", "")}`;
+      window.location.href = `http://localhost${link}`;
     },
   },
 };
