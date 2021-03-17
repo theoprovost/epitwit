@@ -3,8 +3,9 @@
     href="#"
     @click.stop.prevent="trigger"
     class="hover:underline cursor-pointer"
-    >{{ body }}</a
   >
+    {{ body }}
+  </a>
 </template>
 
 <script>

@@ -61,7 +61,7 @@
           >
         </div>
       </div>
-      <div class="mt-2 h-16 text-gray-400">
+      <div class="mt-2 h-16 text-gray-400 c-break">
         {{ user.biography }}
       </div>
       <div class="flex justify-between">

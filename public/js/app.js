@@ -4730,6 +4730,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     body: {
@@ -54546,7 +54547,7 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "mt-2 h-16 text-gray-400" }, [
+      _c("div", { staticClass: "mt-2 h-16 text-gray-400 c-break" }, [
         _vm._v("\n      " + _vm._s(_vm.user.biography) + "\n    ")
       ]),
       _vm._v(" "),
@@ -55076,7 +55077,7 @@ var render = function() {
         }
       }
     },
-    [_vm._v(_vm._s(_vm.body))]
+    [_vm._v("\n  " + _vm._s(_vm.body) + "\n")]
   )
 }
 var staticRenderFns = []
@@ -55115,7 +55116,7 @@ var render = function() {
         }
       }
     },
-    [_vm._v("\n  " + _vm._s(_vm.body))]
+    [_vm._v("\n  " + _vm._s(_vm.body) + "\n")]
   )
 }
 var staticRenderFns = []
