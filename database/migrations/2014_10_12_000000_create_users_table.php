@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
         });
 
+        DB::statement("SET GLOBAL log_bin_trust_function_creators = 1;");
+
         DB::statement("
             CREATE TRIGGER date_check BEFORE INSERT ON users
             FOR EACH ROW
