@@ -27,18 +27,20 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
         });
 
-        DB::statement("SET GLOBAL log_bin_trust_function_creators = 1;");
+        // This below is not supported in heroku free plan
 
-        DB::statement("
-            CREATE TRIGGER date_check BEFORE INSERT ON users
-            FOR EACH ROW
-                BEGIN
-                    IF NEW.dob >= (DATE_SUB(NOW(), INTERVAL 13 YEAR)) THEN
-                    SIGNAL SQLSTATE '45000'
-                        SET MESSAGE_TEXT = 'You must be older than 13 to register';
-                    END IF;
-                END;
-        ");
+        //DB::statement("SET GLOBAL log_bin_trust_function_creators = 1;");
+
+        // DB::statement("
+        //     CREATE TRIGGER date_check BEFORE INSERT ON users
+        //     FOR EACH ROW
+        //         BEGIN
+        //             IF NEW.dob >= (DATE_SUB(NOW(), INTERVAL 13 YEAR)) THEN
+        //             SIGNAL SQLSTATE '45000'
+        //                 SET MESSAGE_TEXT = 'You must be older than 13 to register';
+        //             END IF;
+        //         END;
+        // ");
     }
 
 
