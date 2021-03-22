@@ -34,14 +34,16 @@ import Echo from 'laravel-echo';
 
 window.Pusher = require('pusher-js');
 
-Pusher.logToConsole = true;
+// Remove in production !
+// Pusher.logToConsole = true;
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
     key: '4872537fa5b6cea89473',
     wsHost: window.location.hostname,
     wsPort: 6001,
-    wssPort: 6001,
+    wssPort: 403,
     forceTLS: true,
     disableStats: true,
+    enabledTransports: ['ws', 'wss']
 });
