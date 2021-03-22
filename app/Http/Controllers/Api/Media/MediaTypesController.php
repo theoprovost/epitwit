@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Media;
 
 use App\Http\Controllers\Controller;
-use App\media\MimeTypes;
+use App\Media\MimeTypes;
 use Illuminate\Http\Request;
 
 class MediaTypesController extends Controller
