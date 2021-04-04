@@ -39,13 +39,17 @@ return [
 
                 // 'cluster' => env('PUSHER_APP_CLUSTER'),
                 // 'encrypted' => true,
-                // 'useTLS' => true,
                 'host' => env('PUSHER_HOST'),
                 'scheme' => env('PUSHER_SCHEME'),
                 'port' => 6001,
 
                 'cluster' => 'eu',
-                'useTLS' => true
+                'useTLS' => false,
+
+                'curl_options' => [
+                    CURLOPT_SSL_VERIFYHOST => 0,
+                    CURLOPT_SSL_VERIFYPEER => 0,
+                ]
             ],
         ],
 
