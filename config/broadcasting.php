@@ -38,13 +38,9 @@ return [
             'options' => [
                 'cluster' => 'eu',
                 'encrypted' => false,
-                'host' => '127.0.0.1',
-                'scheme' => 'http',
-                'port' => 6001,
-                'curl_options' => [
-                    CURLOPT_SSL_VERIFYHOST => 0,
-                    CURLOPT_SSL_VERIFYPEER => 0,
-                ]
+                'host' => 'epitwit.tech',
+                'scheme' => 'https',
+                'port' => 403,
             ],
         ],
 
