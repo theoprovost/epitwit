@@ -37,15 +37,13 @@ window.Pusher = require('pusher-js');
 // Remove in production !
 // Pusher.logToConsole = true;
 
-window.Echo = new Echo({
+window.Echo = new Echo({,
     broadcaster: 'pusher',
     key: '4872537fa5b6cea89473',
     wsHost: window.location.hostname,
-    wssHost: window.location.hostname,
-    wsPort: 80,
-    wssPort: 403,
-    forceTLS: true,
+    wsPort: 6004,
+    wssPort: 6004,
     disableStats: true,
     cluster: 'eu',
-    enabledTransports: ['ws', 'wss'],
+    encrypted: true
 });
