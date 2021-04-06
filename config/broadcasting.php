@@ -39,7 +39,7 @@ return [
                 'cluster' => 'eu',
                 'useTLS' => true,
                 'host' => '127.0.0.1',
-                'port' => 6001,
+                'port' => 2053,
                 'scheme' => 'https',
                  'curl_options' => [
                     CURLOPT_SSL_VERIFYHOST => 0,
