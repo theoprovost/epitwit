@@ -47,4 +47,5 @@ window.Echo = new Echo({
     cluster: 'eu',
     encrypted: false,
     enabledTransports: ['ws', 'wss']
+    //enabledTransports: ['ws']
 });
