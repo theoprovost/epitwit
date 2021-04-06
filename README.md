@@ -1,12 +1,13 @@
+<br>
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="utils/twit.svg" alt="Epitwit logo" width="80" height="80" style="filter: invert(54%) sepia(63%) saturate(1131%) hue-rotate(174deg) brightness(88%) contrast(87%);">
+    <img src="utils/twit.svg" alt="Epitwit logo" width="100" height="100" style="filter: invert(54%) sepia(63%) saturate(1131%) hue-rotate(174deg) brightness(88%) contrast(87%);">
   </a>
 
   <h3 align="center">Epitwit.tech</h3>
 
   <p align="center">
-    Twitter like application
+    Real-time twitter like application
     <br />
     <a href="https://epitwit.tech/">View Demo</a>
     ·
