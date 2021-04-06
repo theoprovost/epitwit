@@ -14,8 +14,9 @@
     <a href="https://github.com/theoprovost/epitwit/issues">Report Bug</a>
   </p>
 </p>
+<br>
 
-<details open="close">
+<details open="false">
   <summary>Table of Contents</summary>
   <ol>
     <li>
