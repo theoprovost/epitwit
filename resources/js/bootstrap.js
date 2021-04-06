@@ -45,6 +45,6 @@ window.Echo = new Echo({
     wssPort: 2053,
     disableStats: true,
     cluster: 'eu',
-    encrypted: true,
+    encrypted: false,
     enabledTransports: ['ws', 'wss']
 });
