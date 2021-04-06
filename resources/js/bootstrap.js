@@ -35,7 +35,7 @@ import Echo from 'laravel-echo';
 window.Pusher = require('pusher-js');
 
 // Remove in production !
-// Pusher.logToConsole = true;
+Pusher.logToConsole = true;
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
@@ -45,5 +45,6 @@ window.Echo = new Echo({
     wssPort: 6001,
     disableStats: true,
     cluster: 'eu',
-    encrypted: true
+    encrypted: true,
+    enabledTransports: ['ws', 'wss']
 });
