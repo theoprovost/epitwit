@@ -38,7 +38,7 @@ return [
             'options' => [
                 'cluster' => 'eu',
                 'useTLS' => true,
-                'host' => '127.0.0.1',
+                'host' => 'epitwit.tech',
                 'port' => 2053,
                 'scheme' => 'http',
                  'curl_options' => [
