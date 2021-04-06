@@ -40,11 +40,7 @@ return [
                 'useTLS' => false,
                 'host' => 'epitwit.tech',
                 'port' => 8080,
-                'scheme' => 'http',
-                 'curl_options' => [
-                    CURLOPT_SSL_VERIFYHOST => 0,
-                    CURLOPT_SSL_VERIFYPEER => 0,
-                ]
+                'scheme' => 'http'
             ],
         ],
 
