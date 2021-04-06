@@ -39,12 +39,24 @@
 </details>
 
 ## About the project
-
 ### Abstract
+This project was made for an assignment from Epitech. The idea was to recreate the most common and basic features of Twitter.
 
 ### Notable features
+- Secured register and login
+- Real-time
+  - timeline
+  - messaging service
+  - notifications
+- Update profile
+- Follow people/be followed back
+- Character limited tweet
+- Attach photographs to tweets
+- Tweet, like, retweet, retweet with quote
+- Mentions and hashtags
+- Search bar for user/hashtags
 
-### Built with 
+### Built with
 |Backend|Frontend|Data|Real-time|
 |---|---|---|---|
 |PHP|VueJs|MySQL|Laravel Echo
