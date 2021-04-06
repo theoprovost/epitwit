@@ -16,7 +16,7 @@
 </p>
 <br>
 
-<details open="false">
+<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
