@@ -20,7 +20,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#">About The Project</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#">Abstract</a></li>
         <li><a href="#">Notable features</a></li>
@@ -37,6 +37,18 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
+
+## About the project
+
+### Abstract
+
+### Notable features
+
+### Built with 
+|Backend|Frontend|Data|Real-time|
+|---|---|---|---|
+|PHP|VueJs|MySQL|Laravel Echo
+|Laravel|Sass||Pusher
 
 ## Getting started
 
@@ -74,11 +86,10 @@ If everything is set up, you can now migrate the tables in your database.
 ```
 php artisan migrate
 ```
-Finally you can launch the project.
+Finally you can launch the project.  🚀
 ```
 php artisan key:generate
 sudo php artisan serve --host=127.0.0.1 --port=80
 php artisan websockets:serve
 npm run dev
 ```
-##
