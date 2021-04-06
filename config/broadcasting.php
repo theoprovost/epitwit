@@ -40,7 +40,7 @@ return [
                 'useTLS' => false,
                 'host' => 'epitwit.tech',
                 'port' => 8080,
-                'scheme' => 'http'
+                'scheme' => 'http',
             ],
         ],
 
