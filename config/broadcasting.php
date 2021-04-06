@@ -39,7 +39,7 @@ return [
                 'cluster' => 'eu',
                 'useTLS' => false,
                 'host' => 'epitwit.tech',
-                'port' => 2053,
+                'port' => 8080,
                 'scheme' => 'http',
                  'curl_options' => [
                     CURLOPT_SSL_VERIFYHOST => 0,

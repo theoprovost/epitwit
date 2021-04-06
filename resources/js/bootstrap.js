@@ -41,11 +41,11 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: '4872537fa5b6cea89473',
     wsHost: window.location.hostname,
-    wsPort: 2053,
-    wssPort: 2053,
+    wsPort: 8080,
+    // wssPort: 2053,
     disableStats: true,
     cluster: 'eu',
     encrypted: false,
-    //enabledTransports: ['ws', 'wss']
+    // enabledTransports: ['ws', 'wss']
     enabledTransports: ['ws']
 });
