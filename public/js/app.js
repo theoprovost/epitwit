@@ -5549,7 +5549,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   broadcaster: 'pusher',
   key: '4872537fa5b6cea89473',
   wsHost: window.location.hostname,
-  wsPort: 8080,
+  wsPort: 2053,
   wssPort: 2053,
   disableStats: true,
   cluster: 'eu',
