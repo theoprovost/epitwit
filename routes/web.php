@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/.well-known/acme-challenge/6xQ0tdQBkHggZxGO04XNDt2gqXcGJv3-q4MsTwemBD0', function () {
-    return response('6xQ0tdQBkHggZxGO04XNDt2gqXcGJv3-q4MsTwemBD0.yJCWpI1QmZ9_2vO_fIaRqEdTgfvVQ6L45GCRYtYOizo');
-});
-
 Route::get('/explore', [App\Http\Controllers\ExploreController::class, 'index']);
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'index']);
 

@@ -5550,12 +5550,13 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__.default({
   key: '4872537fa5b6cea89473',
   wsHost: window.location.hostname,
   wsPort: 8080,
-  // wssPort: 2053,
+  wssPort: 2053,
   disableStats: true,
   cluster: 'eu',
-  encrypted: false,
-  // enabledTransports: ['ws', 'wss']
-  enabledTransports: ['ws']
+  encrypted: true,
+  forceTLS: true,
+  enabledTransports: ['ws', 'wss'],
+  disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming']
 });
 
 /***/ }),
