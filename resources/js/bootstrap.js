@@ -47,6 +47,6 @@ window.Echo = new Echo({
     cluster: 'eu',
     encrypted: true,
     forceTLS: true,
-    enabledTransports: ['wss'],
+    enabledTransports: ['ws', 'wss'],
     disabledTransports: ['sockjs', 'xhr_polling', 'xhr_streaming']
 });
