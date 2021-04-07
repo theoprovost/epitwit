@@ -13,7 +13,7 @@ return [
 
     'dashboard' => [
 
-        'port' => env('LARAVEL_WEBSOCKETS_PORT', 8080), // was 2053
+        'port' => env('LARAVEL_WEBSOCKETS_PORT', 2053),
 
         'path' => 'laravel-websockets',
 
