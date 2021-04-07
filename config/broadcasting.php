@@ -37,10 +37,13 @@ return [
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
                 'cluster' => 'eu',
-                'useTLS' => false,
-                'host' => 'epitwit.tech',
-                'port' => 8080,
-                'scheme' => 'http',
+                'host' => '127.0.0.1',
+                'port' => 2053,
+                'scheme' => 'https',
+                'curl_options' => [
+                    CURLOPT_SSL_VERIFYHOST => 0,
+                    CURLOPT_SSL_VERIFYPEER => 0,
+                ]
             ],
         ],
 
