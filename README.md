@@ -110,5 +110,6 @@ npm run dev
 ```
 
 ## Contact
+This project was made possible thanks to Alexis, my project's partner. <br>
 > Théo Provost @theoprovost - theo.provost@epitech.eu <br>
 > Alexis Dandres @\[to-fill] - \[to-fill]
