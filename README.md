@@ -110,5 +110,5 @@ npm run dev
 ```
 
 ## Contact
-> Théo Provost @theoprovost - theo.provost@epitech.eu
+> Théo Provost @theoprovost - theo.provost@epitech.eu <br>
 > Alexis Dandres @\[to-fill] - \[to-fill]
