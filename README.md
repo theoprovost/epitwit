@@ -108,3 +108,7 @@ sudo php artisan serve --host=127.0.0.1 --port=80
 php artisan websockets:serve
 npm run dev
 ```
+
+## Contact
+> Théo Provost @theoprovost - theo.provost@epitech.eu
+> Alexis Dandres @\[to-fill] - \[to-fill]
