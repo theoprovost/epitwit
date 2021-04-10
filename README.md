@@ -25,9 +25,9 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#">Abstract</a></li>
-        <li><a href="#">Notable features</a></li>
-        <li><a href="#">Built with</a></li>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#notable-features">Notable features</a></li>
+        <li><a href="#built-with">Built with</a></li>
       </ul>
     </li>
     <li>
