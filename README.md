@@ -43,7 +43,8 @@
 
 ## About the project
 ### Abstract
-This project was made for an assignment from Epitech. The idea was to recreate the most common and basic features of Twitter.
+This project was made for an assignment from Epitech. The idea was to recreate the most common and basic features of Twitter. <br>
+Even if the database migration was generated via the `laravel artisan helper`, the all promo had to follow the same database structure. You can have a look at the common db [here](https://github.com/theoprovost/tweetacademy-common-db). 
 
 ### Notable features
 - Secured register and login
