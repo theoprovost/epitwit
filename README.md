@@ -16,7 +16,7 @@
 </p>
 <br>
 
-<p>🏗 Work in porgress, this version is a draft.</p>
+<p>🏗 Work in progress. We are currently experiencing some troubles with deployed websockets.</p>
 <br>
 
 <details>

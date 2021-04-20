@@ -8,4 +8,8 @@ body {
 a {
   @apply text-blue-500;
 }
+
+.c-break {
+  word-break: break-word;
+}
 /*# sourceMappingURL=app.css.map */
