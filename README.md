@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://epitwit.me/">
     <img src="utils/twit.svg" alt="Epitwit logo" width="100" height="100" style="filter: invert(54%) sepia(63%) saturate(1131%) hue-rotate(174deg) brightness(88%) contrast(87%);">
   </a>
 
